@@ -1,0 +1,50 @@
+# Public portfolio source index
+
+30 repository identities and 9 constituent study records. These are different entity types; never sum them as 39 completed projects. Private-source records are retained separately. No scientific completion is inferred from repository presence.
+
+- build-the-future-11--financemeta-global (repository): METADATA_ONLY; https://github.com/build-the-future-11/FinanceMeta-Global
+- build-the-future-11--financemeta-landing (repository): METADATA_ONLY; https://github.com/build-the-future-11/FinanceMeta-Landing
+- build-the-future-11--finance4all-global-reach (repository): METADATA_ONLY; https://github.com/build-the-future-11/finance4all-global-reach
+- build-the-future-11--ris (repository): METADATA_ONLY; https://github.com/build-the-future-11/RIS
+- build-the-future-11--iy-ern (repository): METADATA_ONLY; https://github.com/build-the-future-11/Iy-ERN
+- build-the-future-11--iris (repository): METADATA_ONLY; https://github.com/build-the-future-11/IRIS
+- build-the-future-11--olympus-cognitive-architecture (repository): METADATA_ONLY; https://github.com/build-the-future-11/olympus-cognitive-architecture
+- build-the-future-11--iris-space (repository): METADATA_ONLY; https://github.com/build-the-future-11/IRIS-Space
+- build-the-future-11--hermes-local (repository): METADATA_ONLY; https://github.com/build-the-future-11/hermes-local
+- build-the-future-11--obscured-records (repository): METADATA_ONLY; https://github.com/build-the-future-11/Obscured-Records
+- build-the-future-11--world-series (repository): METADATA_ONLY; https://github.com/build-the-future-11/world-series
+- build-the-future-11--world-series-research-records (repository): METADATA_ONLY; https://github.com/build-the-future-11/world-series-research-records
+- build-the-future-11--kyrlov-jepa (repository): METADATA_ONLY; https://github.com/build-the-future-11/Kyrlov-JEPA
+- build-the-future-11--wharton-experiment (repository): METADATA_ONLY; https://github.com/build-the-future-11/Wharton-Experiment
+- build-the-future-11--apen (repository): METADATA_ONLY; https://github.com/build-the-future-11/APEN
+- build-the-future-11--fim (repository): METADATA_ONLY; https://github.com/build-the-future-11/FIM
+- build-the-future-11--percy-work (repository): METADATA_ONLY; https://github.com/build-the-future-11/Percy-Work
+- build-the-future-11--percy-projects (repository): METADATA_ONLY; https://github.com/build-the-future-11/Percy-Projects
+- vertex-studyai--vertexed.ai (repository): METADATA_ONLY; https://github.com/vertex-studyAI/vertexED.ai
+- vertex-studyai--lam-jepa (repository): METADATA_ONLY; https://github.com/vertex-studyAI/LAM-JEPA
+- the-bu1ld--neurocad (repository): METADATA_ONLY; https://github.com/THE-BU1LD/NeuroCAD
+- the-bu1ld--researchpilot (repository): METADATA_ONLY; https://github.com/THE-BU1LD/ResearchPilot
+- the-bu1ld--emailfinder (repository): METADATA_ONLY; https://github.com/THE-BU1LD/EmailFinder
+- the-bu1ld--ripii (repository): METADATA_ONLY; https://github.com/THE-BU1LD/RIPII
+- the-bu1ld--gaussianmemory (repository): METADATA_ONLY; https://github.com/THE-BU1LD/GaussianMemory
+- the-bu1ld--fabric-induced-memory (repository): METADATA_ONLY; https://github.com/THE-BU1LD/Fabric-Induced-Memory
+- the-bu1ld--epu (repository): METADATA_ONLY; https://github.com/THE-BU1LD/EPU
+- finance-meta-research--fi-jepa (repository): METADATA_ONLY; https://github.com/Finance-Meta-Research/FI-JEPA
+- finance-meta-research--eigen-jepa (repository): METADATA_ONLY; https://github.com/Finance-Meta-Research/Eigen-JEPA
+- finance-meta-research--eigenfinance (repository): METADATA_ONLY; https://github.com/Finance-Meta-Research/EigenFinance
+- world-series--qlearn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--qapen (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--qwipii (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wcode (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wfim (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wft (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wpinn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--cwlnn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--ultron (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+
+## Verified scope updates
+
+- Krylov author-review package: [state](projects/krylov-jepa/STATE.md). Submission and private source publication remain gated.
+- LAM evidence closeout: [state](projects/lam-jepa/STATE.md). Protected test remains sealed; publication readiness is separate.
+
+These update existing project identities and do not add two new candidate studies or two completed papers.
