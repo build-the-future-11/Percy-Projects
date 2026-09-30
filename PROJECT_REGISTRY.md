@@ -1,34 +1,43 @@
-# Recovered public repository index
+# Public portfolio source index
 
-This is a metadata-level index, not a list of completed studies. Private-source records are retained separately and omitted from this public projection. Aliases, study rosters, and evidence maturity remain to be resolved. A repository can contain multiple studies or no scientific study.
+30 repository identities and 9 constituent study records. These are different entity types; never sum them as 39 completed projects. Private-source records are retained separately. No scientific completion is inferred from repository presence.
 
-- [FinanceMeta-Global](https://github.com/build-the-future-11/FinanceMeta-Global): METADATA_ONLY; no completion inferred
-- [FinanceMeta-Landing](https://github.com/build-the-future-11/FinanceMeta-Landing): METADATA_ONLY; no completion inferred
-- [finance4all-global-reach](https://github.com/build-the-future-11/finance4all-global-reach): METADATA_ONLY; no completion inferred
-- [RIS](https://github.com/build-the-future-11/RIS): METADATA_ONLY; no completion inferred
-- [Iy-ERN](https://github.com/build-the-future-11/Iy-ERN): METADATA_ONLY; no completion inferred
-- [IRIS](https://github.com/build-the-future-11/IRIS): METADATA_ONLY; no completion inferred
-- [olympus-cognitive-architecture](https://github.com/build-the-future-11/olympus-cognitive-architecture): METADATA_ONLY; no completion inferred
-- [IRIS-Space](https://github.com/build-the-future-11/IRIS-Space): METADATA_ONLY; no completion inferred
-- [hermes-local](https://github.com/build-the-future-11/hermes-local): METADATA_ONLY; no completion inferred
-- [Obscured-Records](https://github.com/build-the-future-11/Obscured-Records): METADATA_ONLY; no completion inferred
-- [world-series](https://github.com/build-the-future-11/world-series): METADATA_ONLY; no completion inferred
-- [world-series-research-records](https://github.com/build-the-future-11/world-series-research-records): METADATA_ONLY; no completion inferred
-- [Kyrlov-JEPA](https://github.com/build-the-future-11/Kyrlov-JEPA): METADATA_ONLY; no completion inferred
-- [Wharton-Experiment](https://github.com/build-the-future-11/Wharton-Experiment): METADATA_ONLY; no completion inferred
-- [APEN](https://github.com/build-the-future-11/APEN): METADATA_ONLY; no completion inferred
-- [FIM](https://github.com/build-the-future-11/FIM): METADATA_ONLY; no completion inferred
-- [Percy-Work](https://github.com/build-the-future-11/Percy-Work): METADATA_ONLY; no completion inferred
-- [Percy-Projects](https://github.com/build-the-future-11/Percy-Projects): METADATA_ONLY; no completion inferred
-- [vertexED.ai](https://github.com/vertex-studyAI/vertexED.ai): METADATA_ONLY; no completion inferred
-- [LAM-JEPA](https://github.com/vertex-studyAI/LAM-JEPA): METADATA_ONLY; no completion inferred
-- [NeuroCAD](https://github.com/THE-BU1LD/NeuroCAD): METADATA_ONLY; no completion inferred
-- [ResearchPilot](https://github.com/THE-BU1LD/ResearchPilot): METADATA_ONLY; no completion inferred
-- [EmailFinder](https://github.com/THE-BU1LD/EmailFinder): METADATA_ONLY; no completion inferred
-- [RIPII](https://github.com/THE-BU1LD/RIPII): METADATA_ONLY; no completion inferred
-- [GaussianMemory](https://github.com/THE-BU1LD/GaussianMemory): METADATA_ONLY; no completion inferred
-- [Fabric-Induced-Memory](https://github.com/THE-BU1LD/Fabric-Induced-Memory): METADATA_ONLY; no completion inferred
-- [EPU](https://github.com/THE-BU1LD/EPU): METADATA_ONLY; no completion inferred
-- [FI-JEPA](https://github.com/Finance-Meta-Research/FI-JEPA): METADATA_ONLY; no completion inferred
-- [Eigen-JEPA](https://github.com/Finance-Meta-Research/Eigen-JEPA): METADATA_ONLY; no completion inferred
-- [EigenFinance](https://github.com/Finance-Meta-Research/EigenFinance): METADATA_ONLY; no completion inferred
+- build-the-future-11--financemeta-global (repository): METADATA_ONLY; https://github.com/build-the-future-11/FinanceMeta-Global
+- build-the-future-11--financemeta-landing (repository): METADATA_ONLY; https://github.com/build-the-future-11/FinanceMeta-Landing
+- build-the-future-11--finance4all-global-reach (repository): METADATA_ONLY; https://github.com/build-the-future-11/finance4all-global-reach
+- build-the-future-11--ris (repository): METADATA_ONLY; https://github.com/build-the-future-11/RIS
+- build-the-future-11--iy-ern (repository): METADATA_ONLY; https://github.com/build-the-future-11/Iy-ERN
+- build-the-future-11--iris (repository): METADATA_ONLY; https://github.com/build-the-future-11/IRIS
+- build-the-future-11--olympus-cognitive-architecture (repository): METADATA_ONLY; https://github.com/build-the-future-11/olympus-cognitive-architecture
+- build-the-future-11--iris-space (repository): METADATA_ONLY; https://github.com/build-the-future-11/IRIS-Space
+- build-the-future-11--hermes-local (repository): METADATA_ONLY; https://github.com/build-the-future-11/hermes-local
+- build-the-future-11--obscured-records (repository): METADATA_ONLY; https://github.com/build-the-future-11/Obscured-Records
+- build-the-future-11--world-series (repository): METADATA_ONLY; https://github.com/build-the-future-11/world-series
+- build-the-future-11--world-series-research-records (repository): METADATA_ONLY; https://github.com/build-the-future-11/world-series-research-records
+- build-the-future-11--kyrlov-jepa (repository): METADATA_ONLY; https://github.com/build-the-future-11/Kyrlov-JEPA
+- build-the-future-11--wharton-experiment (repository): METADATA_ONLY; https://github.com/build-the-future-11/Wharton-Experiment
+- build-the-future-11--apen (repository): METADATA_ONLY; https://github.com/build-the-future-11/APEN
+- build-the-future-11--fim (repository): METADATA_ONLY; https://github.com/build-the-future-11/FIM
+- build-the-future-11--percy-work (repository): METADATA_ONLY; https://github.com/build-the-future-11/Percy-Work
+- build-the-future-11--percy-projects (repository): METADATA_ONLY; https://github.com/build-the-future-11/Percy-Projects
+- vertex-studyai--vertexed.ai (repository): METADATA_ONLY; https://github.com/vertex-studyAI/vertexED.ai
+- vertex-studyai--lam-jepa (repository): METADATA_ONLY; https://github.com/vertex-studyAI/LAM-JEPA
+- the-bu1ld--neurocad (repository): METADATA_ONLY; https://github.com/THE-BU1LD/NeuroCAD
+- the-bu1ld--researchpilot (repository): METADATA_ONLY; https://github.com/THE-BU1LD/ResearchPilot
+- the-bu1ld--emailfinder (repository): METADATA_ONLY; https://github.com/THE-BU1LD/EmailFinder
+- the-bu1ld--ripii (repository): METADATA_ONLY; https://github.com/THE-BU1LD/RIPII
+- the-bu1ld--gaussianmemory (repository): METADATA_ONLY; https://github.com/THE-BU1LD/GaussianMemory
+- the-bu1ld--fabric-induced-memory (repository): METADATA_ONLY; https://github.com/THE-BU1LD/Fabric-Induced-Memory
+- the-bu1ld--epu (repository): METADATA_ONLY; https://github.com/THE-BU1LD/EPU
+- finance-meta-research--fi-jepa (repository): METADATA_ONLY; https://github.com/Finance-Meta-Research/FI-JEPA
+- finance-meta-research--eigen-jepa (repository): METADATA_ONLY; https://github.com/Finance-Meta-Research/Eigen-JEPA
+- finance-meta-research--eigenfinance (repository): METADATA_ONLY; https://github.com/Finance-Meta-Research/EigenFinance
+- world-series--qlearn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--qapen (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--qwipii (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wcode (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wfim (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wft (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--wpinn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--cwlnn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+- world-series--ultron (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
