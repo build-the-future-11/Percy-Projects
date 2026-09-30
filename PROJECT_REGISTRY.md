@@ -41,3 +41,10 @@
 - world-series--wpinn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
 - world-series--cwlnn (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
 - world-series--ultron (study): SOURCE_RECORD_REVIEWED; https://github.com/build-the-future-11/world-series
+
+## Verified scope updates
+
+- Krylov author-review package: [state](projects/krylov-jepa/STATE.md). Submission and private source publication remain gated.
+- LAM evidence closeout: [state](projects/lam-jepa/STATE.md). Protected test remains sealed; publication readiness is separate.
+
+These update existing project identities and do not add two new candidate studies or two completed papers.
