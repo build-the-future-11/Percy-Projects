@@ -1,0 +1,29 @@
+{
+  "schema": "math11.torus_provenance.v1",
+  "as_of": "2026-10-07",
+  "method": "Independent exact-arithmetic reconstruction from complete authenticated manuscript text",
+  "original_source_replayed": false,
+  "original_new_pdf_bytes_recovered": false,
+  "original_new_archive_bytes_recovered": false,
+  "transfer_result": "HTTP 403 for supported artifact transfer; no original bytes admitted",
+  "manuscripts": [
+    {
+      "name": "Math11_Ordinary_Height_Sampling_Proof_20261007.pdf",
+      "pages_read": 8
+    },
+    {
+      "name": "Math11_Exact_Winning_Set_and_Area.pdf",
+      "pages_read": 9
+    },
+    {
+      "name": "Math11_Fixed_Step_Finite_Criterion.pdf",
+      "pages_read": 5
+    }
+  ],
+  "retained_october_2_archive_sha256": "8f9d8b053271fc85c53c6294e2f3601d3bc4a34bdc795816cc5dfb3f928f5eeb",
+  "new_unit_distinct_from_retained_release": true,
+  "formal_proof": false,
+  "external_review": false,
+  "novelty_established": false,
+  "MATH-02_full_step_one_nonresonance": "OPEN"
+}

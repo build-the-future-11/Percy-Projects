@@ -1,0 +1,20 @@
+name: Math11 independent torus arithmetic
+on:
+  pull_request:
+    paths:
+      - 'projects/math11/torus_sampling/**'
+      - '.github/workflows/math11-torus.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B -m unittest discover -s projects/math11/torus_sampling -p 'test_*.py' -v
+      - run: python -B -O projects/math11/torus_sampling/check_exact.py --check projects/math11/torus_sampling/independent_certificate.json

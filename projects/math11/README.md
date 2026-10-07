@@ -59,3 +59,13 @@ primarily theoretical. No manuscript has been submitted by this GitHub work.
 
 All files under `release/` and the original archive are unchanged. New tooling is
 kept outside that retained release so its scientific provenance remains explicit.
+
+## October 7 follow-up: torus sampling
+
+The separately scoped [torus-sampling unit](torus_sampling/README.md) independently
+reconstructs the newer manuscripts' 384-case exclusion, 314-case unit enumeration,
+exact area enclosure and finite step-one character check. It includes the full
+new certificate, 24 regression tests and a proof-dependency/related-work review.
+The newer original-source downloads remain unavailable, so this is not a replay
+of their code. MATH-02 unrestricted step-one nonresonance and novelty remain open.
+The statements above about the October 2 release retain their historical scope.

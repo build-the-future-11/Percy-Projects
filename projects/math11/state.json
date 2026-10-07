@@ -8,10 +8,22 @@
   "terminal_conclusion": "RETAINED_COMPUTATIONAL_CERTIFICATE_REPRODUCED",
   "scientific_scope": "Exact algebraic identities, inverse-Vandermonde bounds, all 454 nonzero coefficient triples, rational logarithm bounds and the 16-by-16 lattice cover in the October 2 release.",
   "history": [
-    {"date": "2026-10-02", "event": "Original certified release and explicit proved/unproved ledger created."},
-    {"date": "2026-10-07", "event": "Authentic archive recovered; CRC and original checksums passed; retained verifier output reproduced exactly."},
-    {"date": "2026-10-07", "event": "Assertion-safe isolated replay, all-member integrity checks and nine corruption/regression tests completed."},
-    {"date": "2026-10-07", "event": "Independent implementation review found no material replay defect; mathematical proof and novelty review remain distinct."}
+    {
+      "date": "2026-10-02",
+      "event": "Original certified release and explicit proved/unproved ledger created."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Authentic archive recovered; CRC and original checksums passed; retained verifier output reproduced exactly."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Assertion-safe isolated replay, all-member integrity checks and nine corruption/regression tests completed."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Independent implementation review found no material replay defect; mathematical proof and novelty review remain distinct."
+    }
   ],
   "evidence": [
     "source/Math11_Certified_Release_2026-10-02.zip",
@@ -47,5 +59,17 @@
   "conference_route": "ISSAC 2027 conditional on symbolic-computation/algorithmic novelty; number-theory journal alternative",
   "conference_submission_state": "NOT_SUBMITTED_BY_THIS_WORK",
   "next_decisive_action": "Obtain independent proof and related-work review of the retained manuscript; assess algorithmic novelty for ISSAC before choosing the archival route.",
-  "reproduction_command": "python -B projects/math11/tools/reproduce.py"
+  "reproduction_command": "python -B projects/math11/tools/reproduce.py",
+  "claims_scope": "The existing claims object describes only the retained October 2 release; see followup_units for later manuscript-derived checks.",
+  "followup_units": [
+    {
+      "path": "torus_sampling",
+      "state": "BOUNDED_ARITHMETIC_VERIFICATION_COMPLETE",
+      "source_replay": false,
+      "analytic_scope": "Newer exact-area and sampling manuscripts internally reviewed; not formal or external review",
+      "new_source_bytes": "BLOCKED_TRANSFER",
+      "MATH-02_full_step_one_nonresonance": "OPEN",
+      "all_research_complete": false
+    }
+  ]
 }
