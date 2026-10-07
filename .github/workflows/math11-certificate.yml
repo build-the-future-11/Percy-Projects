@@ -1,0 +1,30 @@
+name: Math 11 certificate replay
+
+on:
+  push:
+    paths: ["projects/math11/**", ".github/workflows/math11-certificate.yml"]
+  pull_request:
+    paths: ["projects/math11/**", ".github/workflows/math11-certificate.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -B -m unittest discover -s projects/math11/tests -v
+      - run: python -B projects/math11/tools/reproduce.py --output replay.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: math11-replay-python-${{ matrix.python-version }}
+          path: replay.json

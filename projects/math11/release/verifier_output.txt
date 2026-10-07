@@ -1,0 +1,19 @@
+PASS: exact root isolation for x^3-3x-1
+PASS: algebraic identities for beta, gamma, delta, epsilon
+PASS: inverse-Vandermonde completeness bounds
+  |a| < 2.150102039486392422 -> |a|<=2
+  |b| < 6.101094622358898013 -> |b|<=6
+  |c| < 3.381632943042299554 -> |c|<=3
+PASS: enumerated 454 nonzero triples
+PASS: for L<=H<U, unique minimizers are +/- beta
+PASS: at H=U, unique minimizers are +/- gamma
+  L in [ 20.993192866572952051 , 20.993192866572952051 ]
+  U in [ 23.872578108144768819 , 23.872578108144768819 ]
+  F(beta) in [ 0.381444634811801741 , 0.381444634811801741 ]
+  F(gamma) in [ 0.278066143281385509 , 0.278066143281385509 ]
+PASS: 16x16 rational log-lattice cover with R=0.9
+  cells by witness shift: [116, 55, 85, 0]
+  largest certified cell upper bound: 0.892330436453851298
+PASS: 2,5,7 inertness checks and norm-gap reduction
+PASS: GLOBAL CONCLUSION: every optimizer has |Norm| in {1,3}
+PASS: since (3)=(theta-1)^3 as ideals, every |Norm|=3 optimizer is (theta-1)*unit
