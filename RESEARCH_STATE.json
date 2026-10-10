@@ -49,7 +49,8 @@
     "source_sha256": {
       "research_pipeline/ledger.py": "8eb8624282634411565102c25ab42eec5d4dd72fb1cd9fa92f54b54314c05d6d",
       "tests/test_research_pipeline.py": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921"
-    }
+    },
+    "portfolio_execution_index": "research_pipeline/PORTFOLIO_EXECUTION_20261010.json"
   },
   "claims": [
     {
@@ -99,6 +100,23 @@
         },
         "new_scientific_evidence": false,
         "integration_note": "Rebased without conflict onto concurrent PR #5 byte-bound evidence seals, keeping its v1-history compatibility and additional 9 tests. The initial 56-test candidate and peer review remain recorded."
+      },
+      {
+        "date": "2026-10-10",
+        "observed_at_utc": "2026-10-10 05:21:49 UTC",
+        "type": "engineering_publication_handoff",
+        "record": "research_pipeline/PORTFOLIO_EXECUTION_20261010.json",
+        "batch_id": "engineering-correctness-followup-20261010",
+        "scope": "Source-bound handoff for the 15 public repositories listed in this subsequent batch; prior entries remain unchanged historical snapshots.",
+        "published_implementation_commit": "721788e63daa7a485a2ee299ea823b1b443d514f",
+        "pull_request": "https://github.com/build-the-future-11/Percy-Projects/pull/6",
+        "hosted_engineering_verification": "https://github.com/build-the-future-11/Percy-Projects/actions/runs/38026238635",
+        "metadata_only": true,
+        "implementation_and_test_files_unchanged": true,
+        "new_test_runs": 0,
+        "new_scientific_evidence": false,
+        "scientific_checkpoint_change": null,
+        "verification": "JSON round-trip, preservation of all previous fields/history, public entry-path checks, and exact Git-tree preservation outside the two metadata files."
       }
     ]
   },
