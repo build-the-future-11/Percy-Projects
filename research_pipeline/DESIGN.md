@@ -98,6 +98,24 @@ A conclusive classification requires at least one supported evidentiary statemen
 which can be a supported negative finding. It does not require the proposed
 hypothesis to have succeeded.
 
+## Versioned evidence identity correction
+
+New evidence seals include the exact artifact records and admitted run/claim
+history, along with contract, study version, freeze, current qualifications and reviewed
+conclusion. This closes a v1 gap: reusable artifact labels alone did not bind
+their referenced bytes to the review digest. New review receipts separately bind
+the paper and frozen release environment SHA-256 identities. Earlier contracts,
+notes and rejection events remain bound by the full externally retained ledger
+head; the evidence manifest does not claim to replace that complete history.
+
+The original v1 transition semantics remain intact for byte-exact history replay.
+Public lock/review/complete actions emit explicitly versioned v2 events. Active
+v1 studies can append an explicit `reseal_evidence` event, retaining the previous
+seal in the manifest and invalidating only the current qualification of its old
+review. They return to gate 8 for a fresh review. No freeze, scientific outcome,
+prior receipt or event is replaced. Terminal studies remain immutable. This
+correction does not establish reviewer authenticity or scientific correctness.
+
 ## Resource accounting
 
 All admitted run receipts, including failures and earlier development versions,

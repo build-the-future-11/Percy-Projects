@@ -4,13 +4,13 @@ on:
   pull_request:
     paths:
       - 'research_pipeline/**'
-      - 'tests/test_research_pipeline.py'
+      - 'tests/**'
       - '.github/workflows/research-pipeline.yml'
   push:
     branches: [main]
     paths:
       - 'research_pipeline/**'
-      - 'tests/test_research_pipeline.py'
+      - 'tests/**'
       - '.github/workflows/research-pipeline.yml'
   workflow_dispatch:
 
@@ -30,4 +30,4 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Test durable state transitions using artificial temporary fixtures
-        run: python -m unittest discover -s tests -p test_research_pipeline.py -v
+        run: python -m unittest discover -s tests -v

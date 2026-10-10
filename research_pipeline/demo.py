@@ -100,6 +100,8 @@ def build_fixture(output):
     artifact("paper", "paper", "ARTIFICIAL paper receipt: fictional proposed=2, baseline=1. No scientific result is claimed.", ["analysis", "table"])
     review = {
         "reviewer": "Fictional independent fixture reviewer", "evidence_sha256": project.read()["state"]["evidence_lock"]["sha256"],
+        "paper_sha256": project.read()["state"]["artifacts"]["paper"]["sha256"],
+        "environment_sha256": project.read()["state"]["artifacts"]["env"]["sha256"],
         "paper_artifact": "paper", "environment_artifact": "env", "checks": {key: True for key in VERIFY_CHECKS},
         "reproduction_command": "python -m research_pipeline.demo --output A_NEW_EMPTY_PATH",
         "limits": "ARTIFICIAL attestations. No independent scientific verification was performed; boolean values exercise software gates only.",

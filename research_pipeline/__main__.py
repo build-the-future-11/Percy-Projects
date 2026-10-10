@@ -39,7 +39,7 @@ def main(argv=None):
         sub = command(name, f"Advance the {name} gate")
         sub.add_argument("--artifact", required=True, dest=field)
         sub.add_argument("--expected-head")
-    for name in ("run", "claim", "note", "revise", "lock-evidence", "close-invalid"):
+    for name in ("run", "claim", "note", "revise", "lock-evidence", "reseal-evidence", "close-invalid"):
         sub = command(name, f"Record a {name} JSON receipt")
         sub.add_argument("--json", required=True)
         sub.add_argument("--expected-head")
@@ -64,7 +64,7 @@ def main(argv=None):
         elif args.command in {"freeze", "verify-review", "complete"}:
             field = {"freeze": "protocol_artifact", "verify-review": "verification_artifact", "complete": "release_artifact"}[args.command]
             result = project.apply(args.command.replace("-", "_"), {field: getattr(args, field)}, expected_head=args.expected_head)
-        elif args.command in {"run", "claim", "note", "revise", "lock-evidence", "close-invalid"}:
+        elif args.command in {"run", "claim", "note", "revise", "lock-evidence", "reseal-evidence", "close-invalid"}:
             result = project.apply(args.command.replace("-", "_"), load(args.json), expected_head=args.expected_head)
         elif args.command in {"successor", "correct-invalid"}:
             result = project.successor(args.target, load(args.contract), load(args.relationship), args.protocol,
@@ -74,7 +74,10 @@ def main(argv=None):
         else:
             result = project.read(expected_head=args.expected_head)
             if args.command == "verify":
-                result = {"valid": True, "head": result["head"], "event_count": result["event_count"], "artifact_count": len(result["state"]["artifacts"])}
+                seal = result["state"]["evidence_lock"]
+                result = {"valid": True, "head": result["head"], "event_count": result["event_count"],
+                          "artifact_count": len(result["state"]["artifacts"]),
+                          "evidence_seal_version": seal.get("schema_version", 1) if seal else None}
     except (GateError, IntegrityError, BusyError, OSError, UnicodeError) as exc:
         print(f"{type(exc).__name__}: {exc}", file=sys.stderr)
         return 2
