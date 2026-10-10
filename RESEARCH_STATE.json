@@ -6,9 +6,9 @@
   "initialization_note": "Retrospective index initialized during this engineering pass. Earlier repository records remain authoritative; no complete retroactive history audit is claimed.",
   "research_question": "Can a durable project ledger preserve protocol/evidence identities and return unambiguous mutation receipts under adversarial file replacement and cooperating writers?",
   "scientific_objective": "Implement mechanically testable state/history/provenance integrity for the existing research lifecycle.",
-  "current_hypothesis": "Engineering contract: gates parse verified JSON bytes and successful updates return the state generated while holding their exclusive write lock.",
+  "current_hypothesis": "Engineering contract: gates parse verified JSON bytes and successful updates return the state generated while holding their exclusive write lock. Archive contract: one locked verified state produces deterministic evidence bytes, and offline verification replays one bounded input snapshot without changing scientific state.",
   "intended_contribution": "Research lifecycle infrastructure; it records evidence and review attestations without establishing their scientific truth.",
-  "project_scope": "Bind JSON parsing to verified object bytes and bind update receipts to the operation that produced them.",
+  "project_scope": "Bind JSON parsing to verified object bytes and bind update receipts to the operation that produced them. Add deterministic self-contained evidence export and bounded offline verification of the same canonical histories.",
   "current_phase": "ENGINEERING_VERIFICATION; no empirical study is being completed",
   "scientific_disposition": null,
   "research_complete_verified": false,
@@ -43,14 +43,20 @@
       "PERCY_PROJECTS_README.md",
       "research_pipeline/README.md",
       "research_pipeline/DESIGN.md",
-      "research_pipeline/DEVELOPMENT_20261010.md"
+      "research_pipeline/DEVELOPMENT_20261010.md",
+      "research_pipeline/ARCHIVE_DESIGN_20261010.md"
     ],
     "engineering_record": "research_pipeline/SNAPSHOT_INTEGRITY_20261010.md",
     "source_sha256": {
       "research_pipeline/ledger.py": "8eb8624282634411565102c25ab42eec5d4dd72fb1cd9fa92f54b54314c05d6d",
-      "tests/test_research_pipeline.py": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921"
+      "tests/test_research_pipeline.py": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921",
+      "research_pipeline/archive.py": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+      "research_pipeline/__main__.py": "fb7f9a1861c5e6d9bc18102ef857c12aaa42c354843a3d9e553f203fbb6cb93b",
+      "tests/test_archive.py": "9c2d62b26b1f0cba1191d1dc7aa2592ce941681b295776b31e459e3b067e004f"
     },
-    "portfolio_execution_index": "research_pipeline/PORTFOLIO_EXECUTION_20261010.json"
+    "portfolio_execution_index": "research_pipeline/PORTFOLIO_EXECUTION_20261010.json",
+    "archive_engineering_record": "research_pipeline/ARCHIVE_DEVELOPMENT_20261010.md",
+    "archive_verification_receipt": "research_pipeline/verification/evidence_bundle_20261010/receipt.json"
   },
   "claims": [
     {
@@ -63,24 +69,45 @@
         "Ordinary objects remain streamed; JSON capture uses memory proportional to document size.",
         "A trusted external head is still needed to detect whole-history rollback."
       ]
+    },
+    {
+      "kind": "engineering",
+      "claim": "Deterministically archive a verified state and all registered objects; verify one bounded input snapshot offline with exact ZIP, byte identity and canonical replay checks.",
+      "evidence": "research_pipeline/verification/evidence_bundle_20261010/receipt.json",
+      "limits": [
+        "Internal integrity does not authenticate reviewers or establish scientific validity.",
+        "A valid older history remains acceptable without an externally trusted expected head.",
+        "Byte and entry-count limits do not bound general ledger replay CPU complexity.",
+        "The initial format is a strict uncompressed ZIP32 subset; it rejects noncanonical repacked ZIP files."
+      ]
     }
   ],
   "decisions": [
     "Keep source changes reviewable in GitHub branches/PRs.",
     "Preserve existing evidence, failure records and frozen source identities.",
-    "Do not promote software tests to research checkpoints."
+    "Do not promote software tests to research checkpoints.",
+    "Use one locked _load result and _render output for archive state, without rereading the state path.",
+    "Use a strict deterministic ZIP32 format and private computed paths for bounded offline replay.",
+    "Publish only after an independent adversarial source review; archive success does not append a ledger event or qualify a checkpoint."
   ],
   "failures": [
     "Full baseline with four new adversarial regressions: 52 passed, 4 failed.",
     "A second JSON path read could parse unverified replacement bytes.",
-    "A cooperating writer after lock release could make initialize/apply/artifact return the second writer's state."
+    "A cooperating writer after lock release could make initialize/apply/artifact return the second writer's state.",
+    "Archive pre-implementation witness: two missing-module errors and one unsupported export CLI failure identify one absent release capability.",
+    "Archive expanded first run: two test fixtures used the wrong note schema; fixtures corrected without ledger changes.",
+    "Archive expanded first run: directory fdopen preceded the regular-file check and leaked its descriptor on failure; fstat-before-wrap and unconditional owned-fd closure fixed it.",
+    "Archive upper-limit witness: stdlib conservative ZIP64 guard raised an uncaught LargeZipFile; export now reports IntegrityError/CLI exit 2 and preserves cleanup, with the failing 1 MiB scaled probe retained."
   ],
   "verification": {
     "command": "python -m unittest discover -s tests -v",
-    "passed": 65,
-    "seconds": 30.516,
-    "scope": "Local engineering verification only",
-    "raw_output": "research_pipeline/snapshot_integrated_20261010.txt"
+    "passed": 100,
+    "seconds": 25.067,
+    "scope": "Local engineering verification only; inherited 65 plus 35 archive methods",
+    "raw_output": "research_pipeline/verification/evidence_bundle_20261010/final_integrated_100.txt",
+    "prior_verification_preserved_in_history": true,
+    "independent_review_status": "PASS",
+    "independent_review_receipt": "research_pipeline/verification/archive_20261010/root_independent_review_final.json"
   },
   "history": {
     "retroactive_import_complete": false,
@@ -117,6 +144,35 @@
         "new_scientific_evidence": false,
         "scientific_checkpoint_change": null,
         "verification": "JSON round-trip, preservation of all previous fields/history, public entry-path checks, and exact Git-tree preservation outside the two metadata files."
+      },
+      {
+        "date": "2026-10-10",
+        "type": "engineering_evidence_bundle",
+        "source_base_commit": "eb3d36109e93a32ec2bd1454899cd106d029da4b",
+        "source_base_tree": "e34cc899f85db95e21720051a99c5b688fa4ab57",
+        "record": "research_pipeline/ARCHIVE_DEVELOPMENT_20261010.md",
+        "contract_written_before_source": "research_pipeline/ARCHIVE_DESIGN_20261010.md",
+        "verification_receipt": "research_pipeline/verification/evidence_bundle_20261010/receipt.json",
+        "previous_verification": {
+          "command": "python -m unittest discover -s tests -v",
+          "passed": 65,
+          "seconds": 30.516,
+          "scope": "Local engineering verification only",
+          "raw_output": "research_pipeline/snapshot_integrated_20261010.txt"
+        },
+        "previous_next_executable_action": "Review the verified snapshot/receipt fix. Initialize each real study only from its concrete contract; do not reuse artificial demonstration outcomes as evidence.",
+        "scientific_checkpoint_change": null,
+        "new_scientific_evidence": false,
+        "preservation": "Existing ledger source, v1/v2 transition semantics, negative histories and prior records are unchanged.",
+        "source_sha256": {
+          "research_pipeline/archive.py": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+          "research_pipeline/__main__.py": "fb7f9a1861c5e6d9bc18102ef857c12aaa42c354843a3d9e553f203fbb6cb93b",
+          "tests/test_archive.py": "9c2d62b26b1f0cba1191d1dc7aa2592ce941681b295776b31e459e3b067e004f"
+        },
+        "independent_review_receipt": "research_pipeline/verification/archive_20261010/root_independent_review_final.json",
+        "final_local_test_count": 100,
+        "final_local_seconds": 25.067,
+        "branch": "codex/percy-evidence-bundles-20261010"
       }
     ]
   },
@@ -127,5 +183,25 @@
     "Ordinary objects remain streamed; JSON capture uses memory proportional to document size.",
     "A trusted external head is still needed to detect whole-history rollback."
   ],
-  "next_executable_action": "Review the verified snapshot/receipt fix. Initialize each real study only from its concrete contract; do not reuse artificial demonstration outcomes as evidence."
+  "next_executable_action": "Review the separate evidence-bundle draft and its exact source, retained failures and independent verification. Keep an externally trusted head for rollback detection. Each real study continues under its own scientific protocol and gates.",
+  "current_engineering_delivery": {
+    "name": "Deterministic evidence bundle exporter and offline verifier",
+    "source_base_commit": "eb3d36109e93a32ec2bd1454899cd106d029da4b",
+    "source_paths": [
+      "research_pipeline/archive.py",
+      "research_pipeline/__main__.py"
+    ],
+    "tests": "tests/test_archive.py",
+    "receipt": "research_pipeline/verification/evidence_bundle_20261010/receipt.json",
+    "status": "ENGINEERING_VERIFIED_AND_INDEPENDENTLY_REVIEWED",
+    "scientific_checkpoint_change": null,
+    "source_sha256": {
+      "research_pipeline/archive.py": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+      "research_pipeline/__main__.py": "fb7f9a1861c5e6d9bc18102ef857c12aaa42c354843a3d9e553f203fbb6cb93b",
+      "tests/test_archive.py": "9c2d62b26b1f0cba1191d1dc7aa2592ce941681b295776b31e459e3b067e004f"
+    },
+    "branch": "codex/percy-evidence-bundles-20261010",
+    "base_branch": "codex/ledger-json-snapshot-20261010",
+    "independent_review_receipt": "research_pipeline/verification/archive_20261010/root_independent_review_final.json"
+  }
 }

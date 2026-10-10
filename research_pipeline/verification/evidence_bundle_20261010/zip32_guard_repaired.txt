@@ -1,0 +1,6 @@
+test_zip32_library_guard_is_reported_as_a_bounded_format_refusal (test_archive.ArchiveTests.test_zip32_library_guard_is_reported_as_a_bounded_format_refusal) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.056s
+
+OK

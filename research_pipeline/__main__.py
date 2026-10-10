@@ -5,6 +5,13 @@ import json
 import sys
 from pathlib import Path
 
+from .archive import (
+    DEFAULT_MAX_BYTES,
+    DEFAULT_MAX_MEMBERS,
+    DEFAULT_MAX_OBJECT_BYTES,
+    export_bundle,
+    verify_bundle,
+)
 from .ledger import BusyError, GateError, IntegrityError, Project, strict_json
 
 
@@ -46,6 +53,17 @@ def main(argv=None):
     for name in ("state", "verify", "history"):
         sub = command(name, f"Read and verify project {name}")
         sub.add_argument("--expected-head")
+    for name in ("export", "verify-bundle"):
+        if name == "export":
+            sub = command(name, "Export a deterministic evidence snapshot without advancing a gate")
+            sub.add_argument("--output", required=True, help="New bundle path; existing paths are never replaced")
+        else:
+            sub = subs.add_parser(name, help="Verify an evidence bundle offline without executing its artifacts")
+            sub.add_argument("bundle", help="Regular bundle file to copy and verify once")
+        sub.add_argument("--expected-head", help="Externally trusted ledger SHA-256; detects a valid-history rollback")
+        sub.add_argument("--max-bytes", type=int, default=DEFAULT_MAX_BYTES)
+        sub.add_argument("--max-object-bytes", type=int, default=DEFAULT_MAX_OBJECT_BYTES)
+        sub.add_argument("--max-members", type=int, default=DEFAULT_MAX_MEMBERS)
     for name in ("successor", "correct-invalid"):
         sub = command(name, "Create a separate study without editing its terminal predecessor")
         sub.add_argument("--target", required=True)
@@ -53,9 +71,14 @@ def main(argv=None):
         sub.add_argument("--relationship", required=True)
         sub.add_argument("--protocol", required=True)
     args = parser.parse_args(argv)
-    project = Project(args.project)
+    project = Project(args.project) if args.command != "verify-bundle" else None
     try:
-        if args.command == "init":
+        if args.command in {"export", "verify-bundle"}:
+            limits = {"expected_head": args.expected_head, "max_bytes": args.max_bytes,
+                      "max_object_bytes": args.max_object_bytes, "max_members": args.max_members}
+            result = (export_bundle(project, args.output, **limits) if args.command == "export"
+                      else verify_bundle(args.bundle, **limits))
+        elif args.command == "init":
             result = project.initialize(load(args.contract))
         elif args.command == "artifact":
             result = project.add_artifact(args.id, args.kind, args.file, args.parents, expected_head=args.expected_head)
