@@ -1,0 +1,112 @@
+test_active_and_invalid_closed_labels_are_preserved (test_archive.ArchiveTests.test_active_and_invalid_closed_labels_are_preserved) ... ok
+test_actual_byte_object_and_member_caps_have_exact_boundaries (test_archive.ArchiveTests.test_actual_byte_object_and_member_caps_have_exact_boundaries) ... ok
+test_central_count_is_checked_before_zip_reader_allocation (test_archive.ArchiveTests.test_central_count_is_checked_before_zip_reader_allocation) ... ok
+test_cli_exports_and_verifies (test_archive.ArchiveTests.test_cli_exports_and_verifies) ... ok
+test_cli_reports_bad_bundle_and_bad_limits_without_success (test_archive.ArchiveTests.test_cli_reports_bad_bundle_and_bad_limits_without_success) ... ok
+test_crc_payload_size_and_local_header_corruption_are_rejected (test_archive.ArchiveTests.test_crc_payload_size_and_local_header_corruption_are_rejected) ... ok
+test_deterministic_bytes_deduplicate_and_preserve_ledger (test_archive.ArchiveTests.test_deterministic_bytes_deduplicate_and_preserve_ledger) ... ok
+test_directory_sync_failure_truthfully_reports_installed_bundle (test_archive.ArchiveTests.test_directory_sync_failure_truthfully_reports_installed_bundle) ... ok
+test_duplicate_and_unsafe_member_names_are_rejected (test_archive.ArchiveTests.test_duplicate_and_unsafe_member_names_are_rejected) ... ok
+test_empty_inventory_and_unregistered_store_objects (test_archive.ArchiveTests.test_empty_inventory_and_unregistered_store_objects) ... ok
+test_encryption_and_data_descriptor_flags_are_refused (test_archive.ArchiveTests.test_encryption_and_data_descriptor_flags_are_refused) ... ok
+test_exact_positive_integer_options_reject_coercion_and_booleans (test_archive.ArchiveTests.test_exact_positive_integer_options_reject_coercion_and_booleans) ... ok
+test_existing_output_and_dangling_symlink_are_not_overwritten (test_archive.ArchiveTests.test_existing_output_and_dangling_symlink_are_not_overwritten) ... ok
+test_export_missing_symlink_and_fifo_objects_after_load_are_refused (test_archive.ArchiveTests.test_export_missing_symlink_and_fifo_objects_after_load_are_refused) ... ok
+test_export_object_replacement_after_load_is_not_published (test_archive.ArchiveTests.test_export_object_replacement_after_load_is_not_published) ... ok
+test_export_stale_head_does_not_append_rejection_or_publish (test_archive.ArchiveTests.test_export_stale_head_does_not_append_rejection_or_publish) ... ok
+test_export_uses_one_locked_load_and_renders_its_verified_snapshot (test_archive.ArchiveTests.test_export_uses_one_locked_load_and_renders_its_verified_snapshot) ... ok
+test_fixed_state_and_manifest_caps_precede_ledger_replay (test_archive.ArchiveTests.test_fixed_state_and_manifest_caps_precede_ledger_replay) ... ok
+test_full_negative_fixture_replays_offline (test_archive.ArchiveTests.test_full_negative_fixture_replays_offline) ... ok
+test_input_path_replacement_after_first_read_keeps_original_snapshot (test_archive.ArchiveTests.test_input_path_replacement_after_first_read_keeps_original_snapshot) ... ERROR
+test_input_symlink_directory_and_fifo_are_refused (test_archive.ArchiveTests.test_input_symlink_directory_and_fifo_are_refused) ... 
+  test_input_symlink_directory_and_fifo_are_refused (test_archive.ArchiveTests.test_input_symlink_directory_and_fifo_are_refused) (path='tmp5pgrly2a') ... ERROR
+test_legacy_v1_seals_round_trip_without_migration (test_archive.ArchiveTests.test_legacy_v1_seals_round_trip_without_migration) ... ok
+test_manifest_requires_exact_canonical_values_types_and_encoding (test_archive.ArchiveTests.test_manifest_requires_exact_canonical_values_types_and_encoding) ... ok
+test_missing_state_manifest_or_object_is_rejected (test_archive.ArchiveTests.test_missing_state_manifest_or_object_is_rejected) ... ok
+test_nonregular_compressed_and_noncanonical_metadata_are_rejected (test_archive.ArchiveTests.test_nonregular_compressed_and_noncanonical_metadata_are_rejected) ... ok
+test_output_collision_at_atomic_install_preserves_competing_file (test_archive.ArchiveTests.test_output_collision_at_atomic_install_preserves_competing_file) ... ok
+test_preamble_trailing_comment_zip64_and_hidden_local_bytes_are_rejected (test_archive.ArchiveTests.test_preamble_trailing_comment_zip64_and_hidden_local_bytes_are_rejected) ... ok
+test_state_newline_normalization_cannot_hide_changed_archived_bytes (test_archive.ArchiveTests.test_state_newline_normalization_cannot_hide_changed_archived_bytes) ... ok
+test_tampered_object_state_and_manifest_are_rejected (test_archive.ArchiveTests.test_tampered_object_state_and_manifest_are_rejected) ... ok
+test_valid_but_unregistered_object_is_rejected (test_archive.ArchiveTests.test_valid_but_unregistered_object_is_rejected) ... ok
+test_valid_older_bundle_needs_external_head_to_detect_rollback (test_archive.ArchiveTests.test_valid_older_bundle_needs_external_head_to_detect_rollback) ... ERROR
+test_verifier_removes_private_storage_after_failure (test_archive.ArchiveTests.test_verifier_removes_private_storage_after_failure) ... ok
+test_write_file_sync_and_link_failures_clean_only_owned_stage (test_archive.ArchiveTests.test_write_file_sync_and_link_failures_clean_only_owned_stage) ... ok
+
+======================================================================
+ERROR: test_input_path_replacement_after_first_read_keeps_original_snapshot (test_archive.ArchiveTests.test_input_path_replacement_after_first_read_keeps_original_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 779, in _admit
+    candidate = _transition(self.root, copy.deepcopy(state), action, payload)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 440, in _transition
+    _keys(payload, {"observation", "cause", "change", "prediction", "experiment", "result"}, "development note")
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 103, in _keys
+    _require(isinstance(value, dict) and set(value) == set(required), f"{label} fields must be exactly {sorted(required)}")
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 94, in _require
+    raise GateError(message)
+research_pipeline.ledger.GateError: development note fields must be exactly ['cause', 'change', 'experiment', 'observation', 'prediction', 'result']
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/tests/test_archive.py", line 288, in test_input_path_replacement_after_first_read_keeps_original_snapshot
+    self.project.apply("note", {"text": "ARTIFICIAL newer history in replacement bundle."})
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 793, in apply
+    self._admit(events, state, action, payload, expected_head)
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 782, in _admit
+    raise GateError(str(exc)) from exc
+research_pipeline.ledger.GateError: development note fields must be exactly ['cause', 'change', 'experiment', 'observation', 'prediction', 'result']
+
+======================================================================
+ERROR: test_input_symlink_directory_and_fifo_are_refused (test_archive.ArchiveTests.test_input_symlink_directory_and_fifo_are_refused) (path='tmp5pgrly2a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/tests/test_archive.py", line 331, in test_input_symlink_directory_and_fifo_are_refused
+    archive.verify_bundle(path)
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/archive.py", line 279, in verify_bundle
+    source_sha, source_size = _snapshot_source(source, snapshot, max_bytes)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/archive.py", line 202, in _snapshot_source
+    with _regular_reader(source, "bundle input") as incoming:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/archive.py", line 118, in _regular_reader
+    with os.fdopen(fd, "rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 1066, in fdopen
+IsADirectoryError: [Errno 21] Is a directory: 3
+
+======================================================================
+ERROR: test_valid_older_bundle_needs_external_head_to_detect_rollback (test_archive.ArchiveTests.test_valid_older_bundle_needs_external_head_to_detect_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 779, in _admit
+    candidate = _transition(self.root, copy.deepcopy(state), action, payload)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 440, in _transition
+    _keys(payload, {"observation", "cause", "change", "prediction", "experiment", "result"}, "development note")
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 103, in _keys
+    _require(isinstance(value, dict) and set(value) == set(required), f"{label} fields must be exactly {sorted(required)}")
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 94, in _require
+    raise GateError(message)
+research_pipeline.ledger.GateError: development note fields must be exactly ['cause', 'change', 'experiment', 'observation', 'prediction', 'result']
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/tests/test_archive.py", line 189, in test_valid_older_bundle_needs_external_head_to_detect_rollback
+    self.project.apply("note", {"text": "ARTIFICIAL later decision; old history remains valid."})
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 793, in apply
+    self._admit(events, state, action, payload, expected_head)
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/ledger.py", line 782, in _admit
+    raise GateError(str(exc)) from exc
+research_pipeline.ledger.GateError: development note fields must be exactly ['cause', 'change', 'experiment', 'observation', 'prediction', 'result']
+
+----------------------------------------------------------------------
+Ran 33 tests in 1.954s
+
+FAILED (errors=3)

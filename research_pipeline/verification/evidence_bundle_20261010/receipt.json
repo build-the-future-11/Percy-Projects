@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "project": "build-the-future-11/Percy-Projects",
+  "date": "2026-10-10",
+  "evidence_class": "ENGINEERING_CORRECTNESS",
+  "source_base_commit": "eb3d36109e93a32ec2bd1454899cd106d029da4b",
+  "source_base_tree": "e34cc899f85db95e21720051a99c5b688fa4ab57",
+  "contract_written_before_source": "research_pipeline/ARCHIVE_DESIGN_20261010.md",
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Linux",
+    "dependencies": "Python standard library; installed Ruff for style verification"
+  },
+  "source": {
+    "research_pipeline/archive.py": {
+      "sha256": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+      "bytes": 17555,
+      "git_blob_sha1": "72a9a09a31bb6edb49ba549d3c8e9cf40364c90e"
+    },
+    "research_pipeline/__main__.py": {
+      "sha256": "fb7f9a1861c5e6d9bc18102ef857c12aaa42c354843a3d9e553f203fbb6cb93b",
+      "bytes": 6299,
+      "git_blob_sha1": "2ad619d41bf8e153d1d0015bf6641a32177dcbf4"
+    },
+    "tests/test_archive.py": {
+      "sha256": "9c2d62b26b1f0cba1191d1dc7aa2592ce941681b295776b31e459e3b067e004f",
+      "bytes": 35681,
+      "git_blob_sha1": "7a10594409210e82256ce02de87a8b834c08fe19"
+    }
+  },
+  "unchanged_source_and_fixtures": {
+    "research_pipeline/ledger.py": {
+      "sha256": "8eb8624282634411565102c25ab42eec5d4dd72fb1cd9fa92f54b54314c05d6d",
+      "bytes": 52001,
+      "git_blob_sha1": "c21d2923d8d378fde4074339904e5206c61dd35f"
+    },
+    "research_pipeline/__init__.py": {
+      "sha256": "1ee07845ad094ad0fbc13e6a0e05dee0ad2a1d824d731ecfb63ac2eec0b04727",
+      "bytes": 245,
+      "git_blob_sha1": "d605dba818f86add584daaf590706dd853cf7e8c"
+    },
+    "research_pipeline/demo.py": {
+      "sha256": "9dbbc366d73aca9c3145559f6ed23081a2985727de963693832cbefe8190552a",
+      "bytes": 9664,
+      "git_blob_sha1": "a310f92eecfa49a61b47ab0c5dbb765efbadda3f"
+    },
+    "tests/test_research_pipeline.py": {
+      "sha256": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921",
+      "bytes": 49025,
+      "git_blob_sha1": "55ac188ba556d60adb6b86f5fc04a0ebac7639ef"
+    },
+    "tests/test_evidence_binding.py": {
+      "sha256": "3fda5037f9243ee4d8b10fffc653d998801f126e3d81c3e011413fdb5b4039bc",
+      "bytes": 9339,
+      "git_blob_sha1": "f5ce88a0ee08e2d6285fa13aa6306cf08b8e05cd"
+    },
+    "PERCY_PROJECTS_README.md": {
+      "sha256": "7a140dfcde1d85ba3898c2c6001c331d5da0d5e8cc75cdd0f090fec055fccb54",
+      "bytes": 27521,
+      "git_blob_sha1": "9d4886c44a66b3931d94c5d347a280cd46f11eab"
+    },
+    "tests/fixtures/legacy_ledger_v1.json": {
+      "sha256": "49e239ccd1c70f292081c9bf62ee170f414276c01a24c714d9ad87c2f585d17b",
+      "bytes": 73134,
+      "git_blob_sha1": "d2b51ee7f977c799c68fa1e8eb3b3786097895f3"
+    }
+  },
+  "stages": [
+    {
+      "name": "inherited baseline",
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 65,
+      "seconds": 19.874,
+      "raw": "baseline_65.txt"
+    },
+    {
+      "name": "initial missing capability witness",
+      "command": "python -m unittest discover -s tests -p test_archive.py -v",
+      "tests": 3,
+      "failures": 1,
+      "errors": 2,
+      "seconds": 0.497,
+      "raw": "initial_missing_feature.txt",
+      "interpretation": "One absent feature: module and CLI did not exist. These are not three independent implementation defects."
+    },
+    {
+      "name": "initial implementation",
+      "command": "python -m unittest discover -s tests -p test_archive.py -v",
+      "passed": 3,
+      "seconds": 1.22,
+      "raw": "first_implementation.txt"
+    },
+    {
+      "name": "expanded first adversarial pass",
+      "command": "python -m unittest discover -s tests -p test_archive.py -v",
+      "tests": 33,
+      "passed": 30,
+      "errors": 3,
+      "seconds": 1.954,
+      "raw": "adversarial_first.txt",
+      "interpretation": "Two invalid note fixtures; one real directory descriptor-ownership defect. All retained and corrected."
+    },
+    {
+      "name": "archive regressions repaired",
+      "command": "python -m unittest discover -s tests -p test_archive.py -v",
+      "passed": 34,
+      "seconds": 1.91,
+      "raw": "adversarial_repaired.txt"
+    },
+    {
+      "name": "complete integrated suite",
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 99,
+      "seconds": 23.124,
+      "raw": "integrated_99.txt"
+    },
+    {
+      "name": "focused Ruff",
+      "command": "python -m ruff check --select E4,E7,E9,F,I research_pipeline/archive.py research_pipeline/__main__.py tests/test_archive.py",
+      "result": "PASS"
+    },
+    {
+      "name": "ZIP32 library guard before normalization",
+      "command": "PYTHONPATH=tests python -m unittest -v test_archive.ArchiveTests.test_zip32_library_guard_is_reported_as_a_bounded_format_refusal",
+      "tests": 1,
+      "errors": 1,
+      "seconds": 0.051,
+      "raw": "zip32_guard_before_fix.txt",
+      "interpretation": "Real stdlib file_size * 1.05 guard, scaled to a 1 MiB threshold; previously uncaught LargeZipFile."
+    },
+    {
+      "name": "ZIP32 library guard normalized",
+      "command": "PYTHONPATH=tests python -m unittest -v test_archive.ArchiveTests.test_zip32_library_guard_is_reported_as_a_bounded_format_refusal",
+      "passed": 1,
+      "seconds": 0.056,
+      "raw": "zip32_guard_repaired.txt"
+    },
+    {
+      "name": "intermediate combined guard implementation",
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 100,
+      "seconds": 22.798,
+      "raw": "integrated_100.txt",
+      "source_note": "Preceded narrowing the exception handler to only LargeZipFile."
+    },
+    {
+      "name": "final exact-source complete integrated suite",
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 100,
+      "seconds": 25.067,
+      "raw": "final_integrated_100.txt",
+      "source_sha256": {
+        "research_pipeline/archive.py": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+        "research_pipeline/__main__.py": "fb7f9a1861c5e6d9bc18102ef857c12aaa42c354843a3d9e553f203fbb6cb93b",
+        "tests/test_archive.py": "9c2d62b26b1f0cba1191d1dc7aa2592ce941681b295776b31e459e3b067e004f"
+      }
+    }
+  ],
+  "raw_output_directory": "research_pipeline/verification/evidence_bundle_20261010",
+  "independent_review": {
+    "status": "PASS",
+    "reviewer": "root independent adversarial review",
+    "source_sha256": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+    "final_receipt": "research_pipeline/verification/archive_20261010/root_independent_review_final.json",
+    "final_reproducer": "research_pipeline/verification/archive_20261010/root_independent_review_final.py",
+    "earlier_receipt_preserved": "research_pipeline/verification/archive_20261010/root_independent_review.json",
+    "scope": "Independent 3,145,738-byte binary/CRC round trip, deterministic metadata, offline replay after originals removed, 23 corruptions rejected; exact final four-line LargeZipFile delta and its regression reviewed.",
+    "source_unchanged_during_execution": true
+  },
+  "new_scientific_evidence": false,
+  "scientific_checkpoint_change": null,
+  "paid_compute_used": false,
+  "protected_evaluation_used": false,
+  "scope_limits": [
+    "Internal hashes and ledger replay do not authenticate reviewers or scientific validity.",
+    "An externally trusted expected head is required to reject a valid older bundle.",
+    "Byte and member caps constrain storage and parsed input, not arbitrary ledger replay CPU complexity.",
+    "Version 1 uses canonical ZIP_STORED ZIP32 metadata and rejects generalized/repacked archives.",
+    "The project lock coordinates compliant local writers; privileged directory mutation and general hardware durability are outside its guarantee.",
+    "The stdlib may refuse large individual members slightly before its nominal ZIP64 threshold; this is reported as a format error, with no implicit upgrade."
+  ],
+  "failure_source_identities": {
+    "before_descriptor_ownership_fix": "07af5447e0d778e9a7fcf5e098c5556ac0b4a2acc632c84a8d3d30da53f90b55",
+    "before_zip32_guard_normalization": "ec3b95811ccb89eaa4595e2877cf3965832042cd9ec78c50110227dca2eedb72"
+  },
+  "retained_logs": {
+    "first_implementation.txt": {
+      "sha256": "35272df7680703d34ed0d6ed54b5d44fb6aa6479287a3d19c881d233c3cb69cb",
+      "bytes": 463,
+      "git_blob_sha1": "538ef3885ec66bece5e25fe54815b24230f377a9"
+    },
+    "adversarial_first.txt": {
+      "sha256": "9305c027beb0fb835669d8a505f7c427964d3db995b43a4eb37d9899f1ec7741",
+      "bytes": 11383,
+      "git_blob_sha1": "1298ea282427a78bfc0f33180ee03692a5d11eca"
+    },
+    "adversarial_repaired.txt": {
+      "sha256": "2aa81ed6b9e3d43a8efafffc66a0d2619ad871cb75c210ed3637f250cf210665",
+      "bytes": 5241,
+      "git_blob_sha1": "931f1848c555f92626d2206d6b26a85966958844"
+    },
+    "integrated_100.txt": {
+      "sha256": "ddffc652f58d46d758cf7a704771d28163dda99498958c46605a307faf62cd1e",
+      "bytes": 15968,
+      "git_blob_sha1": "cc15156475f24a7c3d720e372ffb3952a7047d30"
+    },
+    "integrated_99.txt": {
+      "sha256": "bf68ec3102c08499a9f2c72e10d84e1030bd2e3b07bedc275448bc4f1c47b656",
+      "bytes": 15802,
+      "git_blob_sha1": "ddec4d41acbd3d9692102fbb864bf68cbc670914"
+    },
+    "zip32_guard_before_fix.txt": {
+      "sha256": "f04ed2064206489391abc22a6b45e71bfff4350b6d8d2af60d35ebba5d108204",
+      "bytes": 1668,
+      "git_blob_sha1": "7ae99477c5cd7083a91cc3d2618a94d760f5dd27"
+    },
+    "initial_missing_feature.txt": {
+      "sha256": "0280a7780800e3e2d85a64184ad49b8f32a295c3a077aeb9e0eb0e98ebd46b4c",
+      "bytes": 4104,
+      "git_blob_sha1": "ffd079027c6e24166bc4a67931ffaa9b4a51cc69"
+    },
+    "final_integrated_100.txt": {
+      "sha256": "0fbad4ed0e245326b2685370d4a0b9843f75e9c444e741106b6a71145232d670",
+      "bytes": 15968,
+      "git_blob_sha1": "e917d9fa2bc1131a1ac8cc29ecfb3ac8066b3463"
+    },
+    "zip32_guard_repaired.txt": {
+      "sha256": "4020ce711641ed1a33b671073991692c4e0fdfe4e59b36b43a138e51d960961e",
+      "bytes": 262,
+      "git_blob_sha1": "2473dd73636ac078c6f473e82b151b9439a27b58"
+    },
+    "baseline_65.txt": {
+      "sha256": "efda4efb8dd6fb7ac02c4480565fd68befbabf4f8b51851dbdd563cd6d0a61f5",
+      "bytes": 10660,
+      "git_blob_sha1": "7172cea3e545f5392b56aab891160c99f59829b8"
+    }
+  },
+  "publication_plan": {
+    "branch": "codex/percy-evidence-bundles-20261010",
+    "base_branch": "codex/ledger-json-snapshot-20261010",
+    "draft": true,
+    "workflow": "Existing research-pipeline.yml, unchanged; Python 3.11/3.12 unittest discovery; no manual dispatch",
+    "publication_identity": "Containing Git commit/tree identifies the complete source and evidence set; source hashes above bind the executed tests."
+  }
+}

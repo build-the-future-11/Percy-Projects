@@ -1,0 +1,8 @@
+test_cli_exports_and_verifies (test_archive.ArchiveTests.test_cli_exports_and_verifies) ... ok
+test_deterministic_bytes_deduplicate_and_preserve_ledger (test_archive.ArchiveTests.test_deterministic_bytes_deduplicate_and_preserve_ledger) ... ok
+test_full_negative_fixture_replays_offline (test_archive.ArchiveTests.test_full_negative_fixture_replays_offline) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.220s
+
+OK

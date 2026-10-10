@@ -1,0 +1,123 @@
+{
+  "reviewer": "root independent adversarial review",
+  "status": "PASS",
+  "source_sha256": "976d74cdf886f8ae3840da24e2240003066ebc9d16e3c96eec022e77f772b137",
+  "source_unchanged_during_execution": true,
+  "seconds": 1.5968717219948303,
+  "checks": [
+    {
+      "check": "binary_stream_round_trip",
+      "status": "PASS",
+      "bytes_of_unique_objects": 3145738,
+      "unique_objects": 2,
+      "artifact_labels": 3,
+      "independent_zip_crc_and_bytes": true,
+      "destination_mtime_umask_independent": true
+    },
+    {
+      "check": "offline_after_original_project_and_inputs_removed",
+      "status": "PASS",
+      "head": "83327db259c69e1eda71511e6437c62b12ec52ccaf6f4331952eab27cfa92f24"
+    },
+    {
+      "check": "local_data_chunk_boundary_central_and_end_corruption",
+      "status": "PASS",
+      "rejected_mutations": 23,
+      "rejections": [
+        {
+          "byte_offset": 0,
+          "error": "local ZIP header disagrees with canonical central metadata"
+        },
+        {
+          "byte_offset": 14,
+          "error": "local ZIP header disagrees with canonical central metadata"
+        },
+        {
+          "byte_offset": 43,
+          "error": "bundle verification failed: Bad CRC-32 for file 'manifest.json'"
+        },
+        {
+          "byte_offset": 1390,
+          "error": "bundle verification failed: Bad CRC-32 for file 'manifest.json'"
+        },
+        {
+          "byte_offset": 1429,
+          "error": "bundle verification failed: Bad CRC-32 for file 'STATE.md'"
+        },
+        {
+          "byte_offset": 7039,
+          "error": "bundle verification failed: Bad CRC-32 for file 'STATE.md'"
+        },
+        {
+          "byte_offset": 7142,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/178f2fc256b72f9d03fd392352ccb9163c23baf8ef26a0f21e719b577ca5c4e2'"
+        },
+        {
+          "byte_offset": 1055717,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/178f2fc256b72f9d03fd392352ccb9163c23baf8ef26a0f21e719b577ca5c4e2'"
+        },
+        {
+          "byte_offset": 1055718,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/178f2fc256b72f9d03fd392352ccb9163c23baf8ef26a0f21e719b577ca5c4e2'"
+        },
+        {
+          "byte_offset": 2104294,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/178f2fc256b72f9d03fd392352ccb9163c23baf8ef26a0f21e719b577ca5c4e2'"
+        },
+        {
+          "byte_offset": 2104299,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/178f2fc256b72f9d03fd392352ccb9163c23baf8ef26a0f21e719b577ca5c4e2'"
+        },
+        {
+          "byte_offset": 2104402,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/81138015bbc79d7e1bb03f36ce9cf43546505542b508b98359213c1a39b8159a'"
+        },
+        {
+          "byte_offset": 3152977,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/81138015bbc79d7e1bb03f36ce9cf43546505542b508b98359213c1a39b8159a'"
+        },
+        {
+          "byte_offset": 3152978,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/81138015bbc79d7e1bb03f36ce9cf43546505542b508b98359213c1a39b8159a'"
+        },
+        {
+          "byte_offset": 3152981,
+          "error": "bundle verification failed: Bad CRC-32 for file 'objects/81138015bbc79d7e1bb03f36ce9cf43546505542b508b98359213c1a39b8159a'"
+        },
+        {
+          "byte_offset": 3152982,
+          "error": "bundle verification failed: Bad magic number for central directory"
+        },
+        {
+          "byte_offset": 3152990,
+          "error": "compressed, encrypted or flagged ZIP members are unsupported"
+        },
+        {
+          "byte_offset": 3152996,
+          "error": "ZIP member metadata differs from the fixed format"
+        },
+        {
+          "byte_offset": 3153016,
+          "error": "ZIP member metadata differs from the fixed format"
+        },
+        {
+          "byte_offset": 3153020,
+          "error": "ZIP member metadata differs from the fixed format"
+        },
+        {
+          "byte_offset": 3153024,
+          "error": "ZIP has a preamble, gap, overlap or unregistered local member"
+        },
+        {
+          "byte_offset": 3153341,
+          "error": "bundle requires a single-disk ZIP32 end record with no comment or trailing bytes"
+        },
+        {
+          "byte_offset": 3153347,
+          "error": "ZIP central directory does not account for the input bytes"
+        }
+      ]
+    }
+  ],
+  "scope": "Generated binary objects crossing one- and two-MiB boundaries, independent ZIP CRC/payload inspection, offline replay after removal of live source, deterministic metadata, and byte corruptions. No scientific study, reviewer authentication, universal filesystem guarantee or exhaustive parser proof."
+}

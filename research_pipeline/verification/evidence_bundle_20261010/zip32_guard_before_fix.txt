@@ -1,0 +1,22 @@
+test_zip32_library_guard_is_reported_as_a_bounded_format_refusal (test_archive.ArchiveTests.test_zip32_library_guard_is_reported_as_a_bounded_format_refusal) ... ERROR
+
+======================================================================
+ERROR: test_zip32_library_guard_is_reported_as_a_bounded_format_refusal (test_archive.ArchiveTests.test_zip32_library_guard_is_reported_as_a_bounded_format_refusal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/tests/test_archive.py", line 417, in test_zip32_library_guard_is_reported_as_a_bounded_format_refusal
+    archive.export_bundle(self.project, self.base / "large.zip", max_bytes=999_999)
+  File "/workspace/scratch/24ae2474e899/research_next/root/Percy-Projects/research_pipeline/archive.py", line 179, in export_bundle
+    with packed.open(_info(item["path"], item["bytes"]), "w") as outgoing:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1625, in open
+    return self._open_to_write(zinfo, force_zip64=force_zip64)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1727, in _open_to_write
+    raise LargeZipFile("Filesize would require ZIP64 extensions")
+zipfile.LargeZipFile: Filesize would require ZIP64 extensions
+
+----------------------------------------------------------------------
+Ran 1 test in 0.051s
+
+FAILED (errors=1)

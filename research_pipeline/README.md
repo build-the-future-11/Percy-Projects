@@ -59,8 +59,9 @@ record new artifacts, receipts, decisions, and any justified prefreeze revision.
 Run `verify` and retain its head digest with the code revision or another trusted
 external record. This is what makes a later valid-history rollback detectable.
 
-All commands accept a project directory. JSON commands read a UTF-8 file using
-strict parsing: duplicate keys, NaN, infinity, and schema mismatches are errors.
+Project commands accept a project directory; `verify-bundle` accepts a bundle
+file. JSON commands read a UTF-8 file using strict parsing: duplicate keys, NaN,
+infinity, and schema mismatches are errors.
 Commands emit JSON to stdout; errors go to stderr with exit status 2. Success is
 exit status 0. Most updates accept `--expected-head HASH` to reject a stale writer.
 
@@ -70,6 +71,8 @@ exit status 0. Most updates accept `--expected-head HASH` to reject a stale writ
 | `state` | Verify and return the current state and budget accounting |
 | `verify` | Verify history, exact projection, and every registered artifact |
 | `history` | Return the complete hash-linked event history from one snapshot |
+| `export` | Write a deterministic self-contained snapshot: `--output NEW_BUNDLE.zip` |
+| `verify-bundle` | Verify one bundle file offline; no project directory or artifact execution |
 | `artifact` | Snapshot a file: `--id ID --kind KIND --file PATH [--parents ID ...]` |
 | `checkpoint` | Qualify gate 1–6: `--number N --evidence ID --reviewer NAME --note TEXT` |
 | `freeze` | Gate 7: `--artifact PROTOCOL_ID` |
@@ -96,6 +99,82 @@ python -m research_pipeline checkpoint projects/my-study --number 1 --evidence m
 The files in the demo's `inputs/` directory are complete examples of every major
 JSON receipt. They are useful for learning the schema; they are not evidence to
 reuse in a real project.
+
+## Portable evidence bundles
+
+Export packages the canonical state and every registered object into one
+deterministic archive. It supports incomplete ACTIVE histories, completed
+histories of any recorded disposition, and explicit invalid closures. It records
+the existing checkpoint and scientific result; exporting does not append an
+event, qualify a checkpoint, or mark the project complete.
+
+```sh
+python -m research_pipeline export projects/my-study --output evidence-snapshot.zip
+python -m research_pipeline verify-bundle evidence-snapshot.zip
+```
+
+The output path must be new. The destination's parent directory must already
+exist. An existing file or symlink is never overwritten, including one created
+by another writer immediately before installation. Both commands accept
+`--expected-head HASH`, using a full lowercase SHA-256 previously retained in a
+trusted external record. An unanchored verification reports
+`trusted_head_checked: false`; a valid older bundle may pass in that mode.
+
+The exporter holds the project lock, verifies the existing history, and renders
+`STATE.md` from that verified snapshot. It retains the complete artifact records
+and deduplicates objects by SHA-256. Each object is streamed through a regular
+no-follow descriptor, checking the exact bytes copied into the archive. Repeated
+exports of the same snapshot are byte-identical: no export time, source pathname,
+filesystem timestamp, or process umask enters the ZIP.
+
+The verifier copies the input once into private temporary storage while hashing
+and enforcing the source byte cap. Replacing the original input path afterward
+cannot change this verification. It admits only the fixed version-1 ZIP layout,
+checks exact member names, regular-file metadata, local/central headers, CRCs,
+sizes and digests, then reconstructs the project under computed private paths.
+It replays the unchanged ledger and requires the archived state bytes and the
+entire manifest to match their canonical reconstruction. It never extracts
+arbitrary paths, installs a persistent project, or executes an artifact or
+reproduction command.
+
+Success receipts include `bundle_sha256`, `bundle_bytes`, `project_id`, `head`,
+event/artifact/object counts, `recorded_state` (status, checkpoint, scientific
+result and evidence seal version), and `trusted_head_checked`. Export additionally
+reports its destination and installation. `valid: true` means internal bundle
+and ledger integrity passed. It does not authenticate reviewer names, establish
+scientific validity, or establish that an unanchored history is the newest one.
+
+| Limit | Default / rule |
+| --- | --- |
+| Source/output ZIP and aggregate member bytes | 512 MiB; `--max-bytes` |
+| Individual object bytes | 512 MiB; `--max-object-bytes` |
+| Number of ZIP members, including state and manifest | 10,000; `--max-members` |
+| Canonical `STATE.md` | Fixed 16 MiB |
+| Canonical `manifest.json` | Fixed 8 MiB |
+| Format | Fixed UNIX regular mode 0600, 1980 timestamp, ZIP_STORED; ZIP32 only, below the standard library's 2 GiB ZIP64 threshold |
+
+Limits must be exact positive integers in the Python API; booleans, floats and
+coercible strings are refused. They can be adjusted within the format's
+structural limits. Byte and member bounds constrain storage and parsing; they
+do not provide a CPU-time limit for general ledger replay. This version rejects
+compressed, encrypted, ZIP64, commented or repacked noncanonical archives, even
+if a general ZIP utility would accept them. The standard writer can require
+ZIP64 slightly before its nominal threshold for a large individual member;
+export reports that as a format-limit refusal and publishes no partial file.
+
+Installation uses a flushed/fsynced sibling staging file, a no-overwrite atomic
+hard link and parent-directory fsync. If directory fsync fails after linking,
+the command reports that the bundle **was installed**. Verify that installed file
+before retrying; a subsequent export to the same name will refuse the collision.
+Earlier write or link failures publish no partial bundle and clean the owned
+staging file. These are local POSIX integrity and durability measures, subject to
+the filesystem and the existing cooperating-writer boundary.
+
+The Python entry points are `research_pipeline.archive.export_bundle(project,
+destination, ...)` and `verify_bundle(source, ...)`. Their keyword limits use the
+CLI names with underscores. See [ARCHIVE_DESIGN_20261010.md](ARCHIVE_DESIGN_20261010.md)
+for the pre-code contract and [ARCHIVE_DEVELOPMENT_20261010.md](ARCHIVE_DEVELOPMENT_20261010.md)
+for executed tests, retained failures and independent review.
 
 ## Exact input contracts
 
