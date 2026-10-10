@@ -1,0 +1,33 @@
+name: Research lifecycle software tests
+
+on:
+  pull_request:
+    paths:
+      - 'research_pipeline/**'
+      - 'tests/test_research_pipeline.py'
+      - '.github/workflows/research-pipeline.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research_pipeline/**'
+      - 'tests/test_research_pipeline.py'
+      - '.github/workflows/research-pipeline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        python: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Test durable state transitions using artificial temporary fixtures
+        run: python -m unittest discover -s tests -p test_research_pipeline.py -v
