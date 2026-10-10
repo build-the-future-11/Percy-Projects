@@ -206,7 +206,7 @@ def _object_path(root, sha):
     return root / ".research" / "objects" / sha
 
 
-def _verify_object(root, item):
+def _verify_object(root, item, *, capture=False):
     path = _object_path(root, item["sha256"])
     try:
         fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
@@ -216,19 +216,25 @@ def _verify_object(root, item):
                 raise IntegrityError(f"object is not a regular file: {path.name}")
             sha = hashlib.sha256()
             size = 0
+            chunks = [] if capture else None
             for chunk in iter(lambda: handle.read(1024 * 1024), b""):
                 sha.update(chunk)
                 size += len(chunk)
+                if chunks is not None:
+                    chunks.append(chunk)
     except OSError as exc:
         raise IntegrityError(f"cannot read object {path.name}: {exc}") from exc
     if sha.hexdigest() != item["sha256"] or size != item["bytes"]:
         raise IntegrityError(f"object identity mismatch: {path.name}")
+    return b"".join(chunks) if chunks is not None else None
 
 
 def _artifact_json(root, state, artifact_id, kinds):
     item = _artifact(state, artifact_id, kinds)
-    _verify_object(root, item)
-    return strict_json(_object_path(root, item["sha256"]).read_text(encoding="utf-8"))
+    # Decode the verified descriptor's bytes, never a second path read that
+    # could refer to a different object after concurrent replacement.
+    raw = _verify_object(root, item, capture=True)
+    return strict_json(raw.decode("utf-8"))
 
 
 def _protocol(root, state, protocol):
@@ -756,7 +762,7 @@ class Project:
             payload = {"contract": contract, "predecessor": predecessor, "initial_artifacts": initial}
             state = _transition(self.root, None, "initialized", payload)
             self._write([_new_event([], "initialized", payload)], state)
-        return self.read()
+            return self.read()
 
     def _reject(self, events, state, action, payload, exc):
         if state["status"] == "ACTIVE":
@@ -785,7 +791,7 @@ class Project:
         with self._lock():
             events, state = self._load()
             self._admit(events, state, action, payload, expected_head)
-        return self.read()
+            return self.read()
 
     def add_artifact(self, artifact_id, kind, source, parents=(), *, expected_head=None):
         # Snapshot first; if admission is rejected the unreferenced object is an
@@ -801,7 +807,7 @@ class Project:
                 self._reject(events, state, "artifact", proposal, exc)
                 raise GateError(str(exc)) from exc
             self._admit(events, state, "artifact", {**snapshot, **proposal}, expected_head)
-        return self.read()
+            return self.read()
 
     def successor(self, target, contract, relationship, protocol_source, *, validity_correction=False):
         current = self.read()

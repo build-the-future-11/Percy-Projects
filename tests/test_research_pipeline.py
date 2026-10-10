@@ -10,10 +10,12 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from contextlib import contextmanager
 from pathlib import Path
 from unittest import mock
 
 from research_pipeline import CHECKPOINTS, GateError, IntegrityError, Project
+from research_pipeline import ledger as ledger_module
 from research_pipeline.ledger import MARKER, VERIFY_CHECKS, strict_json
 
 REPO = Path(__file__).resolve().parents[1]
@@ -144,6 +146,67 @@ class LedgerTests(unittest.TestCase):
         self.add("instructions", "other", "ARTIFICIAL instructions: use unittest, no science execution.")
         self.add("release", "release", self.release_manifest())
         self.project.apply("complete", {"release_artifact": "release"})
+
+    def test_json_parse_uses_the_verified_object_snapshot(self):
+        self.prepare(freeze=False)
+        state = self.project.read()["state"]
+        item = state["artifacts"]["protocol"]
+        path = self.project.root / ".research" / "objects" / item["sha256"]
+        verified_document = json.loads(path.read_bytes())
+        replacement = {**verified_document, "hypothesis": "Unverified replacement hypothesis"}
+        verify = ledger_module._verify_object
+
+        def replace_after_verification(*args, **kwargs):
+            verified = verify(*args, **kwargs)
+            path.write_text(json.dumps(replacement), encoding="utf-8")
+            return verified
+
+        with mock.patch.object(ledger_module, "_verify_object", side_effect=replace_after_verification):
+            actual = ledger_module._artifact_json(self.project.root, state, "protocol", {"protocol"})
+        self.assertEqual(actual, verified_document)
+        with self.assertRaises(IntegrityError):
+            self.project.read()
+
+    def _assert_mutation_receipt_is_own_snapshot(self, operation):
+        if operation != "initialize":
+            self.project.initialize(toy_contract())
+        expected_count = 1 if operation == "initialize" else 2
+        original_lock = self.project._lock
+        other_writer = Project(self.project.root)
+        second_receipts = []
+        note = {key: "Artificial interleaved writer" for key in (
+            "observation", "cause", "change", "prediction", "experiment", "result")}
+
+        @contextmanager
+        def interleaved_lock():
+            with original_lock():
+                yield
+            # This is the first scheduling opportunity after the real lock is
+            # released. The second writer uses an independent Project object.
+            second_receipts.append(other_writer.apply("note", note))
+
+        with mock.patch.object(self.project, "_lock", interleaved_lock):
+            if operation == "initialize":
+                receipt = self.project.initialize(toy_contract())
+            elif operation == "apply":
+                receipt = self.project.apply("note", {**note, "observation": "First writer"})
+            else:
+                receipt = self.project.add_artifact("first", "other", self.file("Artificial bytes"))
+        final = self.project.read()
+        self.assertEqual(receipt["event_count"], expected_count)
+        self.assertEqual(final["event_count"], expected_count + 1)
+        self.assertNotEqual(receipt["head"], final["head"])
+        self.assertEqual(final["head"], second_receipts[0]["head"])
+        self.assertEqual(self.project.history()["events"][expected_count - 1]["sha256"], receipt["head"])
+
+    def test_initialization_receipt_precedes_next_writer(self):
+        self._assert_mutation_receipt_is_own_snapshot("initialize")
+
+    def test_update_receipt_precedes_next_writer(self):
+        self._assert_mutation_receipt_is_own_snapshot("apply")
+
+    def test_artifact_receipt_precedes_next_writer(self):
+        self._assert_mutation_receipt_is_own_snapshot("artifact")
 
     def test_complete_negative_study_preserves_all_evidence(self):
         self.finish()

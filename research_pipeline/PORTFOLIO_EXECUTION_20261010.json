@@ -245,5 +245,450 @@
       },
       "scientific_checkpoint_change": null
     }
+  ],
+  "maintenance_batches": [
+    {
+      "batch_id": "engineering-correctness-followup-20261010",
+      "observed_at_utc": "2026-10-10 05:21:49 UTC",
+      "scope": "A subsequent source-bound engineering handoff for these 15 public repositories. Earlier entries remain historical snapshots. This is not an exhaustive migration or evidence that any scientific study is complete.",
+      "repository_count": 15,
+      "publication_status": "DRAFT_PRS_UNMERGED",
+      "scientific_checkpoint_change": null,
+      "verification_scope": "Passing counts belong to the recorded local commands and include existing tests; repeated hosted or independent reviewer runs are not added. tested_commit identifies the published source snapshot whose implementation/test hashes match those receipts, not a claim that every suite or environment was exercised. A metadata-only follow-up may postdate local test execution. Observed heads may advance separately; each result retains its recorded source identity. Source identities and raw failures are retained within each repository.",
+      "entries": [
+        {
+          "repository": "build-the-future-11/IRIS",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/IRIS/pull/10",
+          "tested_commit": "beb6648da764bf580aa9e1d23562fb28de4c59cc",
+          "observed_head_commit": "beb6648da764bf580aa9e1d23562fb28de4c59cc",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/IRIS/blob/beb6648da764bf580aa9e1d23562fb28de4c59cc/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/IRIS/blob/beb6648da764bf580aa9e1d23562fb28de4c59cc/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Retain representable Kalman gains after underflowing numerator products",
+          "validation": {
+            "local_tests_passed": 123,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=. OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests",
+            "hosted_runs": [
+              {
+                "name": "IRIS research CI",
+                "url": "https://github.com/build-the-future-11/IRIS/actions/runs/38025407433",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "beb6648da764bf580aa9e1d23562fb28de4c59cc"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "build-the-future-11/IRIS-Space",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/IRIS-Space/pull/43",
+          "tested_commit": "fa004bccc0aa75565898ef13c434c584f7c24ea0",
+          "observed_head_commit": "fa004bccc0aa75565898ef13c434c584f7c24ea0",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/IRIS-Space/blob/fa004bccc0aa75565898ef13c434c584f7c24ea0/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/IRIS-Space/blob/fa004bccc0aa75565898ef13c434c584f7c24ea0/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Reject ambiguous retrieval policy controls before population admission",
+          "validation": {
+            "local_tests_passed": 55,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=src OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/test_memory_policy_types.py tests/test_memory_availability.py tests/test_episodic_memory.py tests/test_space_jepa_v2_router.py tests/test_space_jepa_v2_cli.py",
+            "hosted_runs": [
+              {
+                "name": "CI",
+                "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38025404137",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "fa004bccc0aa75565898ef13c434c584f7c24ea0"
+              },
+              {
+                "name": "CI",
+                "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38025402433",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "fa004bccc0aa75565898ef13c434c584f7c24ea0"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "build-the-future-11/Kyrlov-JEPA",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/Kyrlov-JEPA/pull/21",
+          "tested_commit": "878f21396edff83f3e2d9eb889f3058c65871da2",
+          "observed_head_commit": "878f21396edff83f3e2d9eb889f3058c65871da2",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/Kyrlov-JEPA/blob/878f21396edff83f3e2d9eb889f3058c65871da2/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/Kyrlov-JEPA/blob/878f21396edff83f3e2d9eb889f3058c65871da2/spectral-krylov-jepa/research/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Normalize finite wavefunctions without intermediate underflow or overflow while preserving the weighted norm contract.",
+          "validation": {
+            "local_tests_passed": 47,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "See the engineering record and exact commands in the linked pull request; this count includes retained cases.",
+            "hosted_runs": [],
+            "hosted_status": "NOT_CLAIMED"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "build-the-future-11/olympus-cognitive-architecture",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/olympus-cognitive-architecture/pull/27",
+          "tested_commit": "cbc54b95970891e54d658c085ead03714396aa13",
+          "observed_head_commit": "cbc54b95970891e54d658c085ead03714396aa13",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/olympus-cognitive-architecture/blob/cbc54b95970891e54d658c085ead03714396aa13/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/olympus-cognitive-architecture/blob/cbc54b95970891e54d658c085ead03714396aa13/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Bind Foundry dataset consumers to verified record snapshots",
+          "validation": {
+            "local_tests_passed": 34,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "Exact-module isolated pytest for tests/test_dataset_consumer_snapshot.py and tests/test_dataset_manifest_integrity.py; see docs/dataset-consumer-snapshot-20261010.md",
+            "hosted_runs": [
+              {
+                "name": "release-gate",
+                "url": "https://github.com/build-the-future-11/olympus-cognitive-architecture/actions/runs/38026426552",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "cbc54b95970891e54d658c085ead03714396aa13"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "build-the-future-11/Percy-Projects",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/Percy-Projects/pull/6",
+          "tested_commit": "721788e63daa7a485a2ee299ea823b1b443d514f",
+          "observed_head_commit": "721788e63daa7a485a2ee299ea823b1b443d514f",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/Percy-Projects/blob/721788e63daa7a485a2ee299ea823b1b443d514f/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/Percy-Projects/blob/721788e63daa7a485a2ee299ea823b1b443d514f/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Parse only verified JSON bytes and return each ledger mutation receipt while its write lock is held.",
+          "validation": {
+            "local_tests_passed": 65,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "See the engineering record and exact commands in the linked pull request; this count includes retained cases.",
+            "hosted_runs": [
+              {
+                "name": "Research lifecycle software tests",
+                "url": "https://github.com/build-the-future-11/Percy-Projects/actions/runs/38026238635",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "721788e63daa7a485a2ee299ea823b1b443d514f"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "build-the-future-11/RIS",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/RIS/pull/4",
+          "tested_commit": "0175f756759cdd99b28db1c0b4acaa38a563ca50",
+          "observed_head_commit": "cae6c530f218b0802ab269f99c5272d71f511048",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/RIS/blob/0175f756759cdd99b28db1c0b4acaa38a563ca50/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/RIS/blob/0175f756759cdd99b28db1c0b4acaa38a563ca50/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Use represented coordinate distances in nonuniform Hessian stencils",
+          "validation": {
+            "local_tests_passed": 17,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=. OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests",
+            "hosted_runs": [
+              {
+                "name": "Python smoke",
+                "url": "https://github.com/build-the-future-11/RIS/actions/runs/38025413979",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "0175f756759cdd99b28db1c0b4acaa38a563ca50"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false,
+          "concurrent_followup": {
+            "commit": "cae6c530f218b0802ab269f99c5272d71f511048",
+            "implementation_changed": false,
+            "original_test_files_changed": false,
+            "added_analytic_test_methods": 3,
+            "hosted_tests_passed": 20,
+            "hosted_url": "https://github.com/build-the-future-11/RIS/actions/runs/38026290651",
+            "attribution": "Separate independent review/test follow-up; not counted as new code or local tests in this batch."
+          }
+        },
+        {
+          "repository": "build-the-future-11/world-series",
+          "visibility": "public",
+          "pull_request": "https://github.com/build-the-future-11/world-series/pull/3",
+          "tested_commit": "17ae3938d53939e6cfd9bce6af35638938498dfe",
+          "observed_head_commit": "17ae3938d53939e6cfd9bce6af35638938498dfe",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/build-the-future-11/world-series/blob/17ae3938d53939e6cfd9bce6af35638938498dfe/AGENTS.md",
+          "canonical_state": "https://github.com/build-the-future-11/world-series/blob/17ae3938d53939e6cfd9bce6af35638938498dfe/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Retain immutable causal memory keys and frozen codebooks across replay",
+          "validation": {
+            "local_tests_passed": 200,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=src OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests",
+            "hosted_runs": [
+              {
+                "name": "Implementation checks",
+                "url": "https://github.com/build-the-future-11/world-series/actions/runs/38025410857",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "17ae3938d53939e6cfd9bce6af35638938498dfe"
+              },
+              {
+                "name": "Implementation checks",
+                "url": "https://github.com/build-the-future-11/world-series/actions/runs/38025408488",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "17ae3938d53939e6cfd9bce6af35638938498dfe"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "Finance-Meta-Research/Eigen-JEPA",
+          "visibility": "public",
+          "pull_request": "https://github.com/Finance-Meta-Research/Eigen-JEPA/pull/33",
+          "tested_commit": "eb6e96cdea420bcb1540b02178544cfecdb5c979",
+          "observed_head_commit": "eb6e96cdea420bcb1540b02178544cfecdb5c979",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/Finance-Meta-Research/Eigen-JEPA/blob/eb6e96cdea420bcb1540b02178544cfecdb5c979/AGENTS.md",
+          "canonical_state": "https://github.com/Finance-Meta-Research/Eigen-JEPA/blob/eb6e96cdea420bcb1540b02178544cfecdb5c979/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Preserve OAS shrinkage when constant asset offsets dominate scale",
+          "validation": {
+            "local_tests_passed": 35,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=. OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/test_oas_translation_v2.py tests/test_classical_covariance_v2.py tests/test_classical_covariance.py",
+            "hosted_runs": [
+              {
+                "name": "Submission claim gate",
+                "url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/actions/runs/38025400636",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "eb6e96cdea420bcb1540b02178544cfecdb5c979"
+              },
+              {
+                "name": "CI",
+                "url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/actions/runs/38025400635",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "eb6e96cdea420bcb1540b02178544cfecdb5c979"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "Finance-Meta-Research/EigenFinance",
+          "visibility": "public",
+          "pull_request": "https://github.com/Finance-Meta-Research/EigenFinance/pull/2",
+          "tested_commit": "83c43f5ad96269dde3f647b25e40a36502191ce5",
+          "observed_head_commit": "83c43f5ad96269dde3f647b25e40a36502191ce5",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/Finance-Meta-Research/EigenFinance/blob/83c43f5ad96269dde3f647b25e40a36502191ce5/AGENTS.md",
+          "canonical_state": "https://github.com/Finance-Meta-Research/EigenFinance/blob/83c43f5ad96269dde3f647b25e40a36502191ce5/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Recover representable covariance when the mean reduction overflows",
+          "validation": {
+            "local_tests_passed": 22,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=proposals/offline_starter OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q proposals/offline_starter",
+            "hosted_runs": [],
+            "hosted_status": "NO_WORKFLOW_PRESENT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "Finance-Meta-Research/FI-JEPA",
+          "visibility": "public",
+          "pull_request": "https://github.com/Finance-Meta-Research/FI-JEPA/pull/11",
+          "tested_commit": "20a1fc3f533b484e6ed88f7180c38b340378755f",
+          "observed_head_commit": "20a1fc3f533b484e6ed88f7180c38b340378755f",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/Finance-Meta-Research/FI-JEPA/blob/20a1fc3f533b484e6ed88f7180c38b340378755f/AGENTS.md",
+          "canonical_state": "https://github.com/Finance-Meta-Research/FI-JEPA/blob/20a1fc3f533b484e6ed88f7180c38b340378755f/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Reject non-finite derivatives before optimizer or target mutation",
+          "validation": {
+            "local_tests_passed": 25,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=src OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/test_gradient_failure_atomicity.py tests/test_gradient_accumulation.py tests/test_model_smoke.py tests/test_temporal_integrity.py tests/test_paper_protocol.py",
+            "hosted_runs": [
+              {
+                "name": "Optimizer correctness",
+                "url": "https://github.com/Finance-Meta-Research/FI-JEPA/actions/runs/38025384683",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "20a1fc3f533b484e6ed88f7180c38b340378755f"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "THE-BU1LD/EPU",
+          "visibility": "public",
+          "pull_request": "https://github.com/THE-BU1LD/EPU/pull/10",
+          "tested_commit": "10009118dc5bcd99b180e5e5ca57533ede3201eb",
+          "observed_head_commit": "10009118dc5bcd99b180e5e5ca57533ede3201eb",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/THE-BU1LD/EPU/blob/10009118dc5bcd99b180e5e5ca57533ede3201eb/AGENTS.md",
+          "canonical_state": "https://github.com/THE-BU1LD/EPU/blob/10009118dc5bcd99b180e5e5ca57533ede3201eb/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Promote admitted Real scalars before floating-reference arithmetic",
+          "validation": {
+            "local_tests_passed": 30,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "PYTHONPATH=. OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -q tests",
+            "hosted_runs": [
+              {
+                "name": "Reference smoke",
+                "url": "https://github.com/THE-BU1LD/EPU/actions/runs/38025408724",
+                "status": "completed",
+                "conclusion": "success",
+                "source_commit": "10009118dc5bcd99b180e5e5ca57533ede3201eb"
+              }
+            ],
+            "hosted_status": "PASSED_AT_TESTED_COMMIT"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "THE-BU1LD/Fabric-Induced-Memory",
+          "visibility": "public",
+          "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
+          "tested_commit": "1db6312f80b4776f45e2529f3514d0ec081933e2",
+          "observed_head_commit": "1db6312f80b4776f45e2529f3514d0ec081933e2",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/1db6312f80b4776f45e2529f3514d0ec081933e2/AGENTS.md",
+          "canonical_state": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/1c2de9851b6d6858e25f6cdedb641ef9300343e2/research/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Canonical state is maintained in the existing separate draft; the explicit v2 source points to it.",
+          "change": "Add an explicit v2 SDE integrator with noise-scaled Milstein conditional variance and deterministic zero-noise behavior.",
+          "validation": {
+            "local_tests_passed": 28,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "See the engineering record and exact commands in the linked pull request; this count includes retained cases.",
+            "hosted_runs": [],
+            "hosted_status": "NOT_CLAIMED"
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false
+        },
+        {
+          "repository": "THE-BU1LD/GaussianMemory",
+          "visibility": "public",
+          "pull_request": "https://github.com/THE-BU1LD/GaussianMemory/pull/6",
+          "tested_commit": "5094bbb699eebd0cf85364bea759959fb35d6d33",
+          "observed_head_commit": "5094bbb699eebd0cf85364bea759959fb35d6d33",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/THE-BU1LD/GaussianMemory/blob/5094bbb699eebd0cf85364bea759959fb35d6d33/AGENTS.md",
+          "canonical_state": "https://github.com/THE-BU1LD/GaussianMemory/blob/5094bbb699eebd0cf85364bea759959fb35d6d33/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Validate checkpoint ablation identity before loading and record explicit compatible-family overrides.",
+          "validation": {
+            "local_tests_passed": 41,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "complete local test suite",
+            "hosted_runs": [],
+            "hosted_status": "INTENTIONALLY_NOT_RUN",
+            "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=. OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -o addopts='' -q",
+            "hosted_note": "Commit used [skip ci] to avoid automatic retained-evidence/publication rebuild. Local verification is not represented as hosted CI."
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false,
+          "verification_receipt": "https://github.com/THE-BU1LD/GaussianMemory/blob/5094bbb699eebd0cf85364bea759959fb35d6d33/research/verification/checkpoint_identity_20261010/receipt.json"
+        },
+        {
+          "repository": "THE-BU1LD/RIPII",
+          "visibility": "public",
+          "pull_request": "https://github.com/THE-BU1LD/RIPII/pull/22",
+          "tested_commit": "2e74062e82450acea2c35e6ca1561d78abe6c309",
+          "observed_head_commit": "2e74062e82450acea2c35e6ca1561d78abe6c309",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/THE-BU1LD/RIPII/blob/2e74062e82450acea2c35e6ca1561d78abe6c309/AGENTS.md",
+          "canonical_state": "https://github.com/THE-BU1LD/RIPII/blob/2e74062e82450acea2c35e6ca1561d78abe6c309/RESEARCH_STATE.json",
+          "canonical_resolution_note": "Read this state and its referenced protocols before development.",
+          "change": "Bind external dataset verification and NumPy parsing to the same manifest and artifact bytes; reject ambiguous paths and archive names.",
+          "validation": {
+            "local_tests_passed": 20,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "affected external trajectory, content-overlap and container suites",
+            "hosted_runs": [],
+            "hosted_status": "INTENTIONALLY_NOT_RUN",
+            "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=. OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -o addopts='' -q tests/test_external_trajectory_data.py tests/test_external_content_overlap.py tests/test_external_container_identity.py",
+            "hosted_note": "Commit used [skip ci] to avoid automatic retained-evidence/publication rebuild. Local verification is not represented as hosted CI."
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false,
+          "verification_receipt": "https://github.com/THE-BU1LD/RIPII/blob/2e74062e82450acea2c35e6ca1561d78abe6c309/research/verification/maintenance_20261010/receipt.json"
+        },
+        {
+          "repository": "vertex-studyAI/LAM-JEPA",
+          "visibility": "public",
+          "pull_request": "https://github.com/vertex-studyAI/LAM-JEPA/pull/202",
+          "tested_commit": "37b14e17432f1d86cdf2c8b365765f167f7c905a",
+          "observed_head_commit": "a0ed9e1877321057076299b99a37def67cb9dde2",
+          "publication_status": "DRAFT_PR_UNMERGED",
+          "session_instructions": "https://github.com/vertex-studyAI/LAM-JEPA/blob/a0ed9e1877321057076299b99a37def67cb9dde2/AGENTS.md",
+          "canonical_state": "https://github.com/vertex-studyAI/LAM-JEPA/blob/08010fb91df08f480e860029b9454ffc551cd132/research/RESEARCH_STATE.json",
+          "canonical_resolution_note": "The existing canonical index is maintained in separate PR203; this code delivery adds a session entry point without creating a second state. Resolve the current canonical PR head and read its immutable state before work.",
+          "change": "Preserve inference detachment at zero planning horizon and evaluate the norm penalty without avoidable overflow.",
+          "validation": {
+            "local_tests_passed": 20,
+            "evidence_class": "ENGINEERING_CORRECTNESS",
+            "scope": "all opt-in planner-v2 tests",
+            "hosted_runs": [],
+            "hosted_status": "INTENTIONALLY_NOT_RUN",
+            "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -m pytest -o addopts='' -q tests/test_planner_v2.py tests/test_planner_v2_extreme_states.py",
+            "hosted_note": "Commit used [skip ci] to avoid automatic retained-evidence/publication rebuild. Local verification is not represented as hosted CI."
+          },
+          "scientific_checkpoint_change": null,
+          "research_complete": false,
+          "verification_receipt": "https://github.com/vertex-studyAI/LAM-JEPA/blob/37b14e17432f1d86cdf2c8b365765f167f7c905a/research/verification/maintenance_20261010/receipt.json",
+          "metadata_followup": {
+            "entry_commit": "a0ed9e1877321057076299b99a37def67cb9dde2",
+            "canonical_commit": "08010fb91df08f480e860029b9454ffc551cd132",
+            "implementation_and_tests_unchanged": true,
+            "local_tests_rerun": false
+          }
+        }
+      ]
+    }
   ]
 }
