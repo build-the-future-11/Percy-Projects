@@ -1,5 +1,10 @@
 # Percy Projects Repository
 
+<!-- research-engineering-audit-20261010 -->
+## Engineering audit — 10 October 2026
+
+[Published public-repository repairs and verification](audits/2026-10-10_public_research_engineering.md) records executable changes, exact source revisions and remaining scientific gates. The dated audit supplements this lifecycle; it assigns no new completed-study status.
+
 This repository is the **canonical home of research projects** Percy works on.
 
 It contains two kinds of research units:
