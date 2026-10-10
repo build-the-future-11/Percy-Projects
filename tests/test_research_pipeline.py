@@ -123,6 +123,7 @@ class LedgerTests(unittest.TestCase):
     def verification_receipt(self):
         state = self.project.read()["state"]
         return {"reviewer": "Independent fixture reviewer", "evidence_sha256": state["evidence_lock"]["sha256"],
+                "paper_sha256": state["artifacts"]["paper"]["sha256"], "environment_sha256": state["artifacts"]["env"]["sha256"],
                 "paper_artifact": "paper", "environment_artifact": "env", "checks": {key: True for key in VERIFY_CHECKS},
                 "reproduction_command": "Fictional receipt; do not execute", "limits": "ARTIFICIAL ledger fixture only"}
 

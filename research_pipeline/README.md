@@ -36,7 +36,7 @@ From the repository root:
 
 ```sh
 python -m research_pipeline --help
-python -m unittest discover -s tests -p test_research_pipeline.py -v
+python -m unittest discover -s tests -v
 python -m research_pipeline.demo --output /tmp/artificial-research-ledger-demo
 python -m research_pipeline verify /tmp/artificial-research-ledger-demo/study
 python -m research_pipeline state /tmp/artificial-research-ledger-demo/study
@@ -78,6 +78,7 @@ exit status 0. Most updates accept `--expected-head HASH` to reject a stale writ
 | `note` | Retain an observation and discriminating development experiment: `--json note.json` |
 | `revise` | Before freeze, record a new full contract and reason: `--json revision.json` |
 | `lock-evidence` | Gate 8, reviewed classification: `--json conclusion.json` |
+| `reseal-evidence` | Explicitly bind an active v1 seal to artifact bytes and require renewed review: `--json reason.json` |
 | `verify-review` | Gate 9: `--artifact VERIFICATION_RECEIPT_ID` |
 | `complete` | Gate 10: `--artifact RELEASE_MANIFEST_ID` |
 | `close-invalid` | Explicit invalid closure: `--json invalid-closure.json` |
@@ -258,16 +259,49 @@ fixed matrix, no invalid run, and a confirmatory claim. Conclusive dispositions
 also require successful evidence and a supported/partially supported evidentiary
 statement. A supported statement can describe a negative finding; it does not
 need to endorse the hypothesis. Classification is a **reviewer judgment**, not
-an automatic calculation from metric direction or score. The protocol, receipts,
-claims, and conclusion receive a fixed evidence digest. New runs or claims then
-require another study.
+an automatic calculation from metric direction or score. New runs or claims after
+locking require another study.
+
+New evidence locks use seal version 2. Their immutable `manifest` binds the
+contract and study version, frozen protocol, all registered artifact records
+(including SHA-256, byte count, kind and provenance parents), all admitted runs
+and claims with their development versions, current qualifications, predecessor
+identity, and conclusion. Earlier contract revisions, notes and rejection events
+remain in the full ledger, whose externally retained head binds that history.
+Thus changing retained code, data, logs, raw outcomes, analyses or displays cannot
+reuse an existing evidence digest just by retaining the same artifact IDs.
+Earlier admitted development and failed-run evidence is included. Later paper,
+review, and release registration does not change the sealed manifest.
+
+#### Existing version 1 histories
+
+Version 1 event semantics remain available for exact historical replay; reading
+an old study does not rewrite its state or digest. `verify` reports
+`evidence_seal_version` (`null` before locking, otherwise 1 or 2). Its `valid`
+field concerns ledger/object integrity, not scientific validity or the strength
+of an old seal. A v1 seal binds receipt labels, not every referenced object's
+bytes, so retain the externally trusted full ledger head when assessing old work.
+
+New review or release actions on an active v1 study require an explicit
+`reseal-evidence` receipt with exactly `{ "reason": "..." }`. This appends an
+event, includes the previous seal in the new manifest, preserves all earlier
+events, artifacts, outcomes, and the frozen protocol, and returns to gate 8.
+The prior review remains in history and its artifact remains registered; a new
+review must attest the new digest. Resealing does not authorize another run,
+change the conclusion, or alter the freeze. A completed or invalid-closed study
+remains immutable and cannot be resealed. A version 2 seal cannot be repeatedly
+resealed to reset review.
 
 ### Independent verification and release
 
-A verification artifact is JSON with exactly `reviewer`, `evidence_sha256`,
-`paper_artifact`, `environment_artifact`, `checks`, `reproduction_command`, and
-`limits`. Its reviewer name must differ from the contract owner, and its evidence
-digest must match gate 8. Checks are exactly `build`, `tests`, `reproduction`,
+A new verification artifact is JSON with exactly `reviewer`, `evidence_sha256`,
+`paper_artifact`, `paper_sha256`, `environment_artifact`, `environment_sha256`,
+`checks`, `reproduction_command`, and `limits`. The reviewer must supply the full
+lowercase SHA-256 identities of the actual paper and environment artifacts they
+reviewed. These must match retained bytes; the CLI does not invent these
+attestations. The reviewed environment must be the frozen environment that will
+be released. Its reviewer name must differ from the contract owner, and its
+evidence digest must match the version 2 seal at gate 8. Checks are exactly `build`, `tests`, `reproduction`,
 `figures`, `tables`, `paper_numbers`, `mathematics`, `citations`, and `claim_scope`,
 all boolean true. If a check cannot be substantiated, do not invent a passing
 receipt. Explain practical reproduction limits in `limits`.

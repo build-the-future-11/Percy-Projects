@@ -372,6 +372,22 @@ def _claim(state, claim):
         _require(claim["analysis_artifact"] in _artifact(state, artifact_id)["parents"], "figure/table does not trace to the claim analysis")
 
 
+def _seal_evidence(state, conclusion, *, previous_seal=None):
+    """Bind retained bytes and study identity, not just reusable artifact IDs."""
+    manifest = copy.deepcopy({
+        "schema_version": 2, "contract": state["contract"], "study_version": state["version"],
+        "freeze": state["freeze"], "artifacts": state["artifacts"],
+        "runs": state["runs"], "run_versions": state["run_versions"],
+        "claims": state["claims"], "claim_versions": state["claim_versions"],
+        "qualifications": state["qualifications"], "conclusion": conclusion,
+        "predecessor": state["predecessor"],
+        "previous_seal": previous_seal,
+    })
+    claims = [key for key, claim in state["claims"].items() if claim["phase"] == "CONFIRMATORY"]
+    return {"schema_version": 2, "sha256": digest(manifest), "manifest": manifest,
+            "conclusion": copy.deepcopy(conclusion), "claim_ids": sorted(claims)}
+
+
 def _transition(root, state, action, payload):
     if action == "initialized":
         _require(state is None, "project already initialized")
@@ -471,7 +487,7 @@ def _transition(root, state, action, payload):
         _claim(state, payload)
         state["claims"][payload["claim_id"]] = copy.deepcopy(payload)
         state["claim_versions"][payload["claim_id"]] = state["version"]
-    elif action == "lock_evidence":
+    elif action in {"lock_evidence", "lock_evidence_v2"}:
         _keys(payload, {"disposition", "scope", "reason"}, "conclusion")
         _require(state["checkpoint"] == 7, "evidence locking requires frozen confirmation")
         _require(payload["disposition"] in OUTCOMES, "INVALID cannot masquerade as a valid terminal result")
@@ -491,28 +507,57 @@ def _transition(root, state, action, payload):
         if payload["disposition"] != "INCONCLUSIVE":
             _require(any(claim["status"] in {"SUPPORTED", "PARTIALLY_SUPPORTED"} for claim in claims.values()), "this conclusion requires at least one supported evidentiary statement")
         bound = {"freeze": state["freeze"], "runs": {key: state["runs"][key] for key in sorted(expected)}, "claims": claims, "conclusion": payload}
-        state["evidence_lock"] = {"sha256": digest(bound), "conclusion": copy.deepcopy(payload), "claim_ids": sorted(claims)}
+        # Original event semantics remain replayable. Public writes select v2.
+        state["evidence_lock"] = (_seal_evidence(state, payload) if action == "lock_evidence_v2" else
+                                  {"sha256": digest(bound), "conclusion": copy.deepcopy(payload), "claim_ids": sorted(claims)})
         state["scientific_result"] = payload["disposition"]
         state["checkpoint"] = 8
-    elif action == "verify_review":
+    elif action == "reseal_evidence":
+        _keys(payload, {"reason"}, "evidence reseal")
+        _text(payload["reason"], "reseal reason")
+        _require(state["checkpoint"] in {8, 9}, "reseal requires an active locked or verified study")
+        previous = state["evidence_lock"]
+        _require(previous.get("schema_version", 1) == 1, "evidence already uses a byte-bound seal")
+        state["evidence_lock"] = _seal_evidence(state, previous["conclusion"], previous_seal=previous)
+        # Old receipts and events remain retained, but attest to the old digest.
+        state["verification"] = None
+        state["checkpoint"] = 8
+    elif action in {"verify_review", "verify_review_v2"}:
         _keys(payload, {"verification_artifact"}, "verification")
         _require(state["checkpoint"] == 8, "independent review requires locked evidence")
+        if action == "verify_review_v2":
+            _require(state["evidence_lock"].get("schema_version", 1) == 2,
+                     "legacy evidence requires explicit reseal-evidence before a new review")
         receipt = _artifact_json(root, state, payload["verification_artifact"], {"verification"})
-        _keys(receipt, {"reviewer", "evidence_sha256", "paper_artifact", "environment_artifact", "checks", "reproduction_command", "limits"}, "verification receipt")
+        receipt_keys = {"reviewer", "evidence_sha256", "paper_artifact", "environment_artifact", "checks", "reproduction_command", "limits"}
+        if action == "verify_review_v2":
+            receipt_keys |= {"paper_sha256", "environment_sha256"}
+        _keys(receipt, receipt_keys, "verification receipt")
         _text(receipt["reviewer"], "independent reviewer")
         _require(receipt["reviewer"].strip().casefold() != state["contract"]["owner"].strip().casefold(), "independent reviewer must differ from project owner")
         _require(receipt["evidence_sha256"] == state["evidence_lock"]["sha256"], "verification is not bound to the locked evidence")
         _artifact(state, receipt["paper_artifact"], {"paper"})
         _artifact(state, receipt["environment_artifact"], {"environment"})
+        if action == "verify_review_v2":
+            _require(receipt["environment_artifact"] == state["freeze"]["protocol"]["environment_artifact"],
+                     "review environment must be the frozen release environment")
+            for role in ("paper", "environment"):
+                recorded = receipt[role + "_sha256"]
+                _sha(recorded, role + " identity")
+                _require(recorded == _artifact(state, receipt[role + "_artifact"])["sha256"],
+                         f"review {role} identity differs from the retained bytes")
         _keys(receipt["checks"], VERIFY_CHECKS, "verification checks")
         _require(all(value is True for value in receipt["checks"].values()), "all declared independent verification checks must pass")
         _text(receipt["reproduction_command"], "reproduction command")
         _text(receipt["limits"], "verification limits")
         state["verification"] = {"artifact_id": payload["verification_artifact"], "receipt": receipt}
         state["checkpoint"] = 9
-    elif action == "complete":
+    elif action in {"complete", "complete_v2"}:
         _keys(payload, {"release_artifact"}, "release")
         _require(state["checkpoint"] == 9, "completion requires independent verification")
+        if action == "complete_v2":
+            _require(state["evidence_lock"].get("schema_version", 1) == 2,
+                     "legacy evidence requires explicit reseal-evidence and a new review before release")
         release = _artifact_json(root, state, payload["release_artifact"], {"release"})
         _keys(release, {"release_commit", "disposition", "scope", "evidence_sha256", "roles", "reviews"}, "release manifest")
         _sha(release["release_commit"], "release commit", 40)
@@ -733,6 +778,10 @@ class Project:
         self._write(events + [event], candidate)
 
     def apply(self, action, payload, *, expected_head=None):
+        # These v1 names are accepted only by history replay. Normal API/CLI
+        # updates always use explicit v2 event semantics, even on old studies.
+        action = {"lock_evidence": "lock_evidence_v2", "verify_review": "verify_review_v2",
+                  "complete": "complete_v2"}.get(action, action)
         with self._lock():
             events, state = self._load()
             self._admit(events, state, action, payload, expected_head)
