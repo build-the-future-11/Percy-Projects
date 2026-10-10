@@ -1,0 +1,75 @@
+{
+  "schema": "percy.project_state.v1",
+  "project": "Math 11 certified cubic-field certificate",
+  "as_of": "2026-10-07",
+  "canonical_implementation": "projects/math11",
+  "question": "Does the retained October 2 release's exact computational certificate reproduce from the authentic original bytes?",
+  "package_state": "COMPLETE",
+  "terminal_conclusion": "RETAINED_COMPUTATIONAL_CERTIFICATE_REPRODUCED",
+  "scientific_scope": "Exact algebraic identities, inverse-Vandermonde bounds, all 454 nonzero coefficient triples, rational logarithm bounds and the 16-by-16 lattice cover in the October 2 release.",
+  "history": [
+    {
+      "date": "2026-10-02",
+      "event": "Original certified release and explicit proved/unproved ledger created."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Authentic archive recovered; CRC and original checksums passed; retained verifier output reproduced exactly."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Assertion-safe isolated replay, all-member integrity checks and nine corruption/regression tests completed."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Independent implementation review found no material replay defect; mathematical proof and novelty review remain distinct."
+    }
+  ],
+  "evidence": [
+    "source/Math11_Certified_Release_2026-10-02.zip",
+    "release/verify.py",
+    "release/candidate_table.csv",
+    "release/paper.tex",
+    "release/CLAIM_STATUS.md",
+    "results/replay_2026-10-07.json"
+  ],
+  "validation": {
+    "original_archive_sha256": "8f9d8b053271fc85c53c6294e2f3601d3bc4a34bdc795816cc5dfb3f928f5eeb",
+    "all_11_original_members_unchanged": true,
+    "verifier_stdout_matches_original": true,
+    "candidate_triples": 454,
+    "log_lattice_cells": 256,
+    "tests_passed": 9,
+    "tests_failed": 0,
+    "python_tested": "3.12.14"
+  },
+  "claims": {
+    "computational_replay": "SUPPORTED",
+    "paper_mathematical_deductions_independently_reviewed": false,
+    "literature_novelty_established": false,
+    "all_csv_display_decimals_independently_recomputed": false,
+    "numerical_log_density_is_a_theorem": false,
+    "ordinary_density_nonconvergence_proved": false,
+    "complete_global_switching_list_proved": false
+  },
+  "failures_and_corrections": [
+    "Original verify.py relies on assert; optimized Python can disable those checks. New runner refuses -O/-OO and launches an isolated assertion-enabled subprocess.",
+    "Older numerical density observations are excluded from the retained release's certified claims."
+  ],
+  "conference_route": "ISSAC 2027 conditional on symbolic-computation/algorithmic novelty; number-theory journal alternative",
+  "conference_submission_state": "NOT_SUBMITTED_BY_THIS_WORK",
+  "next_decisive_action": "Obtain independent proof and related-work review of the retained manuscript; assess algorithmic novelty for ISSAC before choosing the archival route.",
+  "reproduction_command": "python -B projects/math11/tools/reproduce.py",
+  "claims_scope": "The existing claims object describes only the retained October 2 release; see followup_units for later manuscript-derived checks.",
+  "followup_units": [
+    {
+      "path": "torus_sampling",
+      "state": "BOUNDED_ARITHMETIC_VERIFICATION_COMPLETE",
+      "source_replay": false,
+      "analytic_scope": "Newer exact-area and sampling manuscripts internally reviewed; not formal or external review",
+      "new_source_bytes": "BLOCKED_TRANSFER",
+      "MATH-02_full_step_one_nonresonance": "OPEN",
+      "all_research_complete": false
+    }
+  ]
+}

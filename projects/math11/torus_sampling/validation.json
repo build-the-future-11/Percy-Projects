@@ -1,0 +1,37 @@
+{
+  "schema": "math11.torus_validation.v1",
+  "as_of": "2026-10-07",
+  "python": "3.12.14",
+  "commands": [
+    {
+      "command": "python -B projects/math11/torus_sampling/check_exact.py --limit 1000 --output NEW_PATH",
+      "result": "PASS"
+    },
+    {
+      "command": "python -B -O projects/math11/torus_sampling/check_exact.py --limit 1000 --check projects/math11/torus_sampling/independent_certificate.json",
+      "result": "PASS"
+    },
+    {
+      "command": "python -B -m unittest discover -s projects/math11/torus_sampling -p 'test_*.py' -v",
+      "result": "PASS",
+      "tests": 24
+    }
+  ],
+  "certificate_sha256": "e1aa7f66162177dd63932947a4788bb604240869402b2dc864c997f95fb1f28c",
+  "counts": {
+    "open_cell_triples": 384,
+    "embedding_exclusions": [
+      368,
+      14
+    ],
+    "unit_box_triples": 314,
+    "signed_units": 42,
+    "additional_norm_crosscheck_triples": 693,
+    "character_sign_representatives": 2002000,
+    "covered_nonzero_vectors": 4004000
+  },
+  "original_source_replay": false,
+  "full_nonresonance_proved": false,
+  "finite_sample_discrepancy_bound": false,
+  "external_review": false
+}

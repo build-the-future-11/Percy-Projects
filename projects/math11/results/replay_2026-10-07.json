@@ -1,0 +1,33 @@
+{
+  "archive_sha256": "8f9d8b053271fc85c53c6294e2f3601d3bc4a34bdc795816cc5dfb3f928f5eeb",
+  "assertions_enabled": true,
+  "candidate_triples": 454,
+  "elapsed_seconds": 5.107932,
+  "excluded_claims": [
+    "the numerical logarithmic exceptional density is a theorem",
+    "ordinary integer-sampling density does not converge",
+    "all switching intervals have been explicitly enumerated"
+  ],
+  "independent_proof_review_completed": false,
+  "literature_novelty_established": false,
+  "log_lattice_cells": 256,
+  "member_sha256": {
+    "CLAIM_STATUS.md": "924fe5a6a8cfb71cb7e6ddd76cb0b64cc0cda2f10ae1831577b9eae773a851c0",
+    "Math11_Cubic_Field_Certified_Results.pdf": "de3576a0bb3e5a6b49d061e721fc73c48139e8e4f50d653f2ca7be6510397deb",
+    "README.md": "83c29b0d9fd874d33a74a351cf39fb9ab19c50ade9f14374a7e0856825e09619",
+    "SHA256SUMS.txt": "f057ca978b59f1936f543e944612edeb9624a9730320c4314ca15ae3f68036d3",
+    "bounded_frontier.png": "f3ae29d02b3a60875724b5c3e74cf089ad3523b751f272a0322d991ae4206f55",
+    "candidate_table.csv": "f6525df919e5540b3689054a5b7a2682eda846197a8dddfe4800962075090dc4",
+    "certificate_manifest.json": "d6dd79feb4da22b828ff0b7da9a89866f213bdd0a18e7ba0875287c03ad5f5bd",
+    "log_lattice.png": "23634ce01f095ae4d2e83d0cb6fbbbe61d127b631b49e26e68329f80fc547d69",
+    "paper.tex": "e8a75af84048a5a6a7f5d1375e1a5c77628b899560d748130bfd9cb43653c7a0",
+    "verifier_output.txt": "c96b987b3ccd85d9835adc091b80d7dcc6d6b8f0275d5c1d5046a8d8c71e0e3c",
+    "verify.py": "97c35a569fa5934cf90b78eefeeb03de8cc738820ed005112dac453589db99c4"
+  },
+  "python": "3.12.14",
+  "schema": "percy.math11.certificate_replay.v1",
+  "scope": "October 2, 2026 exact computational certificate",
+  "status": "REPRODUCED",
+  "stdout_matches_original": true,
+  "stdout_sha256": "c96b987b3ccd85d9835adc091b80d7dcc6d6b8f0275d5c1d5046a8d8c71e0e3c"
+}
