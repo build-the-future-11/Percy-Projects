@@ -1,0 +1,249 @@
+{
+  "schema_version": "research-portfolio-execution-index-v1",
+  "observed_at_utc": "2026-10-10 04:12:22 UTC",
+  "scope": "Reviewed engineering maintenance publications for the ten public research repositories listed here. This is not an exhaustive portfolio migration or a record of completed scientific studies.",
+  "publication_status": "DRAFT_PRS_UNMERGED",
+  "scientific_checkpoint_change": null,
+  "canonical_state_rule": "Read each repository's AGENTS.md and linked canonical state before work. Update that state and preserve its history before finishing. This execution index does not replace those scientific records or initialize a new scientific hypothesis.",
+  "verification_scope": "Local counts are passing tests or unittest methods in the suites actually run, including retained tests. They are not counts of new tests or independent scientific repetitions. Hosted reruns are not added to the counts. No protected confirmatory matrix was executed by this maintenance batch.",
+  "entries": [
+    {
+      "repository": "THE-BU1LD/Fabric-Induced-Memory",
+      "visibility": "public",
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/30",
+      "head_commit": "fd5161947c127797e7b0c2cda9dbfb7d0d378d97",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/fd5161947c127797e7b0c2cda9dbfb7d0d378d97/research/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/fd5161947c127797e7b0c2cda9dbfb7d0d378d97/AGENTS.md",
+      "change": "Bounded rolling fractional histories, owned snapshots, shape and numerical validation",
+      "validation": {
+        "local_tests_passed": 33,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "CI",
+            "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38021003681",
+            "conclusion": "success"
+          },
+          {
+            "name": "Repository tests within Current FIM component ablations",
+            "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38021003683",
+            "conclusion": "success"
+          }
+        ],
+        "protected_job": "trajectory-isolated-v1 SKIPPED; repository-tests executed"
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "Finance-Meta-Research/FI-JEPA",
+      "visibility": "public",
+      "pull_request": "https://github.com/Finance-Meta-Research/FI-JEPA/pull/11",
+      "head_commit": "853dbb4649281920f8ca412e663f9e3eb797da62",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/Finance-Meta-Research/FI-JEPA/blob/853dbb4649281920f8ca412e663f9e3eb797da62/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/Finance-Meta-Research/FI-JEPA/blob/853dbb4649281920f8ca412e663f9e3eb797da62/AGENTS.md",
+      "change": "Correct sample weighting for uneven gradient-accumulation groups",
+      "validation": {
+        "local_tests_passed": 23,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "Optimizer correctness",
+            "url": "https://github.com/Finance-Meta-Research/FI-JEPA/actions/runs/38021271224",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "Finance-Meta-Research/Eigen-JEPA",
+      "visibility": "public",
+      "pull_request": "https://github.com/Finance-Meta-Research/Eigen-JEPA/pull/32",
+      "head_commit": "7b6eae8446d85b7d281fd22979575076ccece164",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/Finance-Meta-Research/Eigen-JEPA/blob/7b6eae8446d85b7d281fd22979575076ccece164/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/Finance-Meta-Research/Eigen-JEPA/blob/7b6eae8446d85b7d281fd22979575076ccece164/AGENTS.md",
+      "change": "Per-window evaluation v2, pooled cohort metrics and full-cohort baselines",
+      "validation": {
+        "local_tests_passed": 113,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "CI",
+            "url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/actions/runs/38021272558",
+            "conclusion": "success"
+          },
+          {
+            "name": "Submission claim gate",
+            "url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/actions/runs/38021272473",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "build-the-future-11/IRIS-Space",
+      "visibility": "public",
+      "pull_request": "https://github.com/build-the-future-11/IRIS-Space/pull/42",
+      "head_commit": "86be58b453bfa785a31e7a4fd93df1a7d62d962e",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/build-the-future-11/IRIS-Space/blob/86be58b453bfa785a31e7a4fd93df1a7d62d962e/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/build-the-future-11/IRIS-Space/blob/86be58b453bfa785a31e7a4fd93df1a7d62d962e/AGENTS.md",
+      "change": "Immutable content-bound episodic memory with vectorized weighted retrieval",
+      "validation": {
+        "local_tests_passed": 27,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "CI",
+            "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38021273852",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "build-the-future-11/Kyrlov-JEPA",
+      "visibility": "public",
+      "pull_request": "https://github.com/build-the-future-11/Kyrlov-JEPA/pull/21",
+      "head_commit": "be5aea5c658a0fb2da4d0f7cea34560ef62c0c88",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/build-the-future-11/Kyrlov-JEPA/blob/be5aea5c658a0fb2da4d0f7cea34560ef62c0c88/spectral-krylov-jepa/research/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/build-the-future-11/Kyrlov-JEPA/blob/be5aea5c658a0fb2da4d0f7cea34560ef62c0c88/AGENTS.md",
+      "change": "Rank-correct Ritz span, checked orthonormal fast path and reorthogonalized proposals",
+      "validation": {
+        "local_tests_passed": 46,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "not_dispatched",
+        "hosted_runs": []
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "vertex-studyAI/LAM-JEPA",
+      "visibility": "public",
+      "pull_request": "https://github.com/vertex-studyAI/LAM-JEPA/pull/203",
+      "head_commit": "d40a4c4a3a9490a252265b1c54229506dd6a7b3a",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/vertex-studyAI/LAM-JEPA/blob/d40a4c4a3a9490a252265b1c54229506dd6a7b3a/research/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/vertex-studyAI/LAM-JEPA/blob/d40a4c4a3a9490a252265b1c54229506dd6a7b3a/AGENTS.md",
+      "change": "Consistent paired estimand, explicit effect definition and stable finite reductions",
+      "validation": {
+        "local_tests_passed": 27,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "not_dispatched",
+        "hosted_runs": []
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "THE-BU1LD/NeuroCAD",
+      "visibility": "public",
+      "pull_request": "https://github.com/THE-BU1LD/NeuroCAD/pull/98",
+      "head_commit": "982eafb1665a9c31868cfcfda7c75571885c2cd8",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/THE-BU1LD/NeuroCAD/blob/982eafb1665a9c31868cfcfda7c75571885c2cd8/research/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/THE-BU1LD/NeuroCAD/blob/982eafb1665a9c31868cfcfda7c75571885c2cd8/AGENTS.md",
+      "change": "Scale-invariant mesh predicates and overflow-safe centering",
+      "validation": {
+        "local_tests_passed": 66,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "not_dispatched",
+        "hosted_runs": []
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "THE-BU1LD/GaussianMemory",
+      "visibility": "public",
+      "pull_request": "https://github.com/THE-BU1LD/GaussianMemory/pull/6",
+      "head_commit": "89bec9805a311946f05a3038d89a1a0ff46d2c43",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/THE-BU1LD/GaussianMemory/blob/89bec9805a311946f05a3038d89a1a0ff46d2c43/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/THE-BU1LD/GaussianMemory/blob/89bec9805a311946f05a3038d89a1a0ff46d2c43/AGENTS.md",
+      "change": "Executable five-component ablations with default-model equivalence and failure-retaining runner",
+      "validation": {
+        "local_tests_passed": 31,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "CI",
+            "url": "https://github.com/THE-BU1LD/GaussianMemory/actions/runs/38022673622",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "THE-BU1LD/RIPII",
+      "visibility": "public",
+      "pull_request": "https://github.com/THE-BU1LD/RIPII/pull/22",
+      "head_commit": "66ee627b32387e86bcc4bc0d57e725f63a21fe60",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/THE-BU1LD/RIPII/blob/66ee627b32387e86bcc4bc0d57e725f63a21fe60/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/THE-BU1LD/RIPII/blob/66ee627b32387e86bcc4bc0d57e725f63a21fe60/AGENTS.md",
+      "change": "Detect exact trajectory-content overlap across external dataset splits after ID, dtype or padding changes",
+      "validation": {
+        "local_tests_passed": 220,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "CI",
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38022675853",
+            "conclusion": "success"
+          },
+          {
+            "name": "Quality",
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38022675832",
+            "conclusion": "success"
+          },
+          {
+            "name": "Security",
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38022675857",
+            "conclusion": "success"
+          },
+          {
+            "name": "Device smoke",
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38022675865",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "scientific_checkpoint_change": null
+    },
+    {
+      "repository": "THE-BU1LD/EPU",
+      "visibility": "public",
+      "pull_request": "https://github.com/THE-BU1LD/EPU/pull/11",
+      "head_commit": "92b0db58b179fef4dc74a2a368152fe4d3a0d7db",
+      "publication_status": "DRAFT_PR_UNMERGED",
+      "canonical_state": "https://github.com/THE-BU1LD/EPU/blob/92b0db58b179fef4dc74a2a368152fe4d3a0d7db/RESEARCH_STATE.json",
+      "session_instructions": "https://github.com/THE-BU1LD/EPU/blob/92b0db58b179fef4dc74a2a368152fe4d3a0d7db/AGENTS.md",
+      "change": "Strict ordered HDL parity transcripts and error detection on stdout and stderr",
+      "validation": {
+        "local_tests_passed": 16,
+        "evidence_class": "ENGINEERING_CORRECTNESS",
+        "hosted_engineering_ci": "passed",
+        "hosted_runs": [
+          {
+            "name": "Reference smoke, including Icarus HDL parity",
+            "url": "https://github.com/THE-BU1LD/EPU/actions/runs/38022678322",
+            "conclusion": "success"
+          }
+        ]
+      },
+      "scientific_checkpoint_change": null
+    }
+  ]
+}
