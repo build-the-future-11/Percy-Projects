@@ -1,0 +1,31 @@
+{
+  "source_sha256": {
+    "research_pipeline/ledger.py": "8eb8624282634411565102c25ab42eec5d4dd72fb1cd9fa92f54b54314c05d6d",
+    "tests/test_research_pipeline.py": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921"
+  },
+  "command": "python -m unittest discover -s tests -p test_research_pipeline.py -v",
+  "baseline": {
+    "passed": 52,
+    "failed": 4,
+    "seconds": 39.818,
+    "raw": "snapshot_baseline_20261010.txt"
+  },
+  "scientific_runs": 0,
+  "research_checkpoints_advanced": 0,
+  "initial_parent_commit": "a664fea4a5db0789bde91898328514ceb8d45a31",
+  "publication_parent_commit": "b2bd69186327d0e188df2f4567a116d8afebd255",
+  "initial_candidate": {
+    "passed": 56,
+    "failed": 0,
+    "seconds": 43.212,
+    "raw": "snapshot_verified_20261010.txt"
+  },
+  "final": {
+    "passed": 65,
+    "failed": 0,
+    "seconds": 30.516,
+    "command": "python -m unittest discover -s tests -v",
+    "raw": "snapshot_integrated_20261010.txt"
+  },
+  "independent_review": "Separate agent reviewed source and ran 56 tests plus35 subtests before integrating complementary PR5; no blocking issue."
+}

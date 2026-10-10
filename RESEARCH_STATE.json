@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "project": "build-the-future-11/Percy-Projects",
+  "canonical_entry_point": "RESEARCH_STATE.json",
+  "updated_date": "2026-10-10",
+  "initialization_note": "Retrospective index initialized during this engineering pass. Earlier repository records remain authoritative; no complete retroactive history audit is claimed.",
+  "research_question": "Can a durable project ledger preserve protocol/evidence identities and return unambiguous mutation receipts under adversarial file replacement and cooperating writers?",
+  "scientific_objective": "Implement mechanically testable state/history/provenance integrity for the existing research lifecycle.",
+  "current_hypothesis": "Engineering contract: gates parse verified JSON bytes and successful updates return the state generated while holding their exclusive write lock.",
+  "intended_contribution": "Research lifecycle infrastructure; it records evidence and review attestations without establishing their scientific truth.",
+  "project_scope": "Bind JSON parsing to verified object bytes and bind update receipts to the operation that produced them.",
+  "current_phase": "ENGINEERING_VERIFICATION; no empirical study is being completed",
+  "scientific_disposition": null,
+  "research_complete_verified": false,
+  "development_budget": {
+    "scope": "Bounded offline regression tests, peer review, and the named engineering repair. No new scientific run matrix authorized by this index.",
+    "scientific_runs_executed_this_pass": 0
+  },
+  "compute_budget": {
+    "paid_compute_used": false,
+    "accelerator_runs": 0,
+    "execution": "Local CPU engineering tests only; per-command measured runtime is recorded below."
+  },
+  "protected_evaluation_boundary": {
+    "outcomes_accessed_this_pass": false,
+    "protocols_or_splits_changed": false,
+    "prior_exposure_status": "Not newly certified by this index.",
+    "rule": "Retain original frozen studies and adverse results. A changed scientific hypothesis requires a separately versioned protocol."
+  },
+  "repositories": [
+    {
+      "url": "https://github.com/build-the-future-11/Percy-Projects",
+      "tested_parent_commit": "b2bd69186327d0e188df2f4567a116d8afebd255",
+      "parent_pr": 5
+    }
+  ],
+  "datasets": {
+    "used_this_pass": "Artificial tensors/CSV/filesystem fixtures in the committed tests.",
+    "historical_data_policy": "Existing provenance, licenses and split records remain authoritative; no historical data import or regeneration performed."
+  },
+  "artifacts": {
+    "truth_and_protocols": [
+      "PERCY_PROJECTS_README.md",
+      "research_pipeline/README.md",
+      "research_pipeline/DESIGN.md",
+      "research_pipeline/DEVELOPMENT_20261010.md"
+    ],
+    "engineering_record": "research_pipeline/SNAPSHOT_INTEGRITY_20261010.md",
+    "source_sha256": {
+      "research_pipeline/ledger.py": "8eb8624282634411565102c25ab42eec5d4dd72fb1cd9fa92f54b54314c05d6d",
+      "tests/test_research_pipeline.py": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921"
+    }
+  },
+  "claims": [
+    {
+      "kind": "engineering",
+      "claim": "Bind JSON parsing to verified object bytes and bind update receipts to the operation that produced them.",
+      "evidence": "research_pipeline/SNAPSHOT_INTEGRITY_20261010.md",
+      "limits": [
+        "Only artificial temporary fixtures exercise the lifecycle gates; no real study reaches checkpoint 10 through this work.",
+        "No local ledger authenticates a reviewer, prevents all external tampering, or proves scientific validity.",
+        "Ordinary objects remain streamed; JSON capture uses memory proportional to document size.",
+        "A trusted external head is still needed to detect whole-history rollback."
+      ]
+    }
+  ],
+  "decisions": [
+    "Keep source changes reviewable in GitHub branches/PRs.",
+    "Preserve existing evidence, failure records and frozen source identities.",
+    "Do not promote software tests to research checkpoints."
+  ],
+  "failures": [
+    "Full baseline with four new adversarial regressions: 52 passed, 4 failed.",
+    "A second JSON path read could parse unverified replacement bytes.",
+    "A cooperating writer after lock release could make initialize/apply/artifact return the second writer's state."
+  ],
+  "verification": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 65,
+    "seconds": 30.516,
+    "scope": "Local engineering verification only",
+    "raw_output": "research_pipeline/snapshot_integrated_20261010.txt"
+  },
+  "history": {
+    "retroactive_import_complete": false,
+    "preserved_repository_commit": "a664fea4a5db0789bde91898328514ceb8d45a31",
+    "historical_findings": [
+      "PR #4 implements the existing pipeline and retains its earlier 52-test verification and development failures.",
+      "No model training or real scientific conclusion was produced by the artificial demonstration."
+    ],
+    "sessions": [
+      {
+        "date": "2026-10-10",
+        "type": "engineering",
+        "record": "research_pipeline/SNAPSHOT_INTEGRITY_20261010.md",
+        "source_sha256": {
+          "research_pipeline/ledger.py": "8eb8624282634411565102c25ab42eec5d4dd72fb1cd9fa92f54b54314c05d6d",
+          "tests/test_research_pipeline.py": "54ea8219ebb1825607b59a338e8381a0f61c28341e616cc8102bf48d370fe921"
+        },
+        "new_scientific_evidence": false,
+        "integration_note": "Rebased without conflict onto concurrent PR #5 byte-bound evidence seals, keeping its v1-history compatibility and additional 9 tests. The initial 56-test candidate and peer review remain recorded."
+      }
+    ]
+  },
+  "checkpoint_policy": "No scientific checkpoint is advanced by this index; qualification requires the named scientific evidence and independent review.",
+  "blockers_and_limits": [
+    "Only artificial temporary fixtures exercise the lifecycle gates; no real study reaches checkpoint 10 through this work.",
+    "No local ledger authenticates a reviewer, prevents all external tampering, or proves scientific validity.",
+    "Ordinary objects remain streamed; JSON capture uses memory proportional to document size.",
+    "A trusted external head is still needed to detect whole-history rollback."
+  ],
+  "next_executable_action": "Review the verified snapshot/receipt fix. Initialize each real study only from its concrete contract; do not reuse artificial demonstration outcomes as evidence."
+}
