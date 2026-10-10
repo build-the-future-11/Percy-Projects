@@ -1565,3 +1565,8 @@ The wave coordinates the work.
 The project owns the science.
 
 The evidence decides the result.
+
+
+## Research engineering follow-up — 10 October 2026
+
+The [public follow-up audit](audits/2026-10-10_public_research_engineering_followup.md) records twelve additional runtime repairs and one independent test/review follow-up across thirteen public projects, with exact source revisions, test evidence and scientific boundaries. The [machine-readable record](audits/2026-10-10_public_research_engineering_followup.json) accompanies it. The earlier audit remains intact.

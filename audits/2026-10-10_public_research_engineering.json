@@ -1,0 +1,1773 @@
+{
+  "schema_version": "public-research-engineering-index-v1",
+  "generated_at_utc": "2026-10-10T03:47:58+00:00",
+  "scope": "Public GitHub repository engineering corrections only; no new scientific terminal status.",
+  "code_repositories": 13,
+  "new_draft_pull_requests": 13,
+  "merged": 0,
+  "counting_policy": [
+    "Test counts include retained and new cases and are not all newly added tests.",
+    "Local/hosted, focused/full and multiple-platform test counts overlap and must not be summed.",
+    "Whole-PR line/file totals can include earlier work or observed concurrent commits; raw receipts are not all code.",
+    "A passing engineering workflow is not a confirmed scientific hypothesis or a completed study.",
+    "A GitHub pull-request workflow can test a merge preview; detailed receipts distinguish explicit exact-head checkouts when known."
+  ],
+  "repositories": [
+    {
+      "repository": "build-the-future-11/world-series",
+      "visibility": "public",
+      "name": "World Series",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "dbf580acc75a5d5650de74d55fbaab6b023f3374",
+      "pull_request": {
+        "number": 1,
+        "url": "https://github.com/build-the-future-11/world-series/pull/1",
+        "title": "Preserve research artifacts and terminal run receipts",
+        "base_branch": "main",
+        "base_sha": "a7ab171465aa92aec57e2079f8df71e7685d4cf9",
+        "head_branch": "codex/research-integrity-20261010-world-series",
+        "observed_head_sha": "dbf580acc75a5d5650de74d55fbaab6b023f3374",
+        "merge_preview_sha": "a8777a08e42d56632920f9b020ee396e3e6841c7",
+        "draft": true,
+        "merged": false,
+        "changed_files": 8,
+        "commits": 2
+      },
+      "engineering_change_summary": "Atomic immutable artifacts, sealed terminal receipts, finite budgets and interruption-safe reporting.",
+      "validation_summary": "52 focused local tests; full hosted implementation checks, package build and CLI doctor pass.",
+      "primary_workflow_url": "https://github.com/build-the-future-11/world-series/actions/runs/38019364063",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "build-the-future-11/world-series",
+        "pr": 1,
+        "session_published_head": "dbf580acc75a5d5650de74d55fbaab6b023f3374",
+        "base": "main",
+        "parent": "a7ab171465aa92aec57e2079f8df71e7685d4cf9",
+        "session_changes": [
+          "Atomic immutable artifact publication with exclusive same-filesystem linking and fsync",
+          "Sealed idempotent terminal receipts and snapshots of mutable evidence",
+          "Finite budget admission and nonnegative integer consumption",
+          "Interruption retains partial evidence and returns exit 130",
+          "Independent review repair preserves successful receipt when subsequent stdout fails"
+        ],
+        "local": {
+          "passed": 52,
+          "scope": "Focused evidence, budget and CLI contracts"
+        },
+        "baseline_regression": {
+          "passed": 1,
+          "failed": 40,
+          "scope": "Initial evidence-preservation cases against original source"
+        },
+        "hosted": {
+          "status": "success",
+          "head": "dbf580acc75a5d5650de74d55fbaab6b023f3374",
+          "run_id": 38019364063,
+          "job_id": 114116688596,
+          "scope": "Existing full implementation checks, actual Torch suite, package build and CLI doctor; aggregate test count not inferred from quiet logs",
+          "url": "https://github.com/build-the-future-11/world-series/actions/runs/38019364063"
+        },
+        "independent_review": "An independent reviewer found and verified the post-success stdout interruption fix",
+        "source_verification": {
+          "key": "world",
+          "head": "dbf580acc75a5d5650de74d55fbaab6b023f3374",
+          "expected_blobs": 8,
+          "mismatches": [],
+          "unexpected_changes": [],
+          "preserved_blobs": 619,
+          "verified_at_head": "dbf580acc75a5d5650de74d55fbaab6b023f3374"
+        },
+        "boundaries": [
+          "Retained evidence and scientific dispositions preserved",
+          "No model-performance or study-completion claim"
+        ],
+        "record": "docs/EVIDENCE_PRESERVATION_20261010.md"
+      }
+    },
+    {
+      "repository": "THE-BU1LD/NeuroCAD",
+      "visibility": "public",
+      "name": "NeuroCAD",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "6b3c27f0b07732b7b61dc83035ec2282d7ac2ff5",
+      "pull_request": {
+        "number": 95,
+        "url": "https://github.com/THE-BU1LD/NeuroCAD/pull/95",
+        "title": "Fix polynomial differentiation at zero and reject malformed Jet dimensions",
+        "base_branch": "main",
+        "base_sha": "23c7284048512ca8d956c9a2c4c62eb1f8b8ea89",
+        "head_branch": "codex/research-integrity-20261010-neurocad",
+        "observed_head_sha": "6b3c27f0b07732b7b61dc83035ec2282d7ac2ff5",
+        "merge_preview_sha": "5cee8212ca98f7d2cd3585bd14353dac1a6b049e",
+        "draft": true,
+        "merged": false,
+        "changed_files": 3,
+        "commits": 1
+      },
+      "engineering_change_summary": "Correct zero-base autodiff powers and reject invalid gradient indices or returned Jet dimensions.",
+      "validation_summary": "1,208 tests pass, 9 skip in the Python 3.12 job; all 10 CI jobs and Gmsh pass.",
+      "primary_workflow_url": "https://github.com/THE-BU1LD/NeuroCAD/actions/runs/38019363749",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "THE-BU1LD/NeuroCAD",
+        "pr": 95,
+        "session_published_head": "6b3c27f0b07732b7b61dc83035ec2282d7ac2ff5",
+        "base": "main",
+        "parent": "23c7284048512ca8d956c9a2c4c62eb1f8b8ea89",
+        "session_changes": [
+          "Correct automatic-differentiation constant/identity powers at zero",
+          "Reject boolean/out-of-range gradient seed indices",
+          "Reject returned Jet dimensions incompatible with input contract"
+        ],
+        "baseline_regression": {
+          "failed": 11,
+          "passed": 22,
+          "scope": "33 constructed analytical regressions"
+        },
+        "local": {
+          "passed": 51,
+          "scope": "18 existing plus 33 new automatic-differentiation tests"
+        },
+        "hosted": {
+          "status": "success",
+          "head": "6b3c27f0b07732b7b61dc83035ec2282d7ac2ff5",
+          "run_id": 38019363749,
+          "job_id": 114116687855,
+          "passed": 1208,
+          "skipped": 9,
+          "scope": "Python 3.12 suite; all 10 CI jobs green across supported platforms, browsers and package checks",
+          "url": "https://github.com/THE-BU1LD/NeuroCAD/actions/runs/38019363749"
+        },
+        "additional_workflows": [
+          {
+            "run_id": 38019363731,
+            "name": "Gmsh",
+            "status": "success",
+            "url": "https://github.com/THE-BU1LD/NeuroCAD/actions/runs/38019363731"
+          }
+        ],
+        "source_verification": {
+          "all_3_candidate_blobs_match": true,
+          "unrelated_base_blobs_preserved": 4241,
+          "verified_at_head": "6b3c27f0b07732b7b61dc83035ec2282d7ac2ff5"
+        },
+        "boundaries": [
+          "No retained research result or performance claim altered"
+        ],
+        "record": null
+      }
+    },
+    {
+      "repository": "THE-BU1LD/Fabric-Induced-Memory",
+      "visibility": "public",
+      "name": "FIM",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "0ae2bf91fb1b88217637a5319f9c74628ffa4436",
+      "pull_request": {
+        "number": 28,
+        "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/28",
+        "title": "Repair public FIM training, structured losses, and reversible parameter EMA",
+        "base_branch": "main",
+        "base_sha": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+        "head_branch": "codex/research-integrity-20261010-fim-trainer",
+        "observed_head_sha": "0ae2bf91fb1b88217637a5319f9c74628ffa4436",
+        "merge_preview_sha": "8e0bd46d2c7a2960987757b9ad8be51fc3232942",
+        "draft": true,
+        "merged": false,
+        "changed_files": 4,
+        "commits": 1
+      },
+      "engineering_change_summary": "Repair the actual Trainer/model API and make parameter EMA evaluation reversible.",
+      "validation_summary": "192 tests pass, 7 skip and 10 subtests pass; protected trajectory job stays skipped.",
+      "primary_workflow_url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38018589291",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "THE-BU1LD/Fabric-Induced-Memory",
+        "pr": 28,
+        "branch": "codex/research-integrity-20261010-fim-trainer",
+        "head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436",
+        "base": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+        "tree": "5cff2c93f6e9402d5a515a8223fb88b77ab4fc81",
+        "scope": "Repair the public Trainer for the current FIM output/scheduler API, correct retrieval context and stored-mask handling, reject invalid losses/gradients before optimizer updates, and make EMA evaluation trainable-parameter-only and exception-safe. The main scientific runner and protected protocols are unchanged.",
+        "files": [
+          "fim/training/trainer.py",
+          "fim/training/optimizer.py",
+          "tests/test_public_trainer.py",
+          "research/DEVELOPMENT_TRAINER_REPAIR_20261010.md"
+        ],
+        "new_regression_cases": 16,
+        "ci": [
+          {
+            "id": 38018589291,
+            "name": "CI",
+            "conclusion": "success",
+            "job": 114114339934,
+            "tests": {
+              "passed": 192,
+              "skipped": 7,
+              "subtests_passed": 10,
+              "warnings": 11,
+              "seconds": 4.91
+            },
+            "python": "3.11.17",
+            "torch": "2.14.1",
+            "checkout_merge_short_sha": "8e0bd46",
+            "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38018589291",
+            "head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436"
+          },
+          {
+            "id": 38018589282,
+            "name": "Current component ablations",
+            "conclusion": "success",
+            "protected_job": {
+              "id": 114114634095,
+              "name": "trajectory-isolated-v1",
+              "conclusion": "skipped"
+            },
+            "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38018589282",
+            "head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436"
+          }
+        ],
+        "remote_blob_verification": {
+          "changed": [
+            "fim/training/optimizer.py",
+            "fim/training/trainer.py"
+          ],
+          "added": [
+            "research/DEVELOPMENT_TRAINER_REPAIR_20261010.md",
+            "tests/test_public_trainer.py"
+          ],
+          "removed": [],
+          "unchanged": 228,
+          "expected": {
+            "fim/training/trainer.py": "c4bb4a4d4eb528546f421426e8f845de25804b72",
+            "fim/training/optimizer.py": "8b4330828e94a2ef47d6795f37fd7c758f3938ee",
+            "tests/test_public_trainer.py": "b07289080e58847b0e1d5ec86e78a853bed405cd",
+            "research/DEVELOPMENT_TRAINER_REPAIR_20261010.md": "62bdfcda710e5e2b96a5c1be1bd9c2edd5a2473a"
+          },
+          "mismatch": [],
+          "comparison_base": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+          "all_candidate_files_match": true,
+          "verified_head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436",
+          "verification_scope": "session-published revision; not an assertion about later changed files"
+        },
+        "limitations": [
+          "Training/EMA correctness is development evidence, not a new efficacy result.",
+          "Eleven retained warnings concern existing GradScaler API usage."
+        ],
+        "pr_url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/28",
+        "pr_state": {
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "mergeable": true,
+          "exact_head_verified": true
+        },
+        "session_published_head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436",
+        "session_published_tree": "5cff2c93f6e9402d5a515a8223fb88b77ab4fc81",
+        "session_published_ci": [
+          {
+            "id": 38018589291,
+            "name": "CI",
+            "conclusion": "success",
+            "job": 114114339934,
+            "tests": {
+              "passed": 192,
+              "skipped": 7,
+              "subtests_passed": 10,
+              "warnings": 11,
+              "seconds": 4.91
+            },
+            "python": "3.11.17",
+            "torch": "2.14.1",
+            "checkout_merge_short_sha": "8e0bd46",
+            "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38018589291",
+            "head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436"
+          },
+          {
+            "id": 38018589282,
+            "name": "Current component ablations",
+            "conclusion": "success",
+            "protected_job": {
+              "id": 114114634095,
+              "name": "trajectory-isolated-v1",
+              "conclusion": "skipped"
+            },
+            "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38018589282",
+            "head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436"
+          }
+        ],
+        "session_files": [
+          "fim/training/trainer.py",
+          "fim/training/optimizer.py",
+          "tests/test_public_trainer.py",
+          "research/DEVELOPMENT_TRAINER_REPAIR_20261010.md"
+        ],
+        "observed_current_head": "0ae2bf91fb1b88217637a5319f9c74628ffa4436",
+        "observed_followups": []
+      }
+    },
+    {
+      "repository": "vertex-studyAI/LAM-JEPA",
+      "visibility": "public",
+      "name": "LAM-JEPA",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "2323d33e2be76c3121e0c7ca68c8bf69619b8624",
+      "pull_request": {
+        "number": 201,
+        "url": "https://github.com/vertex-studyAI/LAM-JEPA/pull/201",
+        "title": "Fix canonical checkpoint inference and prevent inference state mutation",
+        "base_branch": "main",
+        "base_sha": "3a6462753de89b85d5867c8e67fa87fa1eb2b13d",
+        "head_branch": "codex/research-integrity-20261010-lam-inference",
+        "observed_head_sha": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+        "merge_preview_sha": "4c6422482bfc1d29286504e2f5527be058be6572",
+        "draft": true,
+        "merged": false,
+        "changed_files": 7,
+        "commits": 2
+      },
+      "engineering_change_summary": "Load canonical checkpoint config once and preserve RNG, model modes and quantizer state during inference.",
+      "validation_summary": "Current observed branch: 48 inference contracts pass; all 6 workflows pass.",
+      "primary_workflow_url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103566",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "vertex-studyAI/LAM-JEPA",
+        "pr": 201,
+        "branch": "codex/research-integrity-20261010-lam-inference",
+        "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+        "base": "3a6462753de89b85d5867c8e67fa87fa1eb2b13d",
+        "tree": "d60eb3cc7d3110804aeec908d16616f4a26dc3a7",
+        "scope": "Read canonical checkpoint extra.config while supporting nonconflicting legacy config, deserialize once, preserve caller RNG, and make inference/rollout temporary deterministic evaluation with exact module-mode restoration. Prevent inference-time quantizer/EMA mutation. Frozen model, trainer, resume loader, submitted negative study and protocols are unchanged.",
+        "files": [
+          "src/lam_jepa/inference/predict.py",
+          "src/lam_jepa/inference/rollout.py",
+          "src/lam_jepa/inference/_evaluation.py",
+          "tests/unit/test_inference_contracts.py",
+          ".github/workflows/inference-contracts.yml",
+          "audits/INFERENCE_REPAIR_20261010.md"
+        ],
+        "new_regression_cases": 35,
+        "ci": [
+          {
+            "id": 38021103560,
+            "name": "Research claim boundary",
+            "status": "completed",
+            "conclusion": "success",
+            "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103560"
+          },
+          {
+            "id": 38021103566,
+            "name": "Inference runtime contracts",
+            "status": "completed",
+            "conclusion": "success",
+            "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103566",
+            "job": 114122059017,
+            "tests": {
+              "passed": 48,
+              "seconds": 3.3,
+              "prior_head_total": 37,
+              "concurrent_followup_additional_cases": 11
+            },
+            "python": "3.11.17",
+            "torch": "2.14.1+cpu",
+            "exact_head_checkout_verified": true,
+            "checkout_head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "other_checks": [
+              "compile",
+              "focused lint",
+              "explicit git HEAD equality assertion"
+            ]
+          },
+          {
+            "id": 38021103547,
+            "name": "Reproducibility CI",
+            "status": "completed",
+            "conclusion": "success",
+            "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103547"
+          },
+          {
+            "id": 38021103444,
+            "name": "Container Smoke",
+            "status": "completed",
+            "conclusion": "success",
+            "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103444"
+          },
+          {
+            "id": 38021103536,
+            "name": "ARC Download Transport CI",
+            "status": "completed",
+            "conclusion": "success",
+            "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103536"
+          },
+          {
+            "id": 38021103506,
+            "name": "ARC Protocol V2 QA",
+            "status": "completed",
+            "conclusion": "success",
+            "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38021103506"
+          }
+        ],
+        "remote_blob_verification": {
+          "old": 655,
+          "new": 659,
+          "changed": [
+            "src/lam_jepa/inference/predict.py",
+            "src/lam_jepa/inference/rollout.py"
+          ],
+          "added": [
+            ".github/workflows/inference-contracts.yml",
+            "audits/INFERENCE_REPAIR_20261010.md",
+            "src/lam_jepa/inference/_evaluation.py",
+            "tests/unit/test_inference_contracts.py"
+          ],
+          "removed": [],
+          "repo": "LAM",
+          "hashes": {
+            "src/lam_jepa/inference/_evaluation.py": "f1630f7bea8a3d97e3348e0bf1184ea93d182c7e",
+            "src/lam_jepa/inference/predict.py": "1e3b589e86276b65395dbb119e6e39c41d49ab47",
+            "src/lam_jepa/inference/rollout.py": "7d1d17ce51c6b05a4e22ce48959236529094cc04",
+            "tests/unit/test_inference_contracts.py": "05d77ed90d0ae0707c4175ba923a7f465bdbbd39",
+            ".github/workflows/inference-contracts.yml": "32fcb0c582c121d2cb41a2b1d3c154860c109ecd",
+            "audits/INFERENCE_REPAIR_20261010.md": "cb29e3bc7949d6f43c5fd15adfb5f21a45f9d3d4"
+          },
+          "mismatches": [],
+          "unrelated_original_blobs_unchanged": 653,
+          "comparison_base": "3a6462753de89b85d5867c8e67fa87fa1eb2b13d",
+          "all_candidate_files_match": true,
+          "verified_head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624",
+          "verification_scope": "session-published revision; not an assertion about later changed files"
+        },
+        "limitations": [
+          "Submitted negative ARC study remains terminal; no submission/research rerun or positive claim added."
+        ],
+        "pr_url": "https://github.com/vertex-studyAI/LAM-JEPA/pull/201",
+        "pr_state": {
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "mergeable": true,
+          "mergeable_state": "clean",
+          "exact_head_verified": true,
+          "verified_head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+          "updated_at": "2026-10-10T03:40:47Z"
+        },
+        "session_published_head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624",
+        "session_published_tree": "75c6245cbc82f694e9c0579b71af41bdbc4507e2",
+        "session_published_ci": [
+          {
+            "id": 38019501275,
+            "name": "Inference runtime contracts",
+            "conclusion": "success",
+            "job": 114117117931,
+            "tests": {
+              "passed": 37,
+              "new_cases": 35,
+              "retained_cases": 2,
+              "seconds": 2.91
+            },
+            "python": "3.11.17",
+            "torch": "2.14.1+cpu",
+            "checkout_merge_short_sha": "8502936",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38019501275",
+            "head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624"
+          },
+          {
+            "id": 38019501253,
+            "name": "Reproduction CI",
+            "conclusion": "success",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38019501253",
+            "head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624"
+          },
+          {
+            "id": 38019501269,
+            "name": "Protocol QA",
+            "conclusion": "success",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38019501269",
+            "head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624"
+          },
+          {
+            "id": 38019501237,
+            "name": "Claim gate",
+            "conclusion": "success",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38019501237",
+            "head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624"
+          },
+          {
+            "id": 38019501227,
+            "name": "Container gate",
+            "conclusion": "success",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38019501227",
+            "head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624"
+          },
+          {
+            "id": 38019501288,
+            "name": "Transport gate",
+            "conclusion": "success",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/actions/runs/38019501288",
+            "head": "2323d33e2be76c3121e0c7ca68c8bf69619b8624"
+          }
+        ],
+        "session_files": [
+          "src/lam_jepa/inference/predict.py",
+          "src/lam_jepa/inference/rollout.py",
+          "src/lam_jepa/inference/_evaluation.py",
+          "tests/unit/test_inference_contracts.py",
+          ".github/workflows/inference-contracts.yml",
+          "audits/INFERENCE_REPAIR_20261010.md"
+        ],
+        "observed_current_head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+        "observed_followups": [
+          {
+            "created_by_this_lane": false,
+            "sha": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+            "parent": "2323d33e2be76c3121e0c7ca68c8bf69619b8624",
+            "author_name": "build-the-future-11",
+            "github_author": "build-the-future-11",
+            "author_timestamp_utc": "2026-10-10T03:35:22Z",
+            "committer_name": "build-the-future-11",
+            "github_committer": "build-the-future-11",
+            "committer_timestamp_utc": "2026-10-10T03:35:22Z",
+            "message": "Preserve model state and deterministic output in explanation inference\n\nApply the existing evaluation and step guards to the public explain helper. Extend real-model inference tests to explanations and verify agreement across public helpers. Pin the inference workflow to the exact PR head; frozen scientific source and retained ARC evidence are unchanged.",
+            "changes": "Apply existing deterministic evaluation/step guards to explain(), add cross-helper and explanation-path regressions, and make the inference workflow check out and assert the exact PR head.",
+            "files": [
+              {
+                "path": ".github/workflows/inference-contracts.yml",
+                "status": "modified",
+                "additions": 3,
+                "deletions": 1
+              },
+              {
+                "path": "audits/INFERENCE_REPAIR_20261010.md",
+                "status": "modified",
+                "additions": 27,
+                "deletions": 0
+              },
+              {
+                "path": "src/lam_jepa/inference/explain.py",
+                "status": "modified",
+                "additions": 15,
+                "deletions": 9
+              },
+              {
+                "path": "tests/unit/test_inference_contracts.py",
+                "status": "modified",
+                "additions": 22,
+                "deletions": 4
+              }
+            ],
+            "inspection": "All reported changed-file patches and current-head workflow logs inspected; follow-up preserved, no source/branch/PR metadata writes performed during this readback.",
+            "url": "https://github.com/vertex-studyAI/LAM-JEPA/commit/0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9"
+          }
+        ],
+        "observed_current_changed_files": 7,
+        "observed_current_files": [
+          "src/lam_jepa/inference/explain.py",
+          "src/lam_jepa/inference/predict.py",
+          "src/lam_jepa/inference/rollout.py",
+          ".github/workflows/inference-contracts.yml",
+          "audits/INFERENCE_REPAIR_20261010.md",
+          "src/lam_jepa/inference/_evaluation.py",
+          "tests/unit/test_inference_contracts.py"
+        ],
+        "observed_at_utc": "2026-10-10T03:43:45Z",
+        "observed_current_remote_tree_verification": {
+          "head": "0cf0b7a18572fcf9e07c573092b53fe2e2d5dcc9",
+          "tree": "d60eb3cc7d3110804aeec908d16616f4a26dc3a7",
+          "recursive_tree_truncated": false,
+          "against_session_published": {
+            "original_blob_count": 659,
+            "current_blob_count": 659,
+            "modified": [
+              {
+                "path": ".github/workflows/inference-contracts.yml",
+                "previous_sha": "32fcb0c582c121d2cb41a2b1d3c154860c109ecd",
+                "current_sha": "dcd274d77621ba48026444f59175ea23885a46b7"
+              },
+              {
+                "path": "audits/INFERENCE_REPAIR_20261010.md",
+                "previous_sha": "cb29e3bc7949d6f43c5fd15adfb5f21a45f9d3d4",
+                "current_sha": "36a512d6eb3b9b6f3dfc774cc81811a47cdeba98"
+              },
+              {
+                "path": "src/lam_jepa/inference/explain.py",
+                "previous_sha": "8901f4fe29bf0a98910ff02e99206087177de8d0",
+                "current_sha": "ccf24f39c41e3f1dec2df9bb3c03187c79c17d6e"
+              },
+              {
+                "path": "tests/unit/test_inference_contracts.py",
+                "previous_sha": "05d77ed90d0ae0707c4175ba923a7f465bdbbd39",
+                "current_sha": "40649e3173777e52730f5126b0f4731311c5ce7f"
+              }
+            ],
+            "added": [],
+            "removed": [],
+            "unchanged": 655
+          },
+          "against_original_base": {
+            "original_blob_count": 655,
+            "current_blob_count": 659,
+            "modified": [
+              {
+                "path": "src/lam_jepa/inference/explain.py",
+                "previous_sha": "8901f4fe29bf0a98910ff02e99206087177de8d0",
+                "current_sha": "ccf24f39c41e3f1dec2df9bb3c03187c79c17d6e"
+              },
+              {
+                "path": "src/lam_jepa/inference/predict.py",
+                "previous_sha": "52e9c11657d3d49c417e6be0a9f469ccca0c58a1",
+                "current_sha": "1e3b589e86276b65395dbb119e6e39c41d49ab47"
+              },
+              {
+                "path": "src/lam_jepa/inference/rollout.py",
+                "previous_sha": "9e7a532800d1fcdc67722949231bc7e69648c89c",
+                "current_sha": "7d1d17ce51c6b05a4e22ce48959236529094cc04"
+              }
+            ],
+            "added": [
+              {
+                "path": ".github/workflows/inference-contracts.yml",
+                "sha": "dcd274d77621ba48026444f59175ea23885a46b7"
+              },
+              {
+                "path": "audits/INFERENCE_REPAIR_20261010.md",
+                "sha": "36a512d6eb3b9b6f3dfc774cc81811a47cdeba98"
+              },
+              {
+                "path": "src/lam_jepa/inference/_evaluation.py",
+                "sha": "f1630f7bea8a3d97e3348e0bf1184ea93d182c7e"
+              },
+              {
+                "path": "tests/unit/test_inference_contracts.py",
+                "sha": "40649e3173777e52730f5126b0f4731311c5ce7f"
+              }
+            ],
+            "removed": [],
+            "unchanged": 652
+          },
+          "source_files_written_locally": false,
+          "preservation": "Follow-up is a direct child of the session-published head; no commits reset, removed or overwritten."
+        },
+        "current_validation_summary": "Current exact-head inference contracts 48 passed; all six current workflows success. Frozen model/trainer/protocol/evidence blobs unchanged.",
+        "current_frozen_boundary": {
+          "original_modified_paths": [
+            "src/lam_jepa/inference/explain.py",
+            "src/lam_jepa/inference/predict.py",
+            "src/lam_jepa/inference/rollout.py"
+          ],
+          "model_trainer_checkpoint_protocol_and_retained_evidence_unchanged": true
+        },
+        "head_semantics": "observed_current_head; session_published_head is retained separately"
+      }
+    },
+    {
+      "repository": "THE-BU1LD/RIPII",
+      "visibility": "public",
+      "name": "RIPII",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "db45f504546a21c589ba85028b67bd6db037991c",
+      "pull_request": {
+        "number": 21,
+        "url": "https://github.com/THE-BU1LD/RIPII/pull/21",
+        "title": "Validate public inference inputs before any rollout step",
+        "base_branch": "main",
+        "base_sha": "317a6ec4163134a56cdc56ce3fd20f5a43decfb4",
+        "head_branch": "codex/research-integrity-20261010-ripii-inference",
+        "observed_head_sha": "db45f504546a21c589ba85028b67bd6db037991c",
+        "merge_preview_sha": "d5f275ce8e6f17e30d77eec2c4299a7d779b2c33",
+        "draft": true,
+        "merged": false,
+        "changed_files": 3,
+        "commits": 1
+      },
+      "engineering_change_summary": "Validate semantic masks, converted values and complete rollout inputs before model calls.",
+      "validation_summary": "250 tests pass on each supported Python matrix version; 80.91% coverage clears the unchanged 75% gate.",
+      "primary_workflow_url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075938",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "THE-BU1LD/RIPII",
+        "pr": 21,
+        "branch": "codex/research-integrity-20261010-ripii-inference",
+        "head": "db45f504546a21c589ba85028b67bd6db037991c",
+        "base": "317a6ec4163134a56cdc56ce3fd20f5a43decfb4",
+        "tree": "268f964b603275c8343f0067990bf086dccb5b46",
+        "scope": "Validate WorldPredictor semantic mask/float types before coercion, finite values after float32 conversion, shape and object capacity, positive live properties, zero padding and complete action sequences before any model call. Preserve valid NumPy float64 behavior and the frozen model/training/evaluation/protocol code.",
+        "files": [
+          "ripii/world/inference.py",
+          "tests/test_inference_input_contracts.py",
+          "docs/USAGE.md"
+        ],
+        "new_regression_cases": 39,
+        "ci": [
+          {
+            "id": 38020075938,
+            "name": "CI",
+            "conclusion": "success",
+            "torch": "2.14.0",
+            "checkout_merge_short_sha": "d5f275c",
+            "jobs": [
+              {
+                "id": 114118911334,
+                "python": "3.10.22",
+                "tests": {
+                  "passed": 250,
+                  "seconds": 57.51
+                }
+              },
+              {
+                "id": 114118911302,
+                "python": "3.11.17",
+                "tests": {
+                  "passed": 250,
+                  "seconds": 51.52
+                }
+              },
+              {
+                "id": 114118911398,
+                "python": "3.12.3",
+                "tests": {
+                  "passed": 250,
+                  "seconds": 45.97
+                }
+              }
+            ],
+            "unique_suite_counts": {
+              "new_cases": 39,
+              "retained_cases": 211,
+              "total_cases": 250
+            },
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075938",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          },
+          {
+            "id": 38020076025,
+            "name": "quality",
+            "conclusion": "success",
+            "job": 114118911320,
+            "tests": {
+              "passed": 250,
+              "seconds": 79.89,
+              "coverage_percent": 80.91,
+              "unchanged_required_coverage_percent": 75
+            },
+            "other_checks": [
+              "lint",
+              "compile",
+              "mypy",
+              "CPU performance contracts",
+              "wheel",
+              "all portable artifact checks"
+            ],
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020076025",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          },
+          {
+            "id": 38020075949,
+            "name": "security",
+            "conclusion": "success",
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075949",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          },
+          {
+            "id": 38020075903,
+            "name": "device-smoke",
+            "conclusion": "success",
+            "capability_job": 114118910949,
+            "capability_status": "HOSTED_MPS_STATUS=INFRASTRUCTURE_BLOCKED_PARAVIRTUAL",
+            "real_mps_job": {
+              "id": 114118911601,
+              "conclusion": "skipped"
+            },
+            "cuda_job": {
+              "id": 114118911557,
+              "conclusion": "skipped"
+            },
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075903",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          }
+        ],
+        "remote_blob_verification": {
+          "repo": "RIPII",
+          "originalBlobs": 262,
+          "newBlobs": 263,
+          "changed": [
+            "docs/USAGE.md",
+            "ripii/world/inference.py"
+          ],
+          "added": [
+            "tests/test_inference_input_contracts.py"
+          ],
+          "removed": [],
+          "hashes": {
+            "ripii/world/inference.py": "d6853e1b391683812493e68478d871dcac01c88f",
+            "tests/test_inference_input_contracts.py": "8a1ca41cea051ebdf5d9be643ad455f10716629c",
+            "docs/USAGE.md": "89b163324de10a9641cdb1cd65a7f511a038ea04"
+          },
+          "mismatches": [],
+          "unrelated_original_blobs_unchanged": 260,
+          "comparison_base": "317a6ec4163134a56cdc56ce3fd20f5a43decfb4",
+          "all_candidate_files_match": true,
+          "verified_head": "db45f504546a21c589ba85028b67bd6db037991c",
+          "verification_scope": "session-published revision; not an assertion about later changed files"
+        },
+        "limitations": [
+          "Hosted MPS result is infrastructure classification, not MPS execution/certification.",
+          "Real MPS and CUDA jobs were skipped.",
+          "Terminal negative/no-advance studies preserved."
+        ],
+        "pr_url": "https://github.com/THE-BU1LD/RIPII/pull/21",
+        "pr_state": {
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "mergeable": true,
+          "exact_head_verified": true
+        },
+        "session_published_head": "db45f504546a21c589ba85028b67bd6db037991c",
+        "session_published_tree": "268f964b603275c8343f0067990bf086dccb5b46",
+        "session_published_ci": [
+          {
+            "id": 38020075938,
+            "name": "CI",
+            "conclusion": "success",
+            "torch": "2.14.0",
+            "checkout_merge_short_sha": "d5f275c",
+            "jobs": [
+              {
+                "id": 114118911334,
+                "python": "3.10.22",
+                "tests": {
+                  "passed": 250,
+                  "seconds": 57.51
+                }
+              },
+              {
+                "id": 114118911302,
+                "python": "3.11.17",
+                "tests": {
+                  "passed": 250,
+                  "seconds": 51.52
+                }
+              },
+              {
+                "id": 114118911398,
+                "python": "3.12.3",
+                "tests": {
+                  "passed": 250,
+                  "seconds": 45.97
+                }
+              }
+            ],
+            "unique_suite_counts": {
+              "new_cases": 39,
+              "retained_cases": 211,
+              "total_cases": 250
+            },
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075938",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          },
+          {
+            "id": 38020076025,
+            "name": "quality",
+            "conclusion": "success",
+            "job": 114118911320,
+            "tests": {
+              "passed": 250,
+              "seconds": 79.89,
+              "coverage_percent": 80.91,
+              "unchanged_required_coverage_percent": 75
+            },
+            "other_checks": [
+              "lint",
+              "compile",
+              "mypy",
+              "CPU performance contracts",
+              "wheel",
+              "all portable artifact checks"
+            ],
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020076025",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          },
+          {
+            "id": 38020075949,
+            "name": "security",
+            "conclusion": "success",
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075949",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          },
+          {
+            "id": 38020075903,
+            "name": "device-smoke",
+            "conclusion": "success",
+            "capability_job": 114118910949,
+            "capability_status": "HOSTED_MPS_STATUS=INFRASTRUCTURE_BLOCKED_PARAVIRTUAL",
+            "real_mps_job": {
+              "id": 114118911601,
+              "conclusion": "skipped"
+            },
+            "cuda_job": {
+              "id": 114118911557,
+              "conclusion": "skipped"
+            },
+            "url": "https://github.com/THE-BU1LD/RIPII/actions/runs/38020075903",
+            "head": "db45f504546a21c589ba85028b67bd6db037991c"
+          }
+        ],
+        "session_files": [
+          "ripii/world/inference.py",
+          "tests/test_inference_input_contracts.py",
+          "docs/USAGE.md"
+        ],
+        "observed_current_head": "db45f504546a21c589ba85028b67bd6db037991c",
+        "observed_followups": []
+      }
+    },
+    {
+      "repository": "build-the-future-11/RIS",
+      "visibility": "public",
+      "name": "RIS",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "f043f643011d06597d092ecb74d1b6e9ee290937",
+      "pull_request": {
+        "number": 4,
+        "url": "https://github.com/build-the-future-11/RIS/pull/4",
+        "title": "Fix integer Hessian inputs and eliminate duplicate stencil work",
+        "base_branch": "main",
+        "base_sha": "ddfcb5e532d00362cdd5cf472799a01cb9464a72",
+        "head_branch": "codex/research-integrity-20261010-ris-hessian",
+        "observed_head_sha": "f043f643011d06597d092ecb74d1b6e9ee290937",
+        "merge_preview_sha": "7e067a7431b48ab6fe3ccb6118f22cc085ad1be0",
+        "draft": true,
+        "merged": false,
+        "changed_files": 3,
+        "commits": 1
+      },
+      "engineering_change_summary": "Use float64 finite differences and correct symmetric Hessian stencils for integer and low-precision inputs.",
+      "validation_summary": "14 hosted tests, compile and real demo pass.",
+      "primary_workflow_url": "https://github.com/build-the-future-11/RIS/actions/runs/38020451323",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "build-the-future-11/RIS",
+        "pr": 4,
+        "branch": "codex/research-integrity-20261010-ris-hessian",
+        "head": "f043f643011d06597d092ecb74d1b6e9ee290937",
+        "base": "ddfcb5e532d00362cdd5cf472799a01cb9464a72",
+        "tree": "d518b271b2034f9aef298a5f677349dd6c40ad42",
+        "scope": "Fix integer/low-precision finite-difference perturbation truncation using copied float64 coordinates, strict finite scalar/step admission and centered symmetric Hessian stencils. Reuse the center and upper triangle, reducing 2D calls from 16 to 9, preserve caller input and avoid unnecessary large-offset overflow.",
+        "files": [
+          "main.py",
+          "tests/test_hessian_contracts.py",
+          "README.md"
+        ],
+        "new_regression_tests": {
+          "count": 11,
+          "unit": "unittest methods with dtype/invalid-input subcases"
+        },
+        "demonstrated_baseline_failure": {
+          "objective": "3*x[0]**2+4*x[0]*x[1]+5*x[1]**2",
+          "point": "integer [1,2]",
+          "baseline": [
+            [
+              275000000,
+              100000000
+            ],
+            [
+              100000000,
+              250000000
+            ]
+          ],
+          "analytic": [
+            [
+              6,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ]
+        },
+        "local_validation": {
+          "unittest_methods_passed": 14,
+          "other_checks": [
+            "compile",
+            "focused Ruff",
+            "git diff --check",
+            "real demo"
+          ]
+        },
+        "ci": [
+          {
+            "id": 38020451323,
+            "name": "Python smoke",
+            "conclusion": "success",
+            "job": 114120085126,
+            "tests": {
+              "unittest_methods_passed": 14,
+              "seconds": 0.052
+            },
+            "python": "3.11.17",
+            "numpy": "2.4.6",
+            "exact_head_checkout_verified": true,
+            "other_checks": [
+              "compile",
+              "real demo"
+            ],
+            "url": "https://github.com/build-the-future-11/RIS/actions/runs/38020451323",
+            "head": "f043f643011d06597d092ecb74d1b6e9ee290937"
+          }
+        ],
+        "remote_blob_verification": {
+          "name": "RIS",
+          "oldCount": 5,
+          "newCount": 6,
+          "modified": [
+            "README.md",
+            "main.py"
+          ],
+          "added": [
+            "tests/test_hessian_contracts.py"
+          ],
+          "deleted": [],
+          "unrelatedUnchanged": 3,
+          "candidate": [
+            {
+              "path": "main.py",
+              "sha": "103cdf62380ed1f59d3fde6c955cbbb83f25dca8"
+            },
+            {
+              "path": "tests/test_hessian_contracts.py",
+              "sha": "b36ffae40f296b6da888881c82267063a0045e10"
+            },
+            {
+              "path": "README.md",
+              "sha": "7e37e4c988651250ea76e398d1a4145dd762f84d"
+            }
+          ],
+          "comparison_base": "ddfcb5e532d00362cdd5cf472799a01cb9464a72",
+          "all_candidate_files_match": true,
+          "mismatches": [],
+          "verified_head": "f043f643011d06597d092ecb74d1b6e9ee290937",
+          "verification_scope": "session-published revision; not an assertion about later changed files"
+        },
+        "limitations": [
+          "Minimal numerical prototype only, not a financial platform or completed study.",
+          "Absolute finite-difference step remains caller-selected; validation does not estimate truncation/cancellation error."
+        ],
+        "pr_url": "https://github.com/build-the-future-11/RIS/pull/4",
+        "pr_state": {
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "mergeable": true,
+          "exact_head_verified": true
+        },
+        "session_published_head": "f043f643011d06597d092ecb74d1b6e9ee290937",
+        "session_published_tree": "d518b271b2034f9aef298a5f677349dd6c40ad42",
+        "session_published_ci": [
+          {
+            "id": 38020451323,
+            "name": "Python smoke",
+            "conclusion": "success",
+            "job": 114120085126,
+            "tests": {
+              "unittest_methods_passed": 14,
+              "seconds": 0.052
+            },
+            "python": "3.11.17",
+            "numpy": "2.4.6",
+            "exact_head_checkout_verified": true,
+            "other_checks": [
+              "compile",
+              "real demo"
+            ],
+            "url": "https://github.com/build-the-future-11/RIS/actions/runs/38020451323",
+            "head": "f043f643011d06597d092ecb74d1b6e9ee290937"
+          }
+        ],
+        "session_files": [
+          "main.py",
+          "tests/test_hessian_contracts.py",
+          "README.md"
+        ],
+        "observed_current_head": "f043f643011d06597d092ecb74d1b6e9ee290937",
+        "observed_followups": []
+      }
+    },
+    {
+      "repository": "Finance-Meta-Research/FI-JEPA",
+      "visibility": "public",
+      "name": "FI-JEPA",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "4fdfd92513e4bf5a0d9baba81efa37dc190a1fb4",
+      "pull_request": {
+        "number": 10,
+        "url": "https://github.com/Finance-Meta-Research/FI-JEPA/pull/10",
+        "title": "Prevent cross-asset calendar leakage and embedding ID drift",
+        "base_branch": "main",
+        "base_sha": "c94e1616eba1b2a7415ead4695def1d3b93094db",
+        "head_branch": "codex/research-integrity-20261010-fi-calendar-splits",
+        "observed_head_sha": "1416cecbd79fc35b4c5df09b1a3da3682c36fc2e",
+        "merge_preview_sha": "93479c6d0d17e54d68d26b567d040ec20376b8ae",
+        "draft": true,
+        "merged": false,
+        "changed_files": 4,
+        "commits": 3
+      },
+      "engineering_change_summary": "Use complete shared-calendar asset splits, training-only normalization and stable asset IDs.",
+      "validation_summary": "Current observed branch: 42 tests pass; source-bound 21- and 41-test predecessors remain identified.",
+      "primary_workflow_url": "https://github.com/Finance-Meta-Research/FI-JEPA/actions/runs/38021041883",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "Finance-Meta-Research/FI-JEPA",
+        "pr": 10,
+        "session_published_head": "4fdfd92513e4bf5a0d9baba81efa37dc190a1fb4",
+        "observed_current_head": "1416cecbd79fc35b4c5df09b1a3da3682c36fc2e",
+        "base": "main",
+        "changed_files": 4,
+        "session_changes": [
+          "Shared complete-timestamp calendar across assets",
+          "Train-only normalization after global split",
+          "Stable embedding IDs across splits",
+          "Invalid fractions/timestamps rejected",
+          "15 new generated-fixture regressions"
+        ],
+        "hosted": {
+          "status": "success",
+          "head": "1416cecbd79fc35b4c5df09b1a3da3682c36fc2e",
+          "run_id": 38021041883,
+          "job_id": 114121872140,
+          "passed": 42,
+          "warnings": 3,
+          "seconds": 3.83,
+          "command": "python -m pytest tests/test_temporal_integrity.py tests/test_panel_calendar_integrity.py -q",
+          "url": "https://github.com/Finance-Meta-Research/FI-JEPA/actions/runs/38021041883"
+        },
+        "prior_hosted": [
+          {
+            "head": "4fdfd92513e4bf5a0d9baba81efa37dc190a1fb4",
+            "run_id": 38018562706,
+            "job_id": 114114254318,
+            "passed": 21,
+            "warnings": 1,
+            "seconds": 3.77
+          },
+          {
+            "status": "success",
+            "head": "2c7058a349a07d8e8701cf17dd11a81c82beb47a",
+            "run_id": 38020634205,
+            "job_id": 114120642639,
+            "passed": 41,
+            "warnings": 1,
+            "seconds": 3.79,
+            "command": "python -m pytest tests/test_temporal_integrity.py tests/test_panel_calendar_integrity.py -q",
+            "url": "https://github.com/Finance-Meta-Research/FI-JEPA/actions/runs/38020634205"
+          }
+        ],
+        "boundaries": [
+          "Retained v1 NEGATIVE / BOUNDARY science unchanged",
+          "No training/protected evaluation executed",
+          "Uneven panels intentionally require a versioned future run"
+        ],
+        "record": "research/DEVELOPMENT_CALENDAR_SPLIT_20261010.md",
+        "pr_url": "https://github.com/Finance-Meta-Research/FI-JEPA/pull/10",
+        "draft": true,
+        "merged": false,
+        "observed_followups": [
+          {
+            "created_by_this_lane": false,
+            "sha": "2c7058a349a07d8e8701cf17dd11a81c82beb47a",
+            "parent": "4fdfd92513e4bf5a0d9baba81efa37dc190a1fb4",
+            "author_name": "build-the-future-11",
+            "github_author": "build-the-future-11",
+            "author_timestamp_utc": "2026-10-10T03:27:28Z",
+            "message": "fix: reject noncausal and lossy forecast window counts",
+            "changes": "Strict positive integer context/target/horizon admission; 20 additional cases; inspected and preserved"
+          },
+          {
+            "created_by_this_lane": false,
+            "sha": "1416cecbd79fc35b4c5df09b1a3da3682c36fc2e",
+            "parent": "2c7058a349a07d8e8701cf17dd11a81c82beb47a",
+            "author_name": "build-the-future-11",
+            "github_author": "build-the-future-11",
+            "author_timestamp_utc": "2026-10-10T03:34:11Z",
+            "message": "fix: isolate sample tensor storage from pandas views",
+            "changes": "Explicit NumPy copy before Torch conversion plus observation-mutation regression; all diff files inspected and preserved"
+          }
+        ]
+      }
+    },
+    {
+      "repository": "Finance-Meta-Research/Eigen-JEPA",
+      "visibility": "public",
+      "name": "Eigen-JEPA",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "e791016d0eda9fb579116231e6661caa5799f187",
+      "pull_request": {
+        "number": 31,
+        "url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/pull/31",
+        "title": "Add prospective purged-fold v2 while preserving frozen source",
+        "base_branch": "main",
+        "base_sha": "cf3a1bd29c91c637c63dacf6813f801d8f76c337",
+        "head_branch": "codex/research-integrity-20261010-eigen-purged-windows",
+        "observed_head_sha": "d55b0d62615ee99adf8fd50d64098a1cf6f51097",
+        "merge_preview_sha": "9efe47726e36f27598d277ec0d6c791173e486c7",
+        "draft": true,
+        "merged": false,
+        "changed_files": 4,
+        "commits": 3
+      },
+      "engineering_change_summary": "Prospective v2 fold admission checks complete context/target footprints while preserving frozen v1.",
+      "validation_summary": "Current observed branch: 125 tests and submission gate pass; one-seed paper rigor remains insufficient.",
+      "primary_workflow_url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/actions/runs/38020909272",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "Finance-Meta-Research/Eigen-JEPA",
+        "pr": 31,
+        "session_published_head": "e791016d0eda9fb579116231e6661caa5799f187",
+        "session_initial_head": "6430d9df0672e83bb9ea3c38209176abc892fd03",
+        "observed_current_head": "d55b0d62615ee99adf8fd50d64098a1cf6f51097",
+        "base": "main",
+        "changed_files": 4,
+        "session_changes": [
+          "Opt-in v2 complete context/target footprint admission",
+          "Strict integer endpoint/dimension validation",
+          "Reject failed loads without mutating caller config",
+          "17 new regressions and usable API docs",
+          "Restored original frozen source after the initial gate correctly rejected an in-place change"
+        ],
+        "observed_followup": {
+          "created_by_this_lane": false,
+          "sha": "d55b0d62615ee99adf8fd50d64098a1cf6f51097",
+          "parent": "e791016d0eda9fb579116231e6661caa5799f187",
+          "author_name": "build-the-future-11",
+          "github_author": "build-the-future-11",
+          "author_timestamp_utc": "2026-10-10T03:31:53Z",
+          "message": "fix: validate actual CSV chronology before prospective fold loading",
+          "changes": "Explicit canonical unique increasing CSV dates, header/row-shape and target-bound admission; 11 additional cases; inspected and preserved"
+        },
+        "hosted": {
+          "status": "success",
+          "head": "d55b0d62615ee99adf8fd50d64098a1cf6f51097",
+          "run_id": 38020909272,
+          "job_id": 114121468851,
+          "passed": 125,
+          "seconds": 8.39,
+          "command": "python -m pytest -q",
+          "submission_gate_run_id": 38020908987,
+          "submission_gate_status": "success",
+          "paper_rigor": "still fails closed: only one seed; three required",
+          "url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/actions/runs/38020909272"
+        },
+        "prior_hosted": {
+          "head": "e791016d0eda9fb579116231e6661caa5799f187",
+          "run_id": 38018959173,
+          "job_id": 114115475702,
+          "passed": 114,
+          "seconds": 13.18,
+          "submission_gate_run_id": 38018959179
+        },
+        "boundaries": [
+          "Original real_market_folds.py Git blob ee2e4694c27906f1d37d5751c947317fc1cf57f0 unchanged",
+          "Five frozen source bindings unchanged",
+          "No retained results/protocol/manuscript or protected outcome access changed"
+        ],
+        "record": "docs/development/purged-window-admission-20261010.md",
+        "pr_url": "https://github.com/Finance-Meta-Research/Eigen-JEPA/pull/31",
+        "draft": true,
+        "merged": false
+      }
+    },
+    {
+      "repository": "THE-BU1LD/GaussianMemory",
+      "visibility": "public",
+      "name": "GaussianMemory",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "ff6d0fced236f2a6b4080a6137b805194c043884",
+      "pull_request": {
+        "number": 4,
+        "url": "https://github.com/THE-BU1LD/GaussianMemory/pull/4",
+        "title": "Fix repeated data batches, temporal target leakage, and train/eval CLI",
+        "base_branch": "main",
+        "base_sha": "9f08ce93dd270216983f16767fa2e2ad47f10252",
+        "head_branch": "codex/research-integrity-20261010-gaussian-streams",
+        "observed_head_sha": "ff6d0fced236f2a6b4080a6137b805194c043884",
+        "merge_preview_sha": "9b8f2f9adc4087b4540f0d44e2bcfed2c4ee21d1",
+        "draft": true,
+        "merged": false,
+        "changed_files": 8,
+        "commits": 1
+      },
+      "engineering_change_summary": "Advance separate train/evaluation streams, use an unobserved temporal target and repair train/eval CLI execution.",
+      "validation_summary": "30 hosted tests pass, including real bounded train/eval CLI exercises.",
+      "primary_workflow_url": "https://github.com/THE-BU1LD/GaussianMemory/actions/runs/38019845294",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "THE-BU1LD/GaussianMemory",
+        "pr": 4,
+        "session_published_head": "ff6d0fced236f2a6b4080a6137b805194c043884",
+        "observed_current_head": "ff6d0fced236f2a6b4080a6137b805194c043884",
+        "base": "main",
+        "changed_files": 8,
+        "session_changes": [
+          "Persistent advancing domain-separated train/evaluation streams",
+          "Matched data independent of model/global RNG",
+          "Unobserved future-state temporal target under explicit gmf.synthetic.v2",
+          "Fix actual train/eval --model CLI",
+          "Batch/data-source/checkpoint identities",
+          "Seed-specific retained outputs and strict JSON null uncertainty",
+          "27 new regressions including real bounded CLI training"
+        ],
+        "hosted": {
+          "status": "success",
+          "head": "ff6d0fced236f2a6b4080a6137b805194c043884",
+          "run_id": 38019845294,
+          "job_id": 114118196578,
+          "passed": 30,
+          "seconds": 8.9,
+          "command": "pytest -q tests",
+          "url": "https://github.com/THE-BU1LD/GaussianMemory/actions/runs/38019845294"
+        },
+        "boundaries": [
+          "Only bounded generated-data tests/CLI exercises",
+          "Research truth/manuscript/illustrative artifacts unchanged",
+          "No publication/benchmark campaign or model superiority claim"
+        ],
+        "record": "docs/development/synthetic-streams-20261010.md",
+        "pr_url": "https://github.com/THE-BU1LD/GaussianMemory/pull/4",
+        "draft": true,
+        "merged": false
+      }
+    },
+    {
+      "repository": "build-the-future-11/IRIS",
+      "visibility": "public",
+      "name": "IRIS",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "5943f7b7c135bd83e22d5cc1df5ba0a07c955e9a",
+      "pull_request": {
+        "number": 9,
+        "url": "https://github.com/build-the-future-11/IRIS/pull/9",
+        "title": "Stabilize robust filters and retain complete replayable development evidence",
+        "base_branch": "main",
+        "base_sha": "2dbc623edbaf059643974d1c1fa352c438978954",
+        "head_branch": "codex/research-integrity-20261010-iris",
+        "observed_head_sha": "5943f7b7c135bd83e22d5cc1df5ba0a07c955e9a",
+        "merge_preview_sha": "5e39563855bfaff2069291c2b4a6d22dc504efe9",
+        "draft": true,
+        "merged": false,
+        "changed_files": 10,
+        "commits": 1
+      },
+      "engineering_change_summary": "Stable filter/metric arithmetic and complete atomic replayable development records with protected-ID admission.",
+      "validation_summary": "106 hosted tests; all five 32-observation development records replay; protected ID rejection passes.",
+      "primary_workflow_url": "https://github.com/build-the-future-11/IRIS/actions/runs/38018872922",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "build-the-future-11/IRIS",
+        "pull_request": {
+          "url": "https://github.com/build-the-future-11/IRIS/pull/9",
+          "number": 9,
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "head_branch": "codex/research-integrity-20261010-iris",
+          "current_head_sha": "5943f7b7c135bd83e22d5cc1df5ba0a07c955e9a",
+          "base_branch": "main",
+          "base_sha": "2dbc623edbaf059643974d1c1fa352c438978954",
+          "changed_files": 10,
+          "additions": 4685,
+          "deletions": 58
+        },
+        "session_published_head_sha": "5943f7b7c135bd83e22d5cc1df5ba0a07c955e9a",
+        "current_tree_sha": "6942fc0168fa06f4f364c246ef9c2af593a97fa1",
+        "base_tree_sha": "943ada39a7b58e0db28f03e97b29ad81f69817fc",
+        "changes": [
+          "Reject non-finite real inputs, invalid experiment IDs, thresholds and lengths; protected experiment IDs 1000–1029 are blocked before RNG use.",
+          "Use stable scalar posterior covariance and residual arithmetic, a stable tiny-C classical limit, and explicit finite-overflow detection.",
+          "Validate matching nonempty metric arrays and weight bounds; scale RMSE and MAE calculations to avoid overflow for finite extreme values.",
+          "Create version-2 development records containing raw states, observations, all baseline arrays, source/config/trajectory hashes, seed recipe and PRNG identity.",
+          "Write JSON atomically without overwriting prior evidence, verify complete replay, and expose a development-record verification CLI."
+        ],
+        "validation": {
+          "local": {
+            "tests_passed": 106,
+            "new_tests": 97,
+            "existing_tests": 9,
+            "additional_checks": [
+              "Ruff E/F/I",
+              "git diff --check",
+              "Five exact record replay checks"
+            ]
+          },
+          "hosted": {
+            "url": "https://github.com/build-the-future-11/IRIS/actions/runs/38018872922",
+            "run_id": 38018872922,
+            "job_id": 114115213575,
+            "conclusion": "success",
+            "tested_head_sha": "5943f7b7c135bd83e22d5cc1df5ba0a07c955e9a",
+            "tests": {
+              "passed": 106,
+              "skipped": 0
+            },
+            "additional_checks": [
+              "All five retained development records replayed",
+              "Protected ID 1000 execution rejected"
+            ]
+          },
+          "bounded_development": {
+            "experiment_id": 41,
+            "observations_per_scenario": 32,
+            "scenarios": [
+              "clean",
+              "additive_outlier",
+              "persistent_shift",
+              "false_open",
+              "mixed"
+            ],
+            "total_generated_observations": 160,
+            "baselines_per_scenario": 4
+          },
+          "counts_overlap": true
+        },
+        "preservation": [
+          "Canonical raw provenance remains unresolved.",
+          "Protected IDs 1000–1029 remain closed.",
+          "Historical evidence and negative results are not relabeled."
+        ],
+        "limits": [
+          "Engineering and constructed development verification only.",
+          "No confirmatory execution, scientific completion or performance superiority claim."
+        ]
+      }
+    },
+    {
+      "repository": "build-the-future-11/IRIS-Space",
+      "visibility": "public",
+      "name": "IRIS-Space",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "15a52801c424784f63b7ac165ea7b2eaed20b434",
+      "pull_request": {
+        "number": 40,
+        "url": "https://github.com/build-the-future-11/IRIS-Space/pull/40",
+        "title": "Remove held-out passband leakage and repair temporal data preparation",
+        "base_branch": "main",
+        "base_sha": "7f14c66f9018db0e15d4e87d713bbe47d9479b10",
+        "head_branch": "codex/research-integrity-20261010-space",
+        "observed_head_sha": "62a3470bbdb2411f88c14f720ed69a6c3766d299",
+        "merge_preview_sha": "242309823cd6158f045c0f68e2afc290ad89b8c1",
+        "draft": true,
+        "merged": false,
+        "changed_files": 12,
+        "commits": 3
+      },
+      "engineering_change_summary": "Train-only passband vocabulary, unknown bands, finite v2 tensors and exact consumed-source hashes.",
+      "validation_summary": "Current branch: 52 exact-head tests; full merge-preview CI has 729 tests and 129 subtests, all gates pass.",
+      "primary_workflow_url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38020896062",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "build-the-future-11/IRIS-Space",
+        "pull_request": {
+          "url": "https://github.com/build-the-future-11/IRIS-Space/pull/40",
+          "number": 40,
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "head_branch": "codex/research-integrity-20261010-space",
+          "current_head_sha": "62a3470bbdb2411f88c14f720ed69a6c3766d299",
+          "base_branch": "main",
+          "base_sha": "7f14c66f9018db0e15d4e87d713bbe47d9479b10",
+          "changed_files": 12,
+          "additions": 619,
+          "deletions": 25
+        },
+        "session_published_head_sha": "15a52801c424784f63b7ac165ea7b2eaed20b434",
+        "session_published_tree_sha": "0c8d4fff674ac81bc34483ae367d663d9e63def2",
+        "current_tree_sha": "4151fae4dc8ed32f0719bab23222974d07523c87",
+        "base_tree_sha": "79753f0e5780052a583c6a0cc3c24b662fbb8c96",
+        "changes": [
+          "Fit the passband vocabulary on training entities alone, reserve unknown band 0, and record unknown-band counts.",
+          "Version prepared tensors as siderea.space_jepa_v2_tensor_batches.v2 with an explicit preprocessing contract.",
+          "Hash exactly the CSV bytes consumed, enforce finite float32 representability and valid normalization, preserve nonempty rounded splits, and remove duplicate entity/cutoff/horizon examples from simultaneous bands.",
+          "Repair a genuine optional-Torch import failure and add real CPU tensor and CLI development checks.",
+          "Correct the existing CLI test's stale v1 schema expectation after the intentional v2 contract change."
+        ],
+        "observed_followup": {
+          "authorship_scope": "Observed outside this agent's authored patch; do not credit these code changes to this agent.",
+          "head_sha": "62a3470bbdb2411f88c14f720ed69a6c3766d299",
+          "parent_sha": "15a52801c424784f63b7ac165ea7b2eaed20b434",
+          "tree_sha": "4151fae4dc8ed32f0719bab23222974d07523c87",
+          "github_author_login": "build-the-future-11",
+          "github_committer_login": "build-the-future-11",
+          "git_author_name": "build-the-future-11",
+          "authored_at": "2026-10-10T03:31:56Z",
+          "committed_at": "2026-10-10T03:31:56Z",
+          "commit_url": "https://github.com/build-the-future-11/IRIS-Space/commit/62a3470bbdb2411f88c14f720ed69a6c3766d299",
+          "message": "Validate bijective AQPM evidence cohorts before shadow priorities",
+          "changes": [
+            "Reject duplicate or coerced evaluation identities before assembling shadow priorities.",
+            "Check declared row counts and unique positive horizons, with one finite nonnegative numeric error per horizon.",
+            "Add 31 constructed-artifact and CLI cases while retaining v1 shadow output and reporting_authorized=false."
+          ],
+          "verification_by_this_agent": "Independently fetched commit metadata, current PR state, successful workflow jobs and exact job logs. Added current-head hosted evidence to the PR body; made no code edits to this follow-up.",
+          "reported_local_evidence_from_followup_pr_body": {
+            "selected_tests_passed": 56,
+            "new_cases": 31,
+            "initial_regression_failures": 25,
+            "initial_regression_controls_passed": 4,
+            "strict_mypy_changed_module": "passed",
+            "broad_local_mypy": "Two errors in unchanged physics.py under local NumPy/Mypy combination; retained in PR body."
+          }
+        },
+        "validation": {
+          "session_local": {
+            "passed": 13,
+            "skipped": 4,
+            "skip_reason": "Optional Torch was unavailable during this lane's local preparation checks."
+          },
+          "session_published_head_hosted": {
+            "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38019396292",
+            "run_id": 38019396292,
+            "job_id": 114116786423,
+            "conclusion": "success",
+            "tested_head_sha": "15a52801c424784f63b7ac165ea7b2eaed20b434",
+            "tests": {
+              "passed": 21,
+              "skipped": 0
+            },
+            "includes": "One-epoch constructed train/infer/memory/route/benchmark/shadow CLI integration"
+          },
+          "session_broad_ci": {
+            "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38019396252",
+            "run_id": 38019396252,
+            "job_id": 114116786662,
+            "conclusion": "success",
+            "checkout_kind": "GitHub merge preview into unchanged base",
+            "tested_head_sha_prefix": "e79b04c",
+            "pull_request_head_sha": "15a52801c424784f63b7ac165ea7b2eaed20b434",
+            "python_312_tests": {
+              "passed": 698,
+              "subtests_passed": 129,
+              "warnings": 3
+            }
+          },
+          "current_head_hosted": {
+            "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38020896062",
+            "run_id": 38020896062,
+            "job_id": 114121430474,
+            "conclusion": "success",
+            "tested_head_sha": "62a3470bbdb2411f88c14f720ed69a6c3766d299",
+            "tests": {
+              "passed": 52,
+              "skipped": 0
+            },
+            "receipt": "Exact head checkout and explicit git rev-parse HEAD assertion precede pytest."
+          },
+          "current_broad_ci": {
+            "url": "https://github.com/build-the-future-11/IRIS-Space/actions/runs/38020896056",
+            "run_id": 38020896056,
+            "job_id": 114121430968,
+            "conclusion": "success",
+            "checkout_kind": "GitHub merge preview",
+            "tested_commit_sha": "242309823cd6158f045c0f68e2afc290ad89b8c1",
+            "pull_request_head_sha": "62a3470bbdb2411f88c14f720ed69a6c3766d299",
+            "base_sha": "7f14c66f9018db0e15d4e87d713bbe47d9479b10",
+            "python_312_tests": {
+              "passed": 729,
+              "subtests_passed": 129,
+              "warnings": 3
+            },
+            "other_gates": [
+              "Python 3.11, 3.13 and 3.14 matrix jobs",
+              "Security",
+              "Formatting",
+              "Lint",
+              "Strict type checking",
+              "Packaging"
+            ]
+          },
+          "counts_overlap": true
+        },
+        "preservation": [
+          "v1 prepared artifacts/checkpoints and frozen studies are not silently reinterpreted.",
+          "Existing independent PRs #36–39 remain untouched by this lane.",
+          "reporting_authorized remains false."
+        ],
+        "limits": [
+          "Entity disjointness does not prove raw-source disjointness.",
+          "No completed population-shift study, discovery validation, forecasting superiority, candidate-yield or 30x claim.",
+          "Follow-up authorship is separate from this lane's published head."
+        ]
+      }
+    },
+    {
+      "repository": "THE-BU1LD/EPU",
+      "visibility": "public",
+      "name": "EPU",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "38ea737c64c59e6986cb8c65b7e3a3d549e998cf",
+      "pull_request": {
+        "number": 9,
+        "url": "https://github.com/THE-BU1LD/EPU/pull/9",
+        "title": "Fix EPU finite-range normalization and fixed-point input semantics",
+        "base_branch": "main",
+        "base_sha": "37ed57d75b1d0ac24f169c9444514ecee39b31f5",
+        "head_branch": "codex/research-integrity-20261010-epu",
+        "observed_head_sha": "38ea737c64c59e6986cb8c65b7e3a3d549e998cf",
+        "merge_preview_sha": "03a0e77c63692e1bdf04e9af65b3b633227f00b3",
+        "draft": true,
+        "merged": false,
+        "changed_files": 4,
+        "commits": 1
+      },
+      "engineering_change_summary": "Validate vector/state contracts and prevent normalization, clipping and fixed-point overflow.",
+      "validation_summary": "20 methods pass; unchanged goldens and actual Verilog simulation match all 8 retained steps.",
+      "primary_workflow_url": "https://github.com/THE-BU1LD/EPU/actions/runs/38019219144",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "THE-BU1LD/EPU",
+        "pull_request": {
+          "url": "https://github.com/THE-BU1LD/EPU/pull/9",
+          "number": 9,
+          "state": "open",
+          "draft": true,
+          "merged": false,
+          "head_branch": "codex/research-integrity-20261010-epu",
+          "current_head_sha": "38ea737c64c59e6986cb8c65b7e3a3d549e998cf",
+          "base_branch": "main",
+          "base_sha": "37ed57d75b1d0ac24f169c9444514ecee39b31f5",
+          "changed_files": 4,
+          "additions": 216,
+          "deletions": 3
+        },
+        "session_published_head_sha": "38ea737c64c59e6986cb8c65b7e3a3d549e998cf",
+        "current_tree_sha": "0e9a29e9f58652987ae352677e1512b87753f70a",
+        "base_tree_sha": "8556fce654a80ac865801a16e025a3609dafc0db",
+        "changes": [
+          "Reject mismatched vector dimensions instead of silently truncating dot/l1 zip operations; reject invalid or non-finite numeric inputs.",
+          "Add a scaled normalization fallback when extreme finite shifted totals overflow, preserving the ordinary arithmetic path.",
+          "Reject NaN clipping and invalid state/memory dimensions, alpha, thresholds or step counts.",
+          "Clip finite values before fixed-point multiplication so quantizing 1e308 cannot overflow; preserve original half-tie rounding.",
+          "Require actual signed int16 integers for fixed-point state instead of silently truncating floats or accepting booleans/out-of-range values.",
+          "Enforce signed integer division semantics."
+        ],
+        "validation": {
+          "local": {
+            "unittest_methods_passed": 20,
+            "new_methods": 14,
+            "existing_methods": 6,
+            "normalization_oracle": "Decimal at 360-digit precision for extreme finite cases"
+          },
+          "hosted": {
+            "url": "https://github.com/THE-BU1LD/EPU/actions/runs/38019219144",
+            "run_id": 38019219144,
+            "job_id": 114116251115,
+            "conclusion": "success",
+            "tested_head_sha": "38ea737c64c59e6986cb8c65b7e3a3d549e998cf",
+            "tests": {
+              "unittest_methods_passed": 20
+            },
+            "additional_checks": [
+              "Original Python golden vectors unchanged at absolute tolerance 1e-12",
+              "Original fixed-point golden vectors unchanged across eight retained steps",
+              "Actual Icarus Verilog simulation: exact fixed-point match across all eight retained steps and error <= 1/256 versus float reference"
+            ]
+          },
+          "counts_overlap": true
+        },
+        "preservation": [
+          "Verilog core, retained golden vectors and scientific contract remain unchanged."
+        ],
+        "limits": [
+          "Reference arithmetic and retained eight-step simulation only.",
+          "No FPGA synthesis, physical hardware execution, throughput, power or scientific performance claim."
+        ]
+      }
+    },
+    {
+      "repository": "Finance-Meta-Research/EigenFinance",
+      "visibility": "public",
+      "name": "EigenFinance offline proposal",
+      "publication_kind": "new_draft_pull_request",
+      "session_published_head_sha": "04c151ee810d9cb1cc42de045d90b35246dd3f1c",
+      "pull_request": {
+        "number": 3,
+        "url": "https://github.com/Finance-Meta-Research/EigenFinance/pull/3",
+        "title": "Make proposed covariance comparisons independently auditable",
+        "base_branch": "codex/offline-starter-20261002",
+        "base_sha": "b3150dfb0c02560e226b958348684eab012bfca0",
+        "head_branch": "codex/research-integrity-20261010-eigenfinance-receipts",
+        "observed_head_sha": "04c151ee810d9cb1cc42de045d90b35246dd3f1c",
+        "merge_preview_sha": null,
+        "draft": true,
+        "merged": false,
+        "changed_files": 4,
+        "commits": 1
+      },
+      "engineering_change_summary": "Retain actual per-fold covariance predictions, paired errors and input/context/evaluation/source identities.",
+      "validation_summary": "21 hosted tests pass, including real CLI and direct future-shock invariance. Reserved proposal only.",
+      "primary_workflow_url": "https://github.com/Finance-Meta-Research/EigenFinance/actions/runs/38020918771",
+      "scientific_disposition_changed": false,
+      "new_study_completion_asserted": false,
+      "detailed_receipt": {
+        "repository": "Finance-Meta-Research/EigenFinance",
+        "pr": 3,
+        "session_published_head": "04c151ee810d9cb1cc42de045d90b35246dd3f1c",
+        "observed_current_head": "04c151ee810d9cb1cc42de045d90b35246dd3f1c",
+        "base": "codex/offline-starter-20261002",
+        "stacked_on_pr": 2,
+        "parent": "b3150dfb0c02560e226b958348684eab012bfca0",
+        "changed_files": 4,
+        "session_changes": [
+          "Retain actual per-fold predictor and realized covariance matrices",
+          "Recomputable scalar and paired errors",
+          "Full input, context, evaluation and executed-source identities",
+          "Seven independent matrix/future-shock/provenance/real CLI regressions"
+        ],
+        "local": {
+          "passed": 21,
+          "seconds": 0.332,
+          "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m unittest discover -v",
+          "working_directory": "proposals/offline_starter"
+        },
+        "hosted": {
+          "status": "success",
+          "head": "04c151ee810d9cb1cc42de045d90b35246dd3f1c",
+          "run_id": 38020918771,
+          "job_id": 114121497452,
+          "passed": 21,
+          "seconds": 0.108,
+          "command": "python -m unittest discover -v",
+          "url": "https://github.com/Finance-Meta-Research/EigenFinance/actions/runs/38020918771"
+        },
+        "boundaries": [
+          "Reserved status and draft charter unchanged",
+          "Fixed estimator equations, windows, shrinkage and historical scalar errors unchanged",
+          "No market study, protected data or forecast-skill claim"
+        ],
+        "record": "proposals/offline_starter/RECEIPT_INTEGRITY_20261010.md",
+        "pr_url": "https://github.com/Finance-Meta-Research/EigenFinance/pull/3",
+        "draft": true,
+        "merged": false
+      }
+    }
+  ]
+}
