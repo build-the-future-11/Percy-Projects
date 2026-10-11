@@ -1,0 +1,988 @@
+{
+  "schema_version": 1,
+  "task": "ACT-054",
+  "inspection_date": "2026-10-11",
+  "repository": "https://github.com/build-the-future-11/Percy-Projects",
+  "registry_wide_reconciliation_status": "NEEDS_REVIEW",
+  "scope": "Documentation integration and identity reconciliation of existing linked artifacts; no portfolio-wide scientific revalidation.",
+  "canonical_main": {
+    "commit": "8681930714dca1da3c7b0d5581efdc4345305a7f",
+    "tree": "bc8be1e790e277a7f1232f847087862cc314c9fc",
+    "registry_path": "PROJECT_REGISTRY.md",
+    "registry_blob": "eb42532b86804d14e7aacb09de06b2731a9739a2",
+    "readme_blob": "9d4886c44a66b3931d94c5d347a280cd46f11eab",
+    "merged_pr": 8,
+    "merged_pr_source_head": "8996f25257327bd9b9907d2ba7494099e96afca5",
+    "merged_at": "2026-10-10T16:50:19Z",
+    "tracked_file_count": 2,
+    "agents_present": false,
+    "registry_sha256": "5243c225ce9f35ca9cc9f3280669502d473a23ff90b0015403825165c0738f61"
+  },
+  "baseline_workstream_rows": [
+    {
+      "workstream": "LAM-JEPA",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "a99eaa867c6f5c238aebc128a9f7e43ec157c89feea25bb52e298d8251ba0077"
+    },
+    {
+      "workstream": "Krylov-JEPA",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "b9fe24d9a4f71bbeee55bc71fb1111d1eda34b63d0550663910d86353bd1e3c4"
+    },
+    {
+      "workstream": "APEN original",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "353566738e14c3c8710c88bae60a3380874e46e04d2f66d70ee88cb29a1f4f76"
+    },
+    {
+      "workstream": "APEN-Synthica",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "1e2e6a1491bb925bd99ae65a859c0bdd0722b0740ae311a5c253ab40ed74b332"
+    },
+    {
+      "workstream": "FIM / Fabric-Induced Memory",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "3026332854804262ce0d12ff41e7497d63483bddb3750904e709583782e33b31"
+    },
+    {
+      "workstream": "QFIM",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "40ca34b75bab34aeb5e6836bf39d2103502e96fa9cdd7e38dc7ce70d4df3a693"
+    },
+    {
+      "workstream": "ATG",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "21184cbaddfb8aa4076d0598bcf1ebc3848ed96127f5c31bad39d2605494a8ca"
+    },
+    {
+      "workstream": "IRIS / v0.2 trajectory experiment",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "cd3a4ad7560e04fe50ce6d9007e411f7af6443e3cefc2ee9769db07802ec4a13"
+    },
+    {
+      "workstream": "IRIS-Space / SIDEREA",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "97caba7c62545b6e963add0d8fbc0bfeee5b663aafffa9651093e33ba1497825"
+    },
+    {
+      "workstream": "Space-JEPA 2 / AQPM-JEPA",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "a6127c1af5aeb7c9be41b2ec553ec9949005a763231b141a8f9e3549e32328bb"
+    },
+    {
+      "workstream": "Weather-JEPA",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "ccb3ec819cab78480b53afe92555f06e92fda571f390b33c48bbd0b1a05b542b"
+    },
+    {
+      "workstream": "FNO / Darcy",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "77bad5be82f29122fb1fd70ac47226b59028d88e67a6ff641a33d3a8a0938d6e"
+    },
+    {
+      "workstream": "NeuroCAD / VeriCodeGen",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "31fb0ed9e97e93cd25f6e87c047257543204c1a8b6ac0ed83fbe3b9143343d5d"
+    },
+    {
+      "workstream": "EPU",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "9d451eb9837663da3ef96baeab991ac0ebd94815bc0b012e872ee915c794f55b"
+    },
+    {
+      "workstream": "Eigen-JEPA",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "bfdc05e33f046a29f7346847f44f7db1cdf198281a6f6544d4afd1768e259d95"
+    },
+    {
+      "workstream": "FI-JEPA v1",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "4f82b8538aba5ecf982e199ef227235985d939b9b2f1d21af95bbf3368701766"
+    },
+    {
+      "workstream": "NGMT original",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "9865e19809b2d4b4099aea482582d774d086c13d28e03cffaef250ace0bc8149"
+    },
+    {
+      "workstream": "NPMS",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "7a27c14736c46c4fe79810bed60013dd57fb3b99e6b4b677a704af2e25f1fc7d"
+    },
+    {
+      "workstream": "NMPS",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "e4ab010f0ff705475e8547d9c18d529f355910284b428b164f7789f351bc051d"
+    },
+    {
+      "workstream": "Causal-Memory-Use",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "e30db02e74ebd5879507e36dcd8d4f76cbfdac4de923966f8ded65f72a39aca2"
+    },
+    {
+      "workstream": "GaussianMemory / GMF",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "960bcd9fb26386fce392ab292c1a22bfac9954a6d7ff89a850c70d6148122405"
+    },
+    {
+      "workstream": "RET",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "13be5d144c4a8b8ce1d48fb5c77772e9242f31a71cd91c884674f87e6c64ec77"
+    },
+    {
+      "workstream": "DRPT",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "58f0bc581644afed938a1a5f579d41111ea42201ba75d068b8e909f93b1c038b"
+    },
+    {
+      "workstream": "CounterfactualWorlds",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "b744682b0be631a5cba73b633d1931ae8e1cd07bd0b678dd7f70b5afe559b1ba"
+    },
+    {
+      "workstream": "Assumption-Integrity",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "52cbd259682a04d4fe1d9bb014058de9b6635837de63bc83badf4a2be7d4ebae"
+    },
+    {
+      "workstream": "Assumed-Integrity-Under-Distribution-Shift",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "6aad2368e597aef6255fca0b0001cb554e2106cfbd84699ef12f79dea4b41f69"
+    },
+    {
+      "workstream": "RIPII",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "09d56087146d2ccc6d1681744c2fc8cfd4439dc1f6471d25b916431b9837c585"
+    },
+    {
+      "workstream": "RIS / Iy-ERN",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "5ee2110903440cbf138ae2776e61ba9f6c9c0f5b57d812799c49855ed8cb0a8a"
+    },
+    {
+      "workstream": "Olympus / Pantheon / Ghost",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "132adf8eb2fc428cb365f98d9c0b2d1d01e014423fa7f946bf1fe95af7347630"
+    },
+    {
+      "workstream": "FREM (Fourier, reservoir, event n-gram, proposed JEPA)",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "cc23a3c53e536151365c3f380ab6e786553a8cc286bf3a1e116ba277802a244e"
+    },
+    {
+      "workstream": "FinanceMeta quant benchmark",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "f16d5f2d9b655ec1e49b463926855f8592884f7ac6cad2cfacdcecac925e2cb5"
+    },
+    {
+      "workstream": "EigenFinance",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "f3ab3f6c0f584e674922879857156c48c4bcb0fb392358a511d1cd23ed45ce50"
+    },
+    {
+      "workstream": "LGWM Hedge Fund",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "a23114885e61fb501ea93363f82a0d55015bb8413a3ee7f36db51a1b261b501e"
+    },
+    {
+      "workstream": "Finimmunity",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "93282cd2a46926b38b2b0031e97735fb7b0c6ced3bf3d865cb7c9e201a5bcd13"
+    },
+    {
+      "workstream": "Wharton-Experiment",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "b31601f15f2f6fbaa2ac876dc443f27bb16141c82d3ebc89902e6f88801a2d03"
+    },
+    {
+      "workstream": "Cubic-number-field optimizer",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "c2c7cb50007e422148a93c1ff0066fae5073afb5e820f08cdc53106435d7a7b2"
+    },
+    {
+      "workstream": "Math-11 irrationality/descent",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "8f58bb48fee74e4da99c42fca53951b7036fb7a933c3befc6a1f39e24d7a98a1"
+    },
+    {
+      "workstream": "World-Series research and waves",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "3c4ef93213c4a2ca2c25a4c22ebddb1ce0dd1c79fd2f66d2dc5052bf91faa800"
+    },
+    {
+      "workstream": "MIT\u2013Stanford\u2013Princeton portfolio",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "01c8ea01d9245197d69914d266ed8304d9e0a7fda17dceb9d165a6f9d13d8712"
+    },
+    {
+      "workstream": "Atlas / ResearchPilot / LabOS",
+      "scope": "Dated 2026-10-10 registry record preserved; current project source/owner/endpoint verification not claimed by this receipt.",
+      "source_row_sha256": "1b024b0cd34ce9e638424cf9cb494c002219c737538927106a6819fd62fd20b8"
+    }
+  ],
+  "existing_open_drafts": [
+    {
+      "number": 1,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/1",
+      "title": "Index recovered public repository metadata without completion inflation",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-09-30T17:52:19Z",
+      "head_ref": "percy/inventory-20260930",
+      "head_sha": "72114849a4bba24dbee231b23b697650222e9500",
+      "base_ref": "main",
+      "base_sha": "c6945e8028b6d99886bb4748763d2670b39365d3",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/72114849a4bba24dbee231b23b697650222e9500",
+      "changed_files": [
+        {
+          "path": "PROJECT_REGISTRY.jsonl",
+          "status": "added",
+          "blob": "d2ffcbcdddd8e7e2b06fc7274b4b8d7c5921cc75"
+        },
+        {
+          "path": "PROJECT_REGISTRY.md",
+          "status": "added",
+          "blob": "cf3fef1decf8f3ddd196181a427c0ca10e8f3b21"
+        },
+        {
+          "path": "WAVE_REGISTRY.md",
+          "status": "added",
+          "blob": "35202d92a26258380717fb3fdbeafb4bbb314652"
+        },
+        {
+          "path": "projects/krylov-jepa/STATE.md",
+          "status": "added",
+          "blob": "c181e9a185cb20225a336ddec7d6a5dab176c4d2"
+        },
+        {
+          "path": "projects/lam-jepa/STATE.md",
+          "status": "added",
+          "blob": "ef8cdfdf047305962c29239939f27d2a4bd4c49b"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/2",
+      "title": "Verify the retained Math11 certificate and newer torus-sampling arithmetic",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-07T18:34:22Z",
+      "head_ref": "conference/20261007-math11-certificate",
+      "head_sha": "f7d8880d82f070723bd98d25a8f9a404bc7da698",
+      "base_ref": "main",
+      "base_sha": "c6945e8028b6d99886bb4748763d2670b39365d3",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/f7d8880d82f070723bd98d25a8f9a404bc7da698",
+      "changed_files": [
+        {
+          "path": ".github/workflows/math11-certificate.yml",
+          "status": "added",
+          "blob": "c416308de00cdd558d450b1cf1d36141df685636"
+        },
+        {
+          "path": ".github/workflows/math11-torus.yml",
+          "status": "added",
+          "blob": "81e73322bb4c511f4831db33b66a9646a74522fd"
+        },
+        {
+          "path": "README.md",
+          "status": "added",
+          "blob": "2a245edca85bc23c70a71d335d90038e543ba698"
+        },
+        {
+          "path": "projects/math11/README.md",
+          "status": "added",
+          "blob": "006fe55859d6112bb00a0ad320967ce8a57d8c86"
+        },
+        {
+          "path": "projects/math11/release/CLAIM_STATUS.md",
+          "status": "added",
+          "blob": "8de70cd4c81f86e84c06ee1ef4df00cedadf4513"
+        },
+        {
+          "path": "projects/math11/release/Math11_Cubic_Field_Certified_Results.pdf",
+          "status": "added",
+          "blob": "5252e6b2c8d9e967374c3a62d383d8c8a21a221b"
+        },
+        {
+          "path": "projects/math11/release/README.md",
+          "status": "added",
+          "blob": "a36c471748d9cb57af19479bea577e0a2112ed6f"
+        },
+        {
+          "path": "projects/math11/release/SHA256SUMS.txt",
+          "status": "added",
+          "blob": "aead95901e9314530ff97fc8874bd9d27a4e7318"
+        },
+        {
+          "path": "projects/math11/release/bounded_frontier.png",
+          "status": "added",
+          "blob": "b27e9a90de1f3922d7aacbd61491de8b5bedabf1"
+        },
+        {
+          "path": "projects/math11/release/candidate_table.csv",
+          "status": "added",
+          "blob": "e48864ebdd7f1a8d19c2cdaaf4226941fe92cf28"
+        },
+        {
+          "path": "projects/math11/release/certificate_manifest.json",
+          "status": "added",
+          "blob": "3f4f74ee02f43b42f9d2b161d2bf38069c8cf00b"
+        },
+        {
+          "path": "projects/math11/release/log_lattice.png",
+          "status": "added",
+          "blob": "c74a55bfd8d8a9c6e8a8a804abe49ecbadea5304"
+        },
+        {
+          "path": "projects/math11/release/paper.tex",
+          "status": "added",
+          "blob": "4464746545d49133e384695d581bc834e88905e5"
+        },
+        {
+          "path": "projects/math11/release/verifier_output.txt",
+          "status": "added",
+          "blob": "37f920c2681ecb64a4b793def73509ff9849bb43"
+        },
+        {
+          "path": "projects/math11/release/verify.py",
+          "status": "added",
+          "blob": "9b2a9bb68a27674520a13bb0d406900bed630a06"
+        },
+        {
+          "path": "projects/math11/results/replay_2026-10-07.json",
+          "status": "added",
+          "blob": "1416ebbad940a80b3092f47c6f1e6a44c8efb53d"
+        },
+        {
+          "path": "projects/math11/source/Math11_Certified_Release_2026-10-02.zip",
+          "status": "added",
+          "blob": "af6faed770c41fb3ade32d3a150bdcabbd18ebb4"
+        },
+        {
+          "path": "projects/math11/state.json",
+          "status": "added",
+          "blob": "9c66984d6cc8753dc36274f2a8692f509d77a379"
+        },
+        {
+          "path": "projects/math11/tests/test_reproduce.py",
+          "status": "added",
+          "blob": "41f3a87d2152282dcaf21c2afdfcd9c2930ebe46"
+        },
+        {
+          "path": "projects/math11/tools/reproduce.py",
+          "status": "added",
+          "blob": "aea36e4534584636b66a61920e6644c8cae55a34"
+        },
+        {
+          "path": "projects/math11/torus_sampling/CLAIMS.md",
+          "status": "added",
+          "blob": "0a0d2d1d5f161cb9869749a9ca65511e62b5fdeb"
+        },
+        {
+          "path": "projects/math11/torus_sampling/PROOF_REVIEW.md",
+          "status": "added",
+          "blob": "c1e4e5a9cd4082deab99f21dd86ca27e6f458fd9"
+        },
+        {
+          "path": "projects/math11/torus_sampling/README.md",
+          "status": "added",
+          "blob": "6ca88f004c3e57cac44e6d76f709006fe72c537e"
+        },
+        {
+          "path": "projects/math11/torus_sampling/check_exact.py",
+          "status": "added",
+          "blob": "0b28a394e7bb124e4999ccbf35a1e22df2088ca7"
+        },
+        {
+          "path": "projects/math11/torus_sampling/independent_certificate.json",
+          "status": "added",
+          "blob": "0305386d72756b1924c996797036890fe893e894"
+        },
+        {
+          "path": "projects/math11/torus_sampling/provenance.json",
+          "status": "added",
+          "blob": "51e1ec9a4f8926bd6ae7ca33412ef4b4517eff95"
+        },
+        {
+          "path": "projects/math11/torus_sampling/test_check_exact.py",
+          "status": "added",
+          "blob": "e825faf2f15dae9c7d8ac3429531447c9f96ed4b"
+        },
+        {
+          "path": "projects/math11/torus_sampling/validation.json",
+          "status": "added",
+          "blob": "896b5fdde537bd7d7af96f58a8a164794a0354c0"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/3",
+      "title": "Record verified code repairs across 13 public research repositories",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-10T05:34:20Z",
+      "head_ref": "codex/research-engineering-register-20261010",
+      "head_sha": "34ca35e2d44285fc279461158c423adf03285541",
+      "base_ref": "main",
+      "base_sha": "c6945e8028b6d99886bb4748763d2670b39365d3",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/34ca35e2d44285fc279461158c423adf03285541",
+      "changed_files": [
+        {
+          "path": "PERCY_PROJECTS_README.md",
+          "status": "modified",
+          "blob": "377138d90ea78b249c8e499dedf7fdcdc75d5285"
+        },
+        {
+          "path": "README.md",
+          "status": "added",
+          "blob": "1c335a3206b969143b2c93abb8cf0dc38b00e79a"
+        },
+        {
+          "path": "audits/2026-10-10_public_research_engineering.json",
+          "status": "added",
+          "blob": "d7c812a436e41762f9c96f5934c08b6fc726c7dd"
+        },
+        {
+          "path": "audits/2026-10-10_public_research_engineering.md",
+          "status": "added",
+          "blob": "73caf523651305556e06f76ce06f8d1015f1d2d9"
+        },
+        {
+          "path": "audits/2026-10-10_public_research_engineering_followup.json",
+          "status": "added",
+          "blob": "03347a8de1b9bb80a8f337dfa8102711e2ef0883"
+        },
+        {
+          "path": "audits/2026-10-10_public_research_engineering_followup.md",
+          "status": "added",
+          "blob": "65c853fbe4fbc0aeb0315b671d3a90a24da35b0c"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/4",
+      "title": "Implement durable research lifecycle and evidence ledger",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-10T04:13:49Z",
+      "head_ref": "codex/research-lifecycle-ledger-20261010",
+      "head_sha": "a664fea4a5db0789bde91898328514ceb8d45a31",
+      "base_ref": "main",
+      "base_sha": "c6945e8028b6d99886bb4748763d2670b39365d3",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/a664fea4a5db0789bde91898328514ceb8d45a31",
+      "changed_files": [
+        {
+          "path": ".github/workflows/research-pipeline.yml",
+          "status": "added",
+          "blob": "4106babd3e448e1fe0b488b76a5971a2ee5283ed"
+        },
+        {
+          "path": "research_pipeline/DESIGN.md",
+          "status": "added",
+          "blob": "9198afea766a540bfd7a30be88dfb786f2bb7f34"
+        },
+        {
+          "path": "research_pipeline/DEVELOPMENT_20261010.md",
+          "status": "added",
+          "blob": "dab451ae781003171352e354bfd19880c7ce3e2d"
+        },
+        {
+          "path": "research_pipeline/PORTFOLIO_EXECUTION_20261010.json",
+          "status": "added",
+          "blob": "302655c29e30e9a93098ba8e9a5310c8423cc457"
+        },
+        {
+          "path": "research_pipeline/README.md",
+          "status": "added",
+          "blob": "6f3cd32c9ab1eefe551b8d3ad4c4cf9cb42bc0bd"
+        },
+        {
+          "path": "research_pipeline/__init__.py",
+          "status": "added",
+          "blob": "d605dba818f86add584daaf590706dd853cf7e8c"
+        },
+        {
+          "path": "research_pipeline/__main__.py",
+          "status": "added",
+          "blob": "f09d8abbcee8bd8015fa00ecc4200660c5dbc650"
+        },
+        {
+          "path": "research_pipeline/demo.py",
+          "status": "added",
+          "blob": "b94ee65d7647fdfc7a1c8bee7130d3f4ca473695"
+        },
+        {
+          "path": "research_pipeline/ledger.py",
+          "status": "added",
+          "blob": "dead80f3b5e18936db6dfc39355f14679c3cd059"
+        },
+        {
+          "path": "tests/test_research_pipeline.py",
+          "status": "added",
+          "blob": "a6209f38ead2e48e106c57b4523436d0134468c8"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/5",
+      "title": "Bind evidence seals and reviews to exact retained artifact bytes",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-10T04:55:05Z",
+      "head_ref": "codex/lifecycle-evidence-bytes-20261010",
+      "head_sha": "b2bd69186327d0e188df2f4567a116d8afebd255",
+      "base_ref": "codex/research-lifecycle-ledger-20261010",
+      "base_sha": "a664fea4a5db0789bde91898328514ceb8d45a31",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/b2bd69186327d0e188df2f4567a116d8afebd255",
+      "changed_files": [
+        {
+          "path": ".github/workflows/research-pipeline.yml",
+          "status": "modified",
+          "blob": "522bff3aabfc2113757534aa8fabf967b138da29"
+        },
+        {
+          "path": "research_pipeline/DESIGN.md",
+          "status": "modified",
+          "blob": "30b90f1eac6eec1c56074f4ea9c4a405959cef45"
+        },
+        {
+          "path": "research_pipeline/DEVELOPMENT_20261010.md",
+          "status": "modified",
+          "blob": "af1ca979d203c15d8b1c9ae4710a3e1e0600744c"
+        },
+        {
+          "path": "research_pipeline/README.md",
+          "status": "modified",
+          "blob": "1a164abb4966e07f07b8120bd88b97c0d2f8d2e6"
+        },
+        {
+          "path": "research_pipeline/__main__.py",
+          "status": "modified",
+          "blob": "1249294578ff0793f6f0c0f1a496fe2918efc79d"
+        },
+        {
+          "path": "research_pipeline/demo.py",
+          "status": "modified",
+          "blob": "a310f92eecfa49a61b47ab0c5dbb765efbadda3f"
+        },
+        {
+          "path": "research_pipeline/ledger.py",
+          "status": "modified",
+          "blob": "1a9d58fa75b5b25dceb407536e754de796e1a335"
+        },
+        {
+          "path": "tests/fixtures/legacy_ledger_v1.json",
+          "status": "added",
+          "blob": "d2b51ee7f977c799c68fa1e8eb3b3786097895f3"
+        },
+        {
+          "path": "tests/test_evidence_binding.py",
+          "status": "added",
+          "blob": "f5ce88a0ee08e2d6285fa13aa6306cf08b8e05cd"
+        },
+        {
+          "path": "tests/test_research_pipeline.py",
+          "status": "modified",
+          "blob": "f1de1ae5540d2d4a58ec0f408f833166b3bbd373"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/6",
+      "title": "Bind protocol parsing and mutation receipts to verified snapshots",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-10T05:22:42Z",
+      "head_ref": "codex/ledger-json-snapshot-20261010",
+      "head_sha": "eb3d36109e93a32ec2bd1454899cd106d029da4b",
+      "base_ref": "codex/lifecycle-evidence-bytes-20261010",
+      "base_sha": "b2bd69186327d0e188df2f4567a116d8afebd255",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/eb3d36109e93a32ec2bd1454899cd106d029da4b",
+      "changed_files": [
+        {
+          "path": "AGENTS.md",
+          "status": "added",
+          "blob": "219311d87ccb0f99bcef25342707cb4df661272b"
+        },
+        {
+          "path": "RESEARCH_STATE.json",
+          "status": "added",
+          "blob": "48c9fccae82561e7bff283668b540bc26a25dbfd"
+        },
+        {
+          "path": "research_pipeline/PORTFOLIO_EXECUTION_20261010.json",
+          "status": "modified",
+          "blob": "a8ac6e49cad97121536ac6bbb043a5bfdfcc5190"
+        },
+        {
+          "path": "research_pipeline/SNAPSHOT_INTEGRITY_20261010.json",
+          "status": "added",
+          "blob": "0ef009a507c9548850b4ceab9b78dbfb37188a8a"
+        },
+        {
+          "path": "research_pipeline/SNAPSHOT_INTEGRITY_20261010.md",
+          "status": "added",
+          "blob": "d4ae7e9fa9319750e217f8cb4dc20a3880698562"
+        },
+        {
+          "path": "research_pipeline/ledger.py",
+          "status": "modified",
+          "blob": "c21d2923d8d378fde4074339904e5206c61dd35f"
+        },
+        {
+          "path": "research_pipeline/snapshot_baseline_20261010.txt",
+          "status": "added",
+          "blob": "55286c161259c565fad88b7730fa064cd5eca9a3"
+        },
+        {
+          "path": "research_pipeline/snapshot_integrated_20261010.txt",
+          "status": "added",
+          "blob": "9adf16a2a7851d389187ea13212ed8bb096727d1"
+        },
+        {
+          "path": "research_pipeline/snapshot_verified_20261010.txt",
+          "status": "added",
+          "blob": "5c56702019ee0faa9c1dcde709b2e0095604fffa"
+        },
+        {
+          "path": "tests/test_research_pipeline.py",
+          "status": "modified",
+          "blob": "55ac188ba556d60adb6b86f5fc04a0ebac7639ef"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/7",
+      "title": "Add deterministic evidence bundle export and offline verification",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-10T10:36:59Z",
+      "head_ref": "codex/percy-evidence-bundles-20261010",
+      "head_sha": "ed1476cc004d696c3196c1b2829417c0172de366",
+      "base_ref": "codex/ledger-json-snapshot-20261010",
+      "base_sha": "eb3d36109e93a32ec2bd1454899cd106d029da4b",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/ed1476cc004d696c3196c1b2829417c0172de366",
+      "changed_files": [
+        {
+          "path": "RESEARCH_STATE.json",
+          "status": "modified",
+          "blob": "c1cbd86d6e0f9f1888567870377c7deaf7f983c0"
+        },
+        {
+          "path": "research_pipeline/ARCHIVE_DESIGN_20261010.md",
+          "status": "added",
+          "blob": "56e16b69c750959daef4f8d21db1f1eeb8579f4b"
+        },
+        {
+          "path": "research_pipeline/ARCHIVE_DEVELOPMENT_20261010.md",
+          "status": "added",
+          "blob": "f634e8a2071f5b930c71f7db2735129bda712db1"
+        },
+        {
+          "path": "research_pipeline/README.md",
+          "status": "modified",
+          "blob": "58057209bafb073ef19f9a765892c98004e06aac"
+        },
+        {
+          "path": "research_pipeline/__main__.py",
+          "status": "modified",
+          "blob": "2ad619d41bf8e153d1d0015bf6641a32177dcbf4"
+        },
+        {
+          "path": "research_pipeline/archive.py",
+          "status": "added",
+          "blob": "72a9a09a31bb6edb49ba549d3c8e9cf40364c90e"
+        },
+        {
+          "path": "research_pipeline/verification/archive_20261010/root_independent_review.json",
+          "status": "added",
+          "blob": "b3aa1dba79868e8cffd84a12ff559aa05148db94"
+        },
+        {
+          "path": "research_pipeline/verification/archive_20261010/root_independent_review.py",
+          "status": "added",
+          "blob": "d635f6e6baab13c116afa98b66d6be920698b27f"
+        },
+        {
+          "path": "research_pipeline/verification/archive_20261010/root_independent_review_final.json",
+          "status": "added",
+          "blob": "ff6409c064e005317295f0994a8303f1699b1095"
+        },
+        {
+          "path": "research_pipeline/verification/archive_20261010/root_independent_review_final.py",
+          "status": "added",
+          "blob": "13a0b0fdf761043bd064aaf367582fcea800e2f0"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/adversarial_first.txt",
+          "status": "added",
+          "blob": "1298ea282427a78bfc0f33180ee03692a5d11eca"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/adversarial_repaired.txt",
+          "status": "added",
+          "blob": "931f1848c555f92626d2206d6b26a85966958844"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/baseline_65.txt",
+          "status": "added",
+          "blob": "7172cea3e545f5392b56aab891160c99f59829b8"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/final_integrated_100.txt",
+          "status": "added",
+          "blob": "e917d9fa2bc1131a1ac8cc29ecfb3ac8066b3463"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/first_implementation.txt",
+          "status": "added",
+          "blob": "538ef3885ec66bece5e25fe54815b24230f377a9"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/initial_missing_feature.txt",
+          "status": "added",
+          "blob": "ffd079027c6e24166bc4a67931ffaa9b4a51cc69"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/integrated_100.txt",
+          "status": "added",
+          "blob": "cc15156475f24a7c3d720e372ffb3952a7047d30"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/integrated_99.txt",
+          "status": "added",
+          "blob": "ddec4d41acbd3d9692102fbb864bf68cbc670914"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/receipt.json",
+          "status": "added",
+          "blob": "f73f1cb04eeced2ebb8dd25fc84ac5ac5bbfe3da"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/zip32_guard_before_fix.txt",
+          "status": "added",
+          "blob": "7ae99477c5cd7083a91cc3d2618a94d760f5dd27"
+        },
+        {
+          "path": "research_pipeline/verification/evidence_bundle_20261010/zip32_guard_repaired.txt",
+          "status": "added",
+          "blob": "2473dd73636ac078c6f473e82b151b9439a27b58"
+        },
+        {
+          "path": "tests/test_archive.py",
+          "status": "added",
+          "blob": "7a10594409210e82256ce02de87a8b834c08fe19"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "url": "https://github.com/build-the-future-11/Percy-Projects/pull/9",
+      "title": "Refresh FIM and ATG registry evidence without advancing scientific gates",
+      "state": "open",
+      "draft": true,
+      "updated_at": "2026-10-11T14:45:35Z",
+      "head_ref": "docs/fim-atg-registry-20261011",
+      "head_sha": "82940707558570cb9874e16c8d9a27a3c3ce6402",
+      "base_ref": "main",
+      "base_sha": "8681930714dca1da3c7b0d5581efdc4345305a7f",
+      "head_url": "https://github.com/build-the-future-11/Percy-Projects/tree/82940707558570cb9874e16c8d9a27a3c3ce6402",
+      "changed_files": [
+        {
+          "path": "PROJECT_REGISTRY.md",
+          "status": "modified",
+          "blob": "2a5a9cd8c171f292414ac35a92935604c76f0748"
+        }
+      ]
+    }
+  ],
+  "overlap_groups": [
+    {
+      "path": "PROJECT_REGISTRY.md",
+      "prs": [
+        1,
+        9
+      ],
+      "canonical_blob": "eb42532b86804d14e7aacb09de06b2731a9739a2",
+      "resolution": "Retain merged #8 registry and review targeted #9 first. Reconcile #1's older metadata inventory by identity; it does not replace current dispositions."
+    },
+    {
+      "path": "README.md",
+      "prs": [
+        2,
+        3
+      ],
+      "resolution": "Both independently add different entry points. Review together and explicitly retain Math11 and engineering audit navigation in the accepted composition."
+    }
+  ],
+  "dependency_edges": [
+    {
+      "predecessor_pr": 4,
+      "successor_pr": 5
+    },
+    {
+      "predecessor_pr": 5,
+      "successor_pr": 6
+    },
+    {
+      "predecessor_pr": 6,
+      "successor_pr": 7
+    }
+  ],
+  "integration_priority": [
+    {
+      "priority": 1,
+      "action": "Retain current main and all existing registry rows, negative records and protected gates."
+    },
+    {
+      "priority": 2,
+      "action": "Review targeted registry draft #9, then reconcile inventory #1 against the accepted canonical index."
+    },
+    {
+      "priority": 3,
+      "action": "Resolve the #2/#3 README composition while reviewing the independent Math11 and engineering evidence in their own scopes."
+    },
+    {
+      "priority": 4,
+      "action": "Review infrastructure in dependency order #4, #5, #6, #7; each predecessor remains a prerequisite."
+    }
+  ],
+  "source_files": [
+    {
+      "label": "PERCY_PROJECTS_README.md",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/8681930714dca1da3c7b0d5581efdc4345305a7f/PERCY_PROJECTS_README.md",
+      "blob": "9d4886c44a66b3931d94c5d347a280cd46f11eab"
+    },
+    {
+      "label": "PROJECT_REGISTRY.md",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/8681930714dca1da3c7b0d5581efdc4345305a7f/PROJECT_REGISTRY.md",
+      "blob": "eb42532b86804d14e7aacb09de06b2731a9739a2"
+    },
+    {
+      "label": "AGENTS.md (proposed in ledger stack)",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/ed1476cc004d696c3196c1b2829417c0172de366/AGENTS.md",
+      "blob": "219311d87ccb0f99bcef25342707cb4df661272b"
+    },
+    {
+      "label": "RESEARCH_STATE.json (proposed ledger index)",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/ed1476cc004d696c3196c1b2829417c0172de366/RESEARCH_STATE.json",
+      "blob": "c1cbd86d6e0f9f1888567870377c7deaf7f983c0"
+    },
+    {
+      "label": "Math11 retained claim ledger",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/f7d8880d82f070723bd98d25a8f9a404bc7da698/projects/math11/release/CLAIM_STATUS.md",
+      "blob": "8de70cd4c81f86e84c06ee1ef4df00cedadf4513"
+    },
+    {
+      "label": "Math11 later proof review",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/f7d8880d82f070723bd98d25a8f9a404bc7da698/projects/math11/torus_sampling/PROOF_REVIEW.md",
+      "blob": "c1e4e5a9cd4082deab99f21dd86ca27e6f458fd9"
+    },
+    {
+      "label": "Math11 later provenance",
+      "url": "https://github.com/build-the-future-11/Percy-Projects/blob/f7d8880d82f070723bd98d25a8f9a404bc7da698/projects/math11/torus_sampling/provenance.json",
+      "blob": "51e1ec9a4f8926bd6ae7ca33412ef4b4517eff95"
+    },
+    {
+      "label": "FREM proposed economic specification",
+      "url": "https://github.com/build-the-future-11/Wharton-GYIC-Model-Stochastic-Engram-Reservoir-JEPA-for-Regime-Aware-Financial-Forecasting/blob/a6d9f3dc2c07b801a8425866b9d8ac63e51d8bfa/research/ECONOMIC_SPEC_PROPOSED_20261011.md",
+      "blob": "217f4c8fe6b015388ba8244145825fa63b75d530"
+    }
+  ],
+  "linked_deliveries": [
+    {
+      "workstream": "Cubic-number-field optimizer / Math11",
+      "source_pr": 2,
+      "head": "f7d8880d82f070723bd98d25a8f9a404bc7da698",
+      "state": "Retained October 2 norm-1-or-3/coset statement and separate October 7 internal reconstruction/review; no new proof verification.",
+      "source": "https://github.com/build-the-future-11/Percy-Projects/blob/f7d8880d82f070723bd98d25a8f9a404bc7da698/projects/math11/release/CLAIM_STATUS.md",
+      "limits": [
+        "Original newer PDF/archive byte replay remains blocked in the dated provenance.",
+        "External specialist proof review and novelty are not established.",
+        "MATH-02 unrestricted step-one nonresonance remains OPEN."
+      ]
+    },
+    {
+      "workstream": "FREM",
+      "source_pr": "https://github.com/build-the-future-11/Wharton-GYIC-Model-Stochastic-Engram-Reservoir-JEPA-for-Regime-Aware-Financial-Forecasting/pull/5",
+      "head": "a6d9f3dc2c07b801a8425866b9d8ac63e51d8bfa",
+      "base": "52cb26d582d2529af85a1fb7ce00ab1b89d47b03",
+      "source": "https://github.com/build-the-future-11/Wharton-GYIC-Model-Stochastic-Engram-Reservoir-JEPA-for-Regime-Aware-Financial-Forecasting/blob/a6d9f3dc2c07b801a8425866b9d8ac63e51d8bfa/research/ECONOMIC_SPEC_PROPOSED_20261011.md",
+      "state": "PROPOSED_NOT_FROZEN / NOT_EVALUATED",
+      "limits": [
+        "Named owner, independent reviewer and freeze authority unresolved.",
+        "Mandate, costs, licensed point-in-time data, protected-access authority and primary design unresolved.",
+        "No new portfolio implementation, empirical result, market-data run or alpha claim."
+      ],
+      "initially_inspected_head": "5646df06babf07f0692a49fd9c6b30413742d199",
+      "specification_blob": "217f4c8fe6b015388ba8244145825fa63b75d530",
+      "specification_unchanged_across_followup": true,
+      "concurrent_followup": "Three additive arithmetic-checker/documentation/receipt files; the proposed specification and all earlier files remain unchanged. No new scientific state is inferred."
+    }
+  ],
+  "ownership": {
+    "assigned_by_this_receipt": false,
+    "scientific_owner": null,
+    "independent_reviewer": null,
+    "status": "NEEDS_REVIEW; GitHub authorship, repository ownership and draft creation are not treated as study-owner or reviewer acceptance."
+  },
+  "protected_boundary": {
+    "outcomes_accessed": 0,
+    "scientific_runs": 0,
+    "protocol_changes": 0,
+    "gate_advancement": false,
+    "negative_results_preserved": true,
+    "submissions": 0,
+    "merges": 0,
+    "deployments": 0
+  },
+  "next_executable_action": "Review this dated integration map, reconcile the documented overlaps without discarding history, and obtain exact per-study owner/claim/endpoint evidence before a future research wave.",
+  "verification": {
+    "kind": "Static documentation and provenance checks only",
+    "status": "PASS",
+    "checked_at_utc": "2026-10-11T15:34:18.696576+00:00",
+    "checks": {
+      "exact_base_commit": true,
+      "exact_base_tree": true,
+      "canonical_registry_blob": true,
+      "all_original_registry_bytes_preserved": true,
+      "lifecycle_readme_unchanged": true,
+      "all_40_workstream_rows_unchanged": true,
+      "all_row_identities_recorded": true,
+      "eight_existing_draft_identities_and_paths_match": true,
+      "ledger_dependency_heads_match": true,
+      "registry_overlap_recorded": true,
+      "readme_collision_recorded": true,
+      "exact_pr9_registry_blob": true,
+      "pr9_update_and_receipt_link_compose_exactly": true,
+      "all_new_local_links_resolve": true,
+      "all_percy_immutable_links_bound_to_inspected_sources": true,
+      "frem_current_design_and_scientific_gates_preserved": true,
+      "no_owner_or_scientific_advancement": true,
+      "tracked_diff_whitespace_check": true,
+      "frem_specification_blob_preserved_across_head_change": true
+    },
+    "check_count": 19,
+    "local_link_count": 4,
+    "immutable_percy_link_count": 17,
+    "full_software_or_scientific_suite_run": false,
+    "new_research_evidence": false,
+    "source_recheck": {
+      "checked_at_utc": "2026-10-11T15:35:54.000735+00:00",
+      "percy_main_unchanged": true,
+      "all_eight_existing_draft_heads_and_bases_unchanged": true,
+      "target_branch_absent": true,
+      "frem_previous_head": "5646df06babf07f0692a49fd9c6b30413742d199",
+      "frem_current_head": "a6d9f3dc2c07b801a8425866b9d8ac63e51d8bfa",
+      "frem_specification_blob": "217f4c8fe6b015388ba8244145825fa63b75d530",
+      "frem_specification_bytes_unchanged": true,
+      "outcome": "PASS after reading the concurrent follow-up and preserving both source identities"
+    }
+  }
+}

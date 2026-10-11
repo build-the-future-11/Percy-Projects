@@ -81,3 +81,12 @@ Percy-Projects coordinates scientific project records; linked external research 
 4. New variants, changed hypotheses, and new result-bearing runs require distinct names and frozen protocols.
 5. An issue/PR exists independently of whether it is merged, deployed, reviewed, reproduced or submitted; report those separately.
 6. The next session should inspect the **current** exact SHA and statuses on each linked repository, not assume this dated index remains live.
+
+## Integration and reconciliation receipt — 11 October 2026
+
+[The dated integration receipt](reconciliation/2026-10-11.md) pins the existing
+canonical registry, open draft heads, overlap paths and review order, with
+[machine-readable source identities](reconciliation/2026-10-11.json).
+All 40 workstream rows above remain unchanged dated records. Registry-wide
+owner, claim and protected-endpoint reconciliation remains **NEEDS_REVIEW**;
+the receipt does not advance any scientific state or authorize a new wave.
