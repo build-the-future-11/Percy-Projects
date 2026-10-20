@@ -1,0 +1,132 @@
+"""Analyze retained DEVELOPMENT receipts; never promote them to confirmation.
+
+Run: python analyze.py RUN_DIRECTORY --output analysis
+Only JSON receipts are read. torch/pickle checkpoints are not deserialized.
+Resampling is across independently regenerated replicate seeds, not time points.
+With fewer than ten replicates, intervals are deliberately withheld. Ten is an
+engineering minimum, not a power guarantee. No significance or support label is
+assigned by this script, including when an exploratory interval excludes zero.
+"""
+from __future__ import annotations
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import random
+import statistics
+
+
+def quantile(values: list[float], probability: float) -> float:
+    if not values or not 0 <= probability <= 1:
+        raise ValueError('Nonempty values and probability in [0,1] required')
+    x = sorted(values)
+    position = probability * (len(x) - 1)
+    lo, hi = math.floor(position), math.ceil(position)
+    return x[lo] + (position - lo) * (x[hi] - x[lo])
+
+
+def describe(values: list[float], bootstrap_seed: int = 20261020) -> dict:
+    if not values or not all(math.isfinite(x) for x in values):
+        raise ValueError('At least one finite value is required')
+    result = {'replicates': len(values), 'mean': statistics.mean(values),
+              'minimum': min(values), 'maximum': max(values), 'values': values,
+              'standard_deviation': statistics.stdev(values) if len(values) > 1 else None,
+              'exploratory_bootstrap_95_percent_interval': None,
+              'scientific_disposition': 'UNCONFIRMED'}
+    if len(values) >= 10:
+        rng = random.Random(bootstrap_seed)
+        means = [statistics.mean(rng.choices(values, k=len(values))) for _ in range(10000)]
+        result['exploratory_bootstrap_95_percent_interval'] = [quantile(means, .025), quantile(means, .975)]
+        result['interval_warning'] = 'Exploratory percentile interval; not multiplicity corrected or proof of a material effect.'
+    else:
+        result['interval_warning'] = 'Fewer than ten independent replicates: report raw values, no interval.'
+    return result
+
+
+def verify_hashes(root: Path) -> None:
+    inventory = json.loads((root / 'SHA256.json').read_text())
+    if not isinstance(inventory, dict) or not inventory:
+        raise ValueError('Missing nonempty artifact hash inventory')
+    for relative, expected in inventory.items():
+        path = (root / relative).resolve()
+        if not path.is_relative_to(root.resolve()):
+            raise ValueError('Artifact inventory escapes the run directory')
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            raise ValueError(f'Artifact hash mismatch: {relative}')
+
+
+def contrasts(record: dict) -> dict[str, float]:
+    project, scores = record['project'], record['scores']
+    if project == '01':
+        proposed = scores['invariant_reservoir']['nmse']
+        return {f'error_reduction_vs_{b}': scores[b]['nmse'] - proposed
+                for b in ('ridge_reservoir', 'linear_lag_baseline')}
+    if project == '05':
+        proposed = scores['adaptive_gate']['nmse']
+        return {f'error_reduction_vs_{b}': scores[b]['nmse'] - proposed
+                for b in ('uniform_noise', 'zero_noise', 'matched_gate_off')}
+    if project == '09':
+        proposed = scores['block_antithetic']['cross_entropy']
+        return {f'cross_entropy_reduction_vs_{b}': scores[b]['cross_entropy'] - proposed
+                for b in ('full_antithetic', 'backprop_reference')}
+    if project == '13':
+        return {'selective_necessity_gap': record['selective_necessity_gap'],
+                'substitution_accuracy': scores['replace_relevant_value']['accuracy_replacement_target']}
+    raise ValueError(f'Unsupported project: {project}')
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('run_directory', type=Path)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    verify_hashes(args.run_directory)
+    manifest = json.loads((args.run_directory / 'manifest.json').read_text())
+    if manifest.get('phase') != 'DEVELOPMENT':
+        raise ValueError('This analyzer is only authorized for development receipts')
+    if manifest.get('status') not in ('DEVELOPMENT_FINISHED', 'DEVELOPMENT_FINISHED_WITH_FAILURES'):
+        raise ValueError('No completed development execution to analyze')
+    summary = {'phase': 'DEVELOPMENT', 'source_status': manifest['status'],
+               'failure_count': manifest['failure_count'], 'projects': {},
+               'scientific_disposition': 'UNCONFIRMED'}
+    for project in manifest['projects']:
+        grouped, missing = {}, []
+        for seed in manifest['seeds']:
+            path = args.run_directory / f'p{project}_seed{seed}' / 'metrics.json'
+            if not path.is_file():
+                missing.append(seed)
+                continue
+            record = json.loads(path.read_text())
+            if record['project'] != project or record['seed'] != seed or record['phase'] != 'DEVELOPMENT':
+                raise ValueError(f'Receipt identity mismatch: {path}')
+            for name, value in contrasts(record).items():
+                grouped.setdefault(name, []).append(float(value))
+        summary['projects'][project] = {'missing_or_failed_seeds': missing,
+            'statistics': {name: describe(values) for name, values in grouped.items()},
+            'warning': 'Incomplete evidence; successful runs are not an unbiased subset.' if missing else
+                       'Complete requested pilot only; this is not a confirmatory protocol.'}
+        if missing:
+            for result in summary['projects'][project]['statistics'].values():
+                result['exploratory_bootstrap_95_percent_interval'] = None
+                result['interval_warning'] = 'Intervals suppressed because requested runs are missing or failed.'
+    args.output.mkdir(parents=True, exist_ok=False)
+    (args.output / 'development_summary.json').write_text(json.dumps(summary, indent=2, allow_nan=False) + '\n')
+    lines = ['# Development evidence summary', '', '**Not confirmatory evidence.**', '',
+             f"Recorded failures: {manifest['failure_count']}", '',
+             '| Project | Contrast | Replicates | Mean |', '|---|---|---:|---:|']
+    for project, result in summary['projects'].items():
+        for name, stat in result['statistics'].items():
+            lines.append(f"| {project} | {name} | {stat['replicates']} | {stat['mean']:.8g} |")
+        if result['missing_or_failed_seeds']:
+            lines.append(f"\nProject {project} has missing/failed seeds: {result['missing_or_failed_seeds']}.\n")
+    lines += ['', 'Positive error-reduction numbers favor the proposed arm; substitution accuracy is not a comparative effect.',
+              'Raw scores, failures, data hashes and source hashes remain in the original run directory.',
+              'No empirical support, publication readiness or novelty is inferred automatically.']
+    (args.output / 'development_summary.md').write_text('\n'.join(lines) + '\n')
+    print(json.dumps({'analysis_output': str(args.output), 'phase': 'DEVELOPMENT'}))
+
+
+if __name__ == '__main__':
+    main()
