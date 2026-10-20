@@ -22,6 +22,7 @@ import traceback
 import torch
 from torch import nn
 import core
+from provenance import split_seed
 
 
 def dump(path, value):
@@ -53,28 +54,32 @@ def fit_selected(xs, ys, vx, vy, candidates, fit):
     for settings in candidates:
         w = fit(xs, ys, *settings)
         loss = (vx @ w - vy).square().mean().item()
+        if not __import__('math').isfinite(loss):
+            raise FloatingPointError('Non-finite validation score; retain failed run')
         records.append({'settings': list(settings), 'validation_mse': loss})
         if best is None or loss < best[0]:
             best = (loss, settings, w)
+    if best is None:
+        raise ValueError('Candidate grid must be nonempty')
     return best[1], best[2], records
 
 
 def forecast_scores(pred, target, scale):
     per_trajectory = (pred - target).square().mean((1, 2)) / scale
+    core.finite(per_trajectory, 'trajectory scores')
     return {'nmse': per_trajectory.mean().item(),
             'trajectory_nmse': per_trajectory.detach().cpu().tolist()}
 
 
 @torch.no_grad()
 def project01(seed, out, device, steps):
-    model = core.FixedReservoir(4, 32, seed, device)
-    base = 100000 + 100 * seed
-    train = [core.finance_scm(16, 128, base + i, a, device)
+    model = core.FixedReservoir(4, 32, split_seed(1, seed, 0), device)
+    train = [core.finance_scm(16, 128, split_seed(1, seed, 1, i), a, device)
              for i, a in enumerate((.5, 1., 2.))]
-    valid = [core.finance_scm(8, 128, base + 10 + i, a, device)
+    valid = [core.finance_scm(8, 128, split_seed(1, seed, 2, i), a, device)
              for i, a in enumerate((.5, 1., 2.))]
     # OOD here is an inspected DEVELOPMENT evaluation, not a protected test.
-    tx, ty = core.finance_scm(24, 128, base + 20, -1., device)
+    tx, ty = core.finance_scm(24, 128, split_seed(1, seed, 3), -1., device)
     x = [features(model, a).flatten(0, 1) for a, b in train]
     y = [b[:, 12:].flatten(0, 1) for a, b in train]
     vx = torch.cat([features(model, a).flatten(0, 1) for a, b in valid])
@@ -104,10 +109,9 @@ def project01(seed, out, device, steps):
 
 @torch.no_grad()
 def project05(seed, out, device, steps):
-    base = 200000 + 100 * seed
-    train = core.delayed_task(12, 160, base, device)
-    valid = core.delayed_task(8, 160, base + 1, device)
-    evaluation = core.delayed_task(16, 160, base + 2, device, input_scale=1.5)
+    train = core.delayed_task(12, 160, split_seed(5, seed, 1), device)
+    valid = core.delayed_task(8, 160, split_seed(5, seed, 2), device)
+    evaluation = core.delayed_task(16, 160, split_seed(5, seed, 3), device, input_scale=1.5)
     grids = {
         'adaptive_gate': [(s, a, .01) for s in (.01, .03, .1) for a in (-2., 0., 2.)],
         'uniform_noise': [(s, 0., r) for s in (.01, .03, .1) for r in (.0001, .01, 1.)],
@@ -115,8 +119,8 @@ def project05(seed, out, device, steps):
     }
     selected, traces, weights = {}, {}, {}
     def make(cfg, split, split_index):
-        m = core.PhysicalReservoir(cfg, seed, device)
-        f, energy = m(split[0], base + 10 + split_index)
+        m = core.PhysicalReservoir(cfg, split_seed(5, seed, 0), device)
+        f, energy = m(split[0], split_seed(5, seed, 4 + split_index))
         return m, f[:, 12:], energy
     for name, grid in grids.items():
         best, trace = None, []
@@ -125,6 +129,8 @@ def project05(seed, out, device, steps):
             _, f, _ = make(cfg, train, 0); _, vf, _ = make(cfg, valid, 1)
             w = core.ridge(f.flatten(0, 1), train[1][:, 12:].flatten(0, 1), regularization)
             value = (vf @ w - valid[1][:, 12:]).square().mean().item()
+            if not __import__('math').isfinite(value):
+                raise FloatingPointError('Non-finite physical validation score')
             trace.append({'sigma': sigma, 'alpha': alpha, 'ridge': regularization, 'validation_mse': value})
             if best is None or value < best[0]:
                 best = (value, cfg, regularization, w)
@@ -143,7 +149,8 @@ def project05(seed, out, device, steps):
     target = evaluation[1][:, 12:]
     scale = train[1][:, 12:].var(unbiased=False).clamp_min(1e-12)
     save(out / 'data.pt', {'train': train, 'validation': valid, 'development_ood': evaluation})
-    save(out / 'checkpoint.pt', {'weights': weights, 'selected': selected, 'substrate_seed': seed})
+    save(out / 'checkpoint.pt', {'weights': weights, 'selected': selected,
+                                 'substrate_seed': split_seed(5, seed, 0)})
     save(out / 'predictions.pt', {'predictions': predictions, 'target': target})
     return {'project': '05', 'selected': selected, 'selection_trace': traces, 'energy': energy,
             'data_hash': tensor_digest(list(train + valid + evaluation)),
@@ -155,19 +162,22 @@ def project05(seed, out, device, steps):
 def project09(seed, out, device, steps):
     inputs, width, classes = 8, 12, 3
     n = core.mlp_parameters(inputs, width, classes)
-    g = core.generator(300000 + seed, device)
+    g = core.generator(split_seed(9, seed, 9), device)
     teacher = torch.randn(n, generator=g, device=device) * .4
-    def dataset(size):
-        x = torch.randn(size, inputs, generator=g, device=device)
+    def dataset(size, stream):
+        dg = core.generator(split_seed(9, seed, stream), device)
+        x = torch.randn(size, inputs, generator=dg, device=device)
         y = core.flat_mlp(teacher, x, width, classes).argmax(-1)
         return x, y
-    train, valid, evaluation = dataset(384), dataset(128), dataset(256)
-    initial = torch.randn(n, generator=g, device=device) * .1
+    train, valid, evaluation = dataset(384, 1), dataset(128, 2), dataset(256, 3)
+    initial = torch.randn(n, generator=core.generator(split_seed(9, seed, 0), device), device=device) * .1
     scores, snapshots, traces = {}, {}, {}
     for method, blocks in (('full_antithetic', 1), ('block_antithetic', 4), ('backprop_reference', 0)):
+        torch.cuda.synchronize()
+        arm_start = time.perf_counter()
         theta = initial.clone()
-        random = core.generator(310000 + seed, device)
-        batches = core.generator(320000 + seed, device)
+        random = core.generator(split_seed(9, seed, 7), device)
+        batches = core.generator(split_seed(9, seed, 8), device)
         trace = []
         for step in range(steps):
             index = torch.randint(len(train[0]), (64,), generator=batches, device=device)
@@ -186,10 +196,13 @@ def project09(seed, out, device, steps):
                 with torch.no_grad():
                     vl = nn.functional.cross_entropy(core.flat_mlp(theta, valid[0], width, classes), valid[1]).item()
                 trace.append({'step': step + 1, 'validation_cross_entropy': vl})
+        torch.cuda.synchronize()
+        elapsed = time.perf_counter() - arm_start
         with torch.no_grad():
             logits = core.flat_mlp(theta, evaluation[0], width, classes)
             scores[method] = {'cross_entropy': nn.functional.cross_entropy(logits, evaluation[1]).item(),
                               'accuracy': (logits.argmax(-1) == evaluation[1]).float().mean().item(),
+                              'training_and_validation_seconds': elapsed,
                               'training_forward_evaluations': steps * (2 if blocks else 1),
                               'training_reverse_evaluations': 0 if blocks else steps}
             save(out / f'{method}_predictions.pt', {'logits': logits, 'labels': evaluation[1]})
@@ -198,20 +211,20 @@ def project09(seed, out, device, steps):
     save(out / 'data.pt', {'train': train, 'validation': valid, 'development_evaluation': evaluation})
     return {'project': '09', 'scores': scores, 'traces': traces,
             'data_hash': tensor_digest(list(train + valid + evaluation)),
-            'limits': 'Small synthetic MLP. Hyperparameters fixed, not comprehensively calibrated. Equal forward calls do not imply equal FLOPs or memory.'}
+            'limits': 'Small synthetic MLP. Hyperparameters fixed, not comprehensively calibrated. Equal forward calls do not imply equal FLOPs or memory. Per-arm peak memory not isolated.'}
 
 
 def project13(seed, out, device, steps):
-    torch.manual_seed(seed)
+    torch.manual_seed(split_seed(13, seed, 0))
     model = core.AssociativeMemory(64, 8, 32).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=.003)
     for step in range(steps):
-        k, v, q, y, index = core.memory_batch(64, 8, 64, 8, 400000 + seed * 10000 + step, device)
+        k, v, q, y, index = core.memory_batch(64, 8, 64, 8, split_seed(13, seed, 1, step), device)
         opt.zero_grad(set_to_none=True)
         loss = nn.functional.cross_entropy(model(k, v, q), y)
         core.finite(loss, 'memory training loss').backward(); opt.step()
     model.eval()
-    k, v, q, y, index = core.memory_batch(256, 16, 64, 8, 500000 + seed, device)
+    k, v, q, y, index = core.memory_batch(256, 16, 64, 8, split_seed(13, seed, 3), device)
     variants = core.memory_interventions(k, v, index, 8)
     row = torch.arange(len(y), device=device)
     scores, predictions = {}, {}
@@ -243,20 +256,28 @@ def main():
     parser.add_argument('--steps', type=int, default=200)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
-    projects, seeds = args.projects.split(','), [int(s) for s in args.seeds.split(',')]
-    if len(set(projects)) != len(projects) or not set(projects) <= PROJECTS.keys():
+    projects = args.projects.split(',')
+    try:
+        seeds = [int(s) for s in args.seeds.split(',')]
+    except ValueError:
+        parser.error('Seeds must be comma-separated integers')
+    if not projects or len(set(projects)) != len(projects) or not set(projects) <= PROJECTS.keys():
         parser.error('Specify unique projects from 01,05,09,13')
-    if not seeds or len(set(seeds)) != len(seeds) or min(seeds) < 0 or args.steps < 1 or args.steps >= 10000:
-        parser.error('Unique nonnegative seeds and 1<=steps<10000 required')
+    if (not seeds or len(set(seeds)) != len(seeds) or min(seeds) < 0 or max(seeds) >= 1_000_000
+            or args.steps < 1 or args.steps >= 10000):
+        parser.error('Unique seeds in [0,1000000) and 1<=steps<10000 required')
     args.output.mkdir(parents=True, exist_ok=False)
     root = Path(__file__).resolve().parent
     manifest = {'phase': 'DEVELOPMENT', 'projects': projects, 'seeds': seeds, 'steps': args.steps,
+                'seed_schema': 'mixed-radix-v1; provenance.split_seed',
                 'created_utc': datetime.now(timezone.utc).isoformat(),
                 'source_sha256': {p.name: sha(p) for p in root.glob('*.py')},
                 'python': platform.python_version(), 'torch': torch.__version__,
                 'cuda_build': torch.version.cuda, 'status': 'PREFLIGHT'}
     try:
         manifest['git_commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
+        manifest['git_worktree_dirty'] = bool(subprocess.check_output(
+            ['git', 'status', '--porcelain', '--untracked-files=no'], cwd=root, text=True).strip())
     except (OSError, subprocess.CalledProcessError):
         manifest['git_commit'] = 'unavailable; source hashes remain authoritative'
     dump(args.output / 'manifest.json', manifest)
@@ -269,7 +290,8 @@ def main():
         for project in projects:
             for seed in seeds:
                 out = args.output / f'p{project}_seed{seed}'; out.mkdir()
-                torch.manual_seed(seed); torch.cuda.manual_seed_all(seed)
+                torch.manual_seed(split_seed(int(project), seed, 0))
+                torch.cuda.manual_seed_all(split_seed(int(project), seed, 0))
                 torch.cuda.synchronize(); torch.cuda.reset_peak_memory_stats()
                 before = torch.cuda.memory_allocated(); start = time.perf_counter()
                 try:
@@ -293,6 +315,9 @@ def main():
         manifest['failure_count'] = len(failures)
         dump(args.output / 'manifest.json', manifest)
         dump(args.output / 'failures.json', failures)
+        artifact_hashes = {str(p.relative_to(args.output)): sha(p)
+                           for p in args.output.rglob('*') if p.is_file() and p.name != 'SHA256.json'}
+        dump(args.output / 'SHA256.json', artifact_hashes)
     print(json.dumps({'output': str(args.output), 'status': manifest['status'], 'failures': len(failures)}))
     return 1 if failures else 0
 
