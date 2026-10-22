@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-v"
+  ],
+  "returncode": 0,
+  "wall_seconds": 2.1511679439936415,
+  "timeout_seconds": 60,
+  "test_commands_used": 2,
+  "repair_cycles_used": 1,
+  "scientific_runs": 0
+}

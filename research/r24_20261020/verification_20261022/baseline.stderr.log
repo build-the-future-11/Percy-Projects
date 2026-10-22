@@ -1,0 +1,102 @@
+test_analysis_output_cannot_modify_retained_run_directory (test_analysis_integrity.AnalysisIntegrityTests.test_analysis_output_cannot_modify_retained_run_directory) ... FAIL
+test_consumed_metric_must_be_in_hash_inventory (test_analysis_integrity.AnalysisIntegrityTests.test_consumed_metric_must_be_in_hash_inventory) ... FAIL
+test_duplicate_inventory_member_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_duplicate_inventory_member_is_rejected) ... FAIL
+test_duplicate_manifest_phase_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_duplicate_manifest_phase_is_rejected) ... FAIL
+test_manifest_must_be_in_hash_inventory (test_analysis_integrity.AnalysisIntegrityTests.test_manifest_must_be_in_hash_inventory) ... FAIL
+test_metric_changed_after_initial_inventory_check_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_metric_changed_after_initial_inventory_check_is_rejected) ... FAIL
+test_nonstandard_nonfinite_receipt_value_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_nonstandard_nonfinite_receipt_value_is_rejected) ... FAIL
+test_overflowing_json_receipt_value_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_overflowing_json_receipt_value_is_rejected) ... FAIL
+test_valid_complete_receipts_keep_statistics_and_source_bytes (test_analysis_integrity.AnalysisIntegrityTests.test_valid_complete_receipts_keep_statistics_and_source_bytes) ... ok
+
+======================================================================
+FAIL: test_analysis_output_cannot_modify_retained_run_directory (test_analysis_integrity.AnalysisIntegrityTests.test_analysis_output_cannot_modify_retained_run_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 113, in test_analysis_output_cannot_modify_retained_run_directory
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_consumed_metric_must_be_in_hash_inventory (test_analysis_integrity.AnalysisIntegrityTests.test_consumed_metric_must_be_in_hash_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 75, in test_consumed_metric_must_be_in_hash_inventory
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_inventory_member_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_duplicate_inventory_member_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 99, in test_duplicate_inventory_member_is_rejected
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_manifest_phase_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_duplicate_manifest_phase_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 94, in test_duplicate_manifest_phase_is_rejected
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_manifest_must_be_in_hash_inventory (test_analysis_integrity.AnalysisIntegrityTests.test_manifest_must_be_in_hash_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 69, in test_manifest_must_be_in_hash_inventory
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_metric_changed_after_initial_inventory_check_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_metric_changed_after_initial_inventory_check_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 88, in test_metric_changed_after_initial_inventory_check_is_rejected
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_nonstandard_nonfinite_receipt_value_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_nonstandard_nonfinite_receipt_value_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 104, in test_nonstandard_nonfinite_receipt_value_is_rejected
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_overflowing_json_receipt_value_is_rejected (test_analysis_integrity.AnalysisIntegrityTests.test_overflowing_json_receipt_value_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 109, in test_overflowing_json_receipt_value_is_rejected
+    self.assert_rejected_before_output()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_integrity.py", line 50, in assert_rejected_before_output
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.013s
+
+FAILED (failures=8)

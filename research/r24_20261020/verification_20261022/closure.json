@@ -1,0 +1,66 @@
+{
+  "schema": "bounded-engineering-maintenance-closure-v1",
+  "date": "2026-10-22",
+  "source_parent": "45bb88cda517bb1daaafdfa9b61d8132276aaee3",
+  "status": "CLOSED_LOCAL_VERIFICATION_PENDING_INDEPENDENT_REVIEW_AND_FRESH_EXACT_HEAD_CI",
+  "finding": "Consumed JSON was not required in the inventory and was reread after initial hashing; duplicate/nonfinite JSON and output inside retained evidence were also admitted.",
+  "repair": "Require inventory coverage, hash and strictly parse the exact same JSON bytes, reject duplicate/nonfinite numbers, and keep analysis output outside the run directory. Stream hashes for other retained files. Preserve statistics and scientific disposition.",
+  "baseline": {
+    "new_test_cases": 9,
+    "passed": 1,
+    "failed": 8,
+    "wall_seconds": 0.09873503300332231
+  },
+  "final": {
+    "passed": 47,
+    "failed": 0,
+    "skipped": 0,
+    "wall_seconds": 1.9148831720012822,
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.3.5"
+  },
+  "static_checks": {
+    "python_syntax": "passed",
+    "ruff_E9_F63_F7_F82": "passed",
+    "strict_unique_yaml_mapping_keys": "passed"
+  },
+  "budget_use": {
+    "test_commands": 2,
+    "test_command_seconds": 2.0136182050046045,
+    "repair_cycles": 1,
+    "new_test_cases": 9,
+    "scientific_runs": 0,
+    "gpu_runs": 0,
+    "protected_outcome_accesses": 0,
+    "paid_compute": 0
+  },
+  "scientific_state": {
+    "concept_contracts": 24,
+    "implemented_development_pilots": 4,
+    "scientific_gpu_runs": 0,
+    "completed_empirical_papers": 0
+  },
+  "limitations": [
+    "The inventory is a consistency receipt, not authenticated authorship or a hostile-filesystem security boundary.",
+    "The protocol remains uncompiled and not a completed empirical paper.",
+    "The local Python/PyTorch versions differ from the hosted pins; fresh exact-head hosted engineering CI is required.",
+    "Prior-art screening and unimplemented study contracts are not upgraded by this engineering repair."
+  ],
+  "independent_root_review": "Required before publication; not claimed here.",
+  "fresh_hosted_ci": "Required before merge; scientific CPU refusal gate remains enabled.",
+  "source_sha256": {
+    "research/r24_20261020/analyze.py": "22490ae8850376c6723896d95b0668ce43abfeb8bfefe59fc42a566f30d1dbd9",
+    "research/r24_20261020/test_analysis_integrity.py": "4c380fe863bf9dc34d0bcdf040e01cdda1b78cb6f407e2994d360bb42a457123",
+    ".github/workflows/r24-unit-tests.yml": "96b8e38c56956c2cd1baa26e3956c340bd3a1f0f1f2c1fd98174dd446b7e1c6a"
+  },
+  "artifact_sha256": {
+    "baseline.json": "63c1f712bfbc1abd1bf6e63203161e2b30a2abb8ce2cfe37bbd438db459d40d8",
+    "baseline.stderr.log": "c3a1445c17c4059fb259b4d52023fc5f552feeb6b64cf0ce7c7827bb9ab5c63f",
+    "baseline.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final.json": "84db1ea760350ff09b046a2e87bc5b19f1429f53fcf117dd5490a424a133a7eb",
+    "final.stderr.log": "c1e67372e5f6fdb8b12c51c32b2cdda957e95164b70db9fa967e27c38b54a5a5",
+    "final.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "prospective_contract_sha256": "8876f52425b61d9a0746d438c22fb7d4378ee4d06480ed3336101ad98c5211f7"
+}

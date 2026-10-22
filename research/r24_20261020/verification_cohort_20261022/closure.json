@@ -1,0 +1,61 @@
+{
+  "schema": "bounded-engineering-maintenance-closure-v1",
+  "id": "analysis_cohort_20261022",
+  "status": "CLOSED_LOCAL_PASS_PENDING_INDEPENDENT_REVIEW_AND_EXACT_HEAD_HOSTED_CI",
+  "source_git_parent": "45bb88cda517bb1daaafdfa9b61d8132276aaee3",
+  "earlier_closed_session": "verification_20261022/closure.json",
+  "earlier_receipt_files_verified_unchanged": 7,
+  "prior_source_snapshot": "parent_analyze.py.txt",
+  "finding": "Repeated seed IDs could count one hashed receipt ten times, and analyzer identity admission did not enforce the runner domain. The runner itself already rejects duplicate projects/seeds, but a retained inventory does not authenticate that the runner produced the manifest.",
+  "repair": "Validate a nonempty unique project list from01/05/09/13 and a nonempty unique list of actual integer seed IDs in[0,1000000); reject boolean/float consumed seed identities. Perform admission before aggregation.",
+  "baseline": {
+    "cases": 16,
+    "assertion_failures": 13,
+    "unexpected_TypeError_errors": 2,
+    "passed": 1
+  },
+  "final": {
+    "passed": 63,
+    "failed": 0,
+    "skipped": 0,
+    "new_cases": 16,
+    "earlier_cases": 47,
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.3.5"
+  },
+  "budget_use": {
+    "test_commands": 2,
+    "test_seconds": 2.4828090249939123,
+    "repair_cycles": 1,
+    "new_test_cases": 16,
+    "scientific_runs": 0,
+    "gpu_runs": 0,
+    "protected_outcome_accesses": 0,
+    "paid_compute": 0
+  },
+  "static_checks": "Python syntax and critical RuffE9/F63/F7/F82 passed",
+  "prior_budgets_reopened": false,
+  "scientific_checkpoint_advanced": false,
+  "scientific_state": {
+    "concept_contracts": 24,
+    "implemented_development_pilots": 4,
+    "scientific_gpu_runs": 0,
+    "completed_empirical_papers": 0
+  },
+  "source_sha256": {
+    "analyze.py": "3eeb14f97492cffc13ce8b62cad6412a10198d32710cb2f8e6b48bfdc7220cec",
+    "test_analysis_cohort.py": "b6a34b7893f79eef5080572215df7f9dc29cd3765073aaafb75a283e2ce110c3"
+  },
+  "artifact_sha256": {
+    "baseline.json": "1345495e10e4b50113ccaf98f376b54029a7f89cfc90014ac4da39a8c497d0e4",
+    "final.json": "523c8b241fc1e4e400f7d39ece0af4b88f12fa3da85130df91fe02f4633aa2fd",
+    "parent_analyze.py.txt": "22490ae8850376c6723896d95b0668ce43abfeb8bfefe59fc42a566f30d1dbd9",
+    "final.stderr.log": "90dbd1f5cd0cc8ba9e79251eb30160a76035dc2ed43e9935d14272e834113edb",
+    "baseline.stderr.log": "7279e8f7df1e3deea1a8cae71dbcd4db189c8018710fd13393e8b74061600dc8",
+    "contract.json": "651d31591fd1bdfb874470fc6c4a9293cda2059609e4dadf3ff154004813abb7",
+    "baseline.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "remaining_gate": "Independent root review and fresh full hosted R24 engineering workflow on the final published head; no pilot or campaign run is authorized."
+}
