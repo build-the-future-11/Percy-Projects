@@ -1,0 +1,34 @@
+{
+  "schema": "bounded-engineering-maintenance-v1",
+  "date": "2026-10-22",
+  "phase": "SPECIFIED_BEFORE_REGRESSION_EXECUTION",
+  "repository": "build-the-future-11/Percy-Projects",
+  "pull_request": 11,
+  "source_head": "45bb88cda517bb1daaafdfa9b61d8132276aaee3",
+  "observations": [
+    "The analyzer verifies only listed inventory members, then reads manifest and metrics without requiring inventory membership.",
+    "Consumed JSON is reread after initial hashing and parsed permissively, so its exact parsed bytes may not be the verified bytes.",
+    "Analysis output can be created inside the retained run directory."
+  ],
+  "hypothesis": "Require every consumed JSON receipt in the inventory and verify the exact parsed bytes; reject duplicate/nonfinite JSON and require output outside the source run.",
+  "scope": "JSON-only constructed evidence fixtures plus the existing tiny CPU engineering tests; no pilot execution, GPU run, training campaign or protected data.",
+  "budget": {
+    "maximum_test_commands": 2,
+    "seconds_per_command": 60,
+    "total_test_seconds": 120,
+    "new_test_cases": 9,
+    "repair_cycles": 1,
+    "scientific_runs": 0,
+    "gpu_runs": 0,
+    "protected_outcome_accesses": 0,
+    "paid_compute": 0
+  },
+  "historical_research_status": {
+    "concept_contracts": 24,
+    "implemented_development_pilots": 4,
+    "scientific_gpu_runs": 0,
+    "completed_empirical_papers": 0
+  },
+  "retention": "Keep the original failed test output, source head and all historical scientific limitations; passing tests cannot complete any empirical study.",
+  "independent_review_and_fresh_exact_head_ci": "Required before merge"
+}

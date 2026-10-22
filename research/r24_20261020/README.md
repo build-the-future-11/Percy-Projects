@@ -59,7 +59,7 @@ python run_development.py --projects 01,05,09,13 --seeds 0,1,2 --steps 200 --out
 python analyze.py /kaggle/working/r24-dev-001 --output /kaggle/working/r24-analysis-001
 ```
 
-The test command runs bounded engineering fixtures, not scientific training. The development command fails and writes a BLOCKED manifest when CUDA is unavailable. A used output directory is never silently overwritten. The analysis output should be outside the run directory. Development seeds 0,1,2 are not confirmatory repetitions; a larger study requires its own reviewed precision and compute budget. The runner does not accept the other twenty study IDs and will not pretend they are implemented.
+The test command runs bounded engineering fixtures, not scientific training. The development command fails and writes a BLOCKED manifest when CUDA is unavailable. A used output directory is never silently overwritten. The analysis output must be outside the run directory. Every JSON receipt consumed by the analyzer must be listed in the hash inventory, and its exact parsed bytes are checked against that inventory. Duplicate members and nonfinite JSON numbers are rejected. This checks receipt consistency; it does not authenticate the inventory's author or make an untrusted filesystem safe. Development seeds 0,1,2 are not confirmatory repetitions; a larger study requires its own reviewed precision and compute budget. The runner does not accept the other twenty study IDs and will not pretend they are implemented.
 
 Each successful pilot run retains `data.pt`, checkpoint and prediction tensors, `metrics.json`, plus the overall manifest and SHA256 inventory. A failure is retained as `failure.json` and in the global failure ledger. Torch checkpoint files should only be opened when their source is trusted. The analysis utility uses JSON, not pickle, for its summaries.
 
@@ -109,3 +109,64 @@ No scientific GPU run was started, no CPU research run was substituted, no paid 
 ## What would constitute completion
 
 A study is complete only after its question has a defensible terminal conclusion and the evidence, implementation, uncertainty, failure analysis, manuscript, reproduction package, independent verification and release permissions are complete. Valid negative, mixed and inconclusive outcomes must remain visible. No step is allowed to turn an unexecuted method or a passing engineering test into a positive research result.
+
+## Engineering maintenance checkpoint — 22 October 2026
+
+The original engineering workflow completed successfully at source
+`45bb88cda517bb1daaafdfa9b61d8132276aaee3` (Actions run `39440207212`).
+This later source review found that the analyzer could consume JSON absent
+from its hash inventory, or different bytes from those it initially checked.
+Permissive duplicate/nonfinite JSON and output written inside retained evidence
+also violated the intended audit boundary.
+
+A prospective, separately bounded maintenance contract is retained in
+`MAINTENANCE_20261022.json`. Nine JSON-only regression cases produced eight
+failures and one passing valid-receipt control on the original analyzer.
+After one repair cycle, the complete **47-test engineering suite passed** on
+Python 3.12.14, PyTorch 2.14.1+cpu and NumPy 2.3.5. The two test commands used
+2.014 seconds of their 120-second combined limit. Critical lint, Python syntax
+and duplicate-key-rejecting YAML validation also passed. Raw initial/final
+outputs and source hashes are retained in `verification_20261022/`.
+
+The automatic workflow still runs the complete tests and the CPU refusal gate,
+and now checks out and verifies the exact PR head. Its pinned Python 3.11 /
+PyTorch 2.10.0 environment must pass on the newly published head before merge;
+the local run does not replace that gate. Independent review is also pending
+at the time this checkpoint is written.
+
+The earlier preparation/access record above remains historical evidence.
+This checkpoint resolves engineering verification locally and records a scoped
+receipt-integrity correction. It does not execute a scientific pilot, complete
+any of the other twenty implementations, establish novelty, compile the
+protocol PDF or authorize a release. The scientific counts remain **24 concept
+contracts, four implemented development pilots, zero scientific GPU runs and
+zero completed empirical papers**.
+
+## Independent cohort review follow-up — 22 October 2026
+
+Independent review of the prepared integrity repair found that a retained
+manifest could repeat one seed ten times and make one receipt appear to be ten
+independent replicates. The upstream runner already rejects duplicate projects
+and seeds, but the analyzer must check its own input; an internally consistent
+hash inventory does not prove the runner produced that input.
+
+A separate prospective session validates nonempty unique lists of supported
+project IDs and integer seeds in the runner's range `[0, 1000000)`. Boolean and
+floating-point seed aliases are rejected both in the manifest and in consumed
+receipts. Admission occurs before descriptive statistics or bootstrap output.
+Valid nonconsecutive seeds retain their real replicate count and the existing
+scientific disposition.
+
+The sixteen new JSON-only cases initially produced **13 assertion failures,
+two unexpected TypeErrors and one passing valid control**. After one repair,
+the combined **63-test suite passed**, with no failures or skips. The two new
+test commands used 2.483 seconds total. Critical lint and syntax checks passed.
+The earlier 47-test closure and all seven of its receipt/log files are retained
+unchanged; its exact analyzer bytes are preserved as
+`verification_cohort_20261022/parent_analyze.py.txt`. New contract, logs, hashes
+and closure are in that same follow-up directory. Prior budgets were not
+reopened, and no scientific or GPU run occurred.
+
+Independent review of this final revision and its actual published-head hosted
+gate remain required. The four pilots and twenty concept-only studies retain
+their existing scientific state and open evidence requirements.

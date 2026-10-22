@@ -1,0 +1,194 @@
+test_boolean_receipt_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_boolean_receipt_seed_is_rejected) ... FAIL
+test_boolean_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_boolean_seed_is_rejected) ... FAIL
+test_duplicate_project_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_duplicate_project_is_rejected) ... FAIL
+test_duplicate_seed_cannot_turn_one_receipt_into_ten_replicates (test_analysis_cohort.AnalysisCohortTests.test_duplicate_seed_cannot_turn_one_receipt_into_ten_replicates) ... FAIL
+test_empty_project_list_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_empty_project_list_is_rejected) ... FAIL
+test_empty_seed_list_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_empty_seed_list_is_rejected) ... FAIL
+test_float_receipt_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_float_receipt_seed_is_rejected) ... FAIL
+test_float_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_float_seed_is_rejected) ... FAIL
+test_negative_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_negative_seed_is_rejected) ... FAIL
+test_nonarray_project_container_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_nonarray_project_container_is_rejected) ... FAIL
+test_nonarray_seed_container_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_nonarray_seed_container_is_rejected) ... ERROR
+test_seed_outside_runner_domain_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_seed_outside_runner_domain_is_rejected) ... FAIL
+test_unhashable_project_identity_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_unhashable_project_identity_is_rejected) ... ERROR
+test_unhashable_seed_identity_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_unhashable_seed_identity_is_rejected) ... FAIL
+test_unique_nonconsecutive_seeds_keep_replicate_counts (test_analysis_cohort.AnalysisCohortTests.test_unique_nonconsecutive_seeds_keep_replicate_counts) ... ok
+test_unsupported_project_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_unsupported_project_is_rejected) ... FAIL
+
+======================================================================
+ERROR: test_nonarray_seed_container_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_nonarray_seed_container_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 76, in test_nonarray_seed_container_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 47, in assert_rejected
+    self.invoke()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 43, in invoke
+    analyze.main()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/analyze.py", line 144, in main
+    for seed in manifest['seeds']:
+                ~~~~~~~~^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+======================================================================
+ERROR: test_unhashable_project_identity_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_unhashable_project_identity_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 100, in test_unhashable_project_identity_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 47, in assert_rejected
+    self.invoke()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 43, in invoke
+    analyze.main()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/analyze.py", line 155, in main
+    summary['projects'][project] = {'missing_or_failed_seeds': missing,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+TypeError: unhashable type: 'list'
+
+======================================================================
+FAIL: test_boolean_receipt_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_boolean_receipt_seed_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 105, in test_boolean_receipt_seed_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_boolean_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_boolean_seed_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 56, in test_boolean_seed_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_project_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_duplicate_project_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 84, in test_duplicate_project_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_seed_cannot_turn_one_receipt_into_ten_replicates (test_analysis_cohort.AnalysisCohortTests.test_duplicate_seed_cannot_turn_one_receipt_into_ten_replicates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 52, in test_duplicate_seed_cannot_turn_one_receipt_into_ten_replicates
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty_project_list_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_empty_project_list_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 96, in test_empty_project_list_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty_seed_list_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_empty_seed_list_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 64, in test_empty_seed_list_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_float_receipt_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_float_receipt_seed_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 110, in test_float_receipt_seed_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_float_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_float_seed_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 60, in test_float_seed_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_negative_seed_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_negative_seed_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 68, in test_negative_seed_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_nonarray_project_container_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_nonarray_project_container_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 92, in test_nonarray_project_container_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_seed_outside_runner_domain_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_seed_outside_runner_domain_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 72, in test_seed_outside_runner_domain_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_unhashable_seed_identity_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_unhashable_seed_identity_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 80, in test_unhashable_seed_identity_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_unsupported_project_is_rejected (test_analysis_cohort.AnalysisCohortTests.test_unsupported_project_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 88, in test_unsupported_project_is_rejected
+    self.assert_rejected()
+  File "/workspace/scratch/77a694a954ed/personal_research/percy11/research/r24_20261020/test_analysis_cohort.py", line 46, in assert_rejected
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.247s
+
+FAILED (failures=13, errors=2)

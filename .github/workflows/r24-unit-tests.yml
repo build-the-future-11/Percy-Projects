@@ -7,12 +7,19 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+env:
+  EXPECTED_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.EXPECTED_SOURCE_SHA }}
+          persist-credentials: false
+      - name: Verify exact source revision
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SOURCE_SHA"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

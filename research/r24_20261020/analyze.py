@@ -44,17 +44,77 @@ def describe(values: list[float], bootstrap_seed: int = 20261020) -> dict:
     return result
 
 
-def verify_hashes(root: Path) -> None:
-    inventory = json.loads((root / 'SHA256.json').read_text())
+def strict_json(payload: bytes) -> dict:
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f'Duplicate JSON member: {key}')
+            result[key] = value
+        return result
+
+    def finite_float(token):
+        value = float(token)
+        if not math.isfinite(value):
+            raise ValueError('Nonfinite JSON number')
+        return value
+
+    def reject_constant(token):
+        raise ValueError(f'Nonstandard JSON constant: {token}')
+
+    value = json.loads(payload, object_pairs_hook=unique_object,
+                       parse_float=finite_float, parse_constant=reject_constant)
+    if not isinstance(value, dict):
+        raise ValueError('Artifact JSON must be an object')
+    return value
+
+
+def artifact_path(root: Path, relative: str) -> Path:
+    if not isinstance(relative, str) or not relative or Path(relative).is_absolute():
+        raise ValueError('Artifact inventory requires relative paths')
+    path = (root / relative).resolve()
+    if not path.is_relative_to(root.resolve()) or not path.is_file():
+        raise ValueError(f'Artifact is not a file inside the run directory: {relative}')
+    return path
+
+
+def verify_hashes(root: Path) -> dict[str, str]:
+    inventory = strict_json(artifact_path(root, 'SHA256.json').read_bytes())
     if not isinstance(inventory, dict) or not inventory:
         raise ValueError('Missing nonempty artifact hash inventory')
     for relative, expected in inventory.items():
-        path = (root / relative).resolve()
-        if not path.is_relative_to(root.resolve()):
-            raise ValueError('Artifact inventory escapes the run directory')
-        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if not isinstance(expected, str) or len(expected) != 64 or any(
+                digit not in '0123456789abcdef' for digit in expected):
+            raise ValueError(f'Invalid artifact SHA256: {relative}')
+        path = artifact_path(root, relative)
+        with path.open('rb') as source:
+            actual = hashlib.file_digest(source, 'sha256').hexdigest()
         if actual != expected:
             raise ValueError(f'Artifact hash mismatch: {relative}')
+    return inventory
+
+
+def read_verified_json(root: Path, relative: str, inventory: dict[str, str]) -> dict:
+    if relative not in inventory:
+        raise ValueError(f'Consumed receipt is absent from the hash inventory: {relative}')
+    payload = artifact_path(root, relative).read_bytes()
+    if hashlib.sha256(payload).hexdigest() != inventory[relative]:
+        raise ValueError(f'Consumed receipt hash mismatch: {relative}')
+    return strict_json(payload)
+
+
+def validate_cohort(manifest: dict) -> None:
+    projects = manifest.get('projects')
+    if (not isinstance(projects, list) or not projects
+            or any(not isinstance(project, str) or project not in {'01', '05', '09', '13'}
+                   for project in projects)
+            or len(set(projects)) != len(projects)):
+        raise ValueError('Manifest projects must be a nonempty unique list from 01,05,09,13')
+    seeds = manifest.get('seeds')
+    if (not isinstance(seeds, list) or not seeds
+            or any(type(seed) is not int or not 0 <= seed < 1_000_000 for seed in seeds)
+            or len(set(seeds)) != len(seeds)):
+        raise ValueError('Manifest seeds must be a nonempty unique list of integers in [0,1000000)')
 
 
 def contrasts(record: dict) -> dict[str, float]:
@@ -82,24 +142,29 @@ def main() -> None:
     parser.add_argument('run_directory', type=Path)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
-    verify_hashes(args.run_directory)
-    manifest = json.loads((args.run_directory / 'manifest.json').read_text())
+    if args.output.resolve().is_relative_to(args.run_directory.resolve()):
+        raise ValueError('Analysis output must be outside the retained run directory')
+    inventory = verify_hashes(args.run_directory)
+    manifest = read_verified_json(args.run_directory, 'manifest.json', inventory)
     if manifest.get('phase') != 'DEVELOPMENT':
         raise ValueError('This analyzer is only authorized for development receipts')
     if manifest.get('status') not in ('DEVELOPMENT_FINISHED', 'DEVELOPMENT_FINISHED_WITH_FAILURES'):
         raise ValueError('No completed development execution to analyze')
+    validate_cohort(manifest)
     summary = {'phase': 'DEVELOPMENT', 'source_status': manifest['status'],
                'failure_count': manifest['failure_count'], 'projects': {},
                'scientific_disposition': 'UNCONFIRMED'}
     for project in manifest['projects']:
         grouped, missing = {}, []
         for seed in manifest['seeds']:
-            path = args.run_directory / f'p{project}_seed{seed}' / 'metrics.json'
+            relative = f'p{project}_seed{seed}/metrics.json'
+            path = args.run_directory / relative
             if not path.is_file():
                 missing.append(seed)
                 continue
-            record = json.loads(path.read_text())
-            if record['project'] != project or record['seed'] != seed or record['phase'] != 'DEVELOPMENT':
+            record = read_verified_json(args.run_directory, relative, inventory)
+            if (record.get('project') != project or type(record.get('seed')) is not int
+                    or record['seed'] != seed or record.get('phase') != 'DEVELOPMENT'):
                 raise ValueError(f'Receipt identity mismatch: {path}')
             for name, value in contrasts(record).items():
                 grouped.setdefault(name, []).append(float(value))

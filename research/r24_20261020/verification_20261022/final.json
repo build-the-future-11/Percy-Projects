@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-v"
+  ],
+  "returncode": 0,
+  "wall_seconds": 1.9148831720012822,
+  "timeout_seconds": 60,
+  "test_commands_used": 2,
+  "repair_cycles_used": 1,
+  "source_head": "45bb88cda517bb1daaafdfa9b61d8132276aaee3",
+  "scope": "Constructed JSON and tiny existing CPU engineering fixtures only; no scientific run"
+}
