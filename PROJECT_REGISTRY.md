@@ -81,3 +81,9 @@ Percy-Projects coordinates scientific project records; linked external research 
 4. New variants, changed hypotheses, and new result-bearing runs require distinct names and frozen protocols.
 5. An issue/PR exists independently of whether it is merged, deployed, reviewed, reproduced or submitted; report those separately.
 6. The next session should inspect the **current** exact SHA and statuses on each linked repository, not assume this dated index remains live.
+
+## 7 November 2026: proposed multimodal calibration source reconciliation
+
+| Workstream | Evidence-bounded current status | Immediate required action / source |
+| --- | --- | --- |
+| Multimodal calibration under shift (ScienceQA / Qwen2.5-VL) | NEEDS_REVIEW; NOT_YET_TESTED; NOT_AUTHORIZED / NOT_RUN | [Proposed project state](projects/multimodal-calibration/STATE.md). Original VertexED PR #709 is closed unmerged for repository isolation; seven original source files are retained byte-identically. Numerical thresholds already exist in the original manifest. Review the separately dated cross-shift input-budget amendment; actual runtime evidence, scorer/temperature receipts and run authorization remain missing. Structural fixture tests do not establish calibration or model robustness. |
