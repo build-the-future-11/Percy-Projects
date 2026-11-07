@@ -1,0 +1,71 @@
+{
+  "schema_version": "multimodal-calibration.source-reconciliation.v1",
+  "recorded_date": "2026-11-07",
+  "source_repository": "vertex-studyAI/vertexED.ai",
+  "source_visibility_verified": "public",
+  "source_commit": "65e5549b6bf4bb92eeacb17228be2278077dd832",
+  "source_branch": "research/multimodal-calibration-preoutcome-20260904",
+  "source_pull_request": 709,
+  "source_pr_state": "closed_unmerged",
+  "source_pr_closure_reason": "Generic research outside the canonical VertexED application boundary; move/reopen only in appropriate canonical research repository.",
+  "closure_receipt": "https://github.com/vertex-studyAI/vertexED.ai/pull/709#issuecomment-5610086443",
+  "destination_repository": "build-the-future-11/Percy-Projects",
+  "destination_visibility_verified": "public",
+  "source_files_byte_identical": true,
+  "snapshot_is_complete_executable_package": false,
+  "scientific_results_generated_this_session": false,
+  "evaluation_data_accessed_this_session": false,
+  "model_weights_loaded_this_session": false,
+  "execution_authorized": false,
+  "files": [
+    {
+      "snapshot_path": "source_snapshot/PROTOCOL_20260904.md",
+      "original_path": "research/multimodal-calibration/PROTOCOL_20260904.md",
+      "git_blob_sha": "23fb9c2accde292ebdfd8e13c3f7788353523cb5",
+      "sha256": "6665b911274fe623b64babe8aa109e258926de4730e59b7e2864cea16d5c3904",
+      "size_bytes": 8182
+    },
+    {
+      "snapshot_path": "source_snapshot/AUTHORIZATION_MANIFEST.json",
+      "original_path": "research/multimodal-calibration/AUTHORIZATION_MANIFEST.json",
+      "git_blob_sha": "b2532d18ab8201744ff27d13474b7e2e507b47e7",
+      "sha256": "0d8070d2138bf5d48000701dc2b99d779469a6e72fca0be7fc2e2922edd41229",
+      "size_bytes": 6993
+    },
+    {
+      "snapshot_path": "source_snapshot/MODEL_RUNTIME_FREEZE_20260905.json",
+      "original_path": "research/multimodal-calibration/MODEL_RUNTIME_FREEZE_20260905.json",
+      "git_blob_sha": "e5bc55f3cfb4a9f83d0d445539701915c953b372",
+      "sha256": "7fe2877fb942e82de6ebc58768bfad2c00b2edc02722f371a10f417e34fbc892",
+      "size_bytes": 1501
+    },
+    {
+      "snapshot_path": "source_snapshot/processor-input-preflight.py",
+      "original_path": "research/multimodal-calibration/processor-input-preflight.py",
+      "git_blob_sha": "083ab1b1a3862130e252739313330335a4e17d4e",
+      "sha256": "d1a5c8d7769f40b383c13a6140e2243b035f8ed4617f67d13f10337d3397a425",
+      "size_bytes": 13135
+    },
+    {
+      "snapshot_path": "source_snapshot/prompt-template.mjs",
+      "original_path": "research/multimodal-calibration/prompt-template.mjs",
+      "git_blob_sha": "e9ed2371638322a2e95ab6c819b9fff49ad64560",
+      "sha256": "cc2c262712aa35455b24c4b4d55713c6400c43fdcf1355c95934b3c9841deab4",
+      "size_bytes": 1933
+    },
+    {
+      "snapshot_path": "source_snapshot/transforms.mjs",
+      "original_path": "research/multimodal-calibration/transforms.mjs",
+      "git_blob_sha": "224f54135e46f9ecbdba83fc01780b82f3ec8366",
+      "sha256": "db13dfe39bac853c5367f7dea9796d165542a91f6fc5b6213f8554e45acac496",
+      "size_bytes": 2836
+    },
+    {
+      "snapshot_path": "source_snapshot/multimodal-calibration-processor-input-preflight.yml",
+      "original_path": ".github/workflows/multimodal-calibration-processor-input-preflight.yml",
+      "git_blob_sha": "6cd99e4439a459e02bb9fefbd98701a227ffd3ec",
+      "sha256": "b45fd811b142e04c147672137e06e385ee68a9a3c5d1436f0399a89e58c89b0d",
+      "size_bytes": 5633
+    }
+  ]
+}
