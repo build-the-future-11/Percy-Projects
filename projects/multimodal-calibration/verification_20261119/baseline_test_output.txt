@@ -1,0 +1,133 @@
+test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) ... 
+  test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=0) ... FAIL
+  test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=1) ... FAIL
+  test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=2) ... FAIL
+  test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=3) ... FAIL
+  test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=4) ... FAIL
+  test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=5) ... FAIL
+test_cli_valid_panel_remains_metadata_only (test_input_budget_strict.StrictInputBudgetTests.test_cli_valid_panel_remains_metadata_only) ... ok
+test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) ... 
+  test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='context_token_count', value=56.0) ... FAIL
+  test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='attention_mask_token_count', value=56.0) ... FAIL
+  test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='image_grid_thw', value=[[True, 8, 8]]) ... FAIL
+  test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='image_grid_thw', value=[[1, 8.0, 8]]) ... FAIL
+  test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='pixel_values_shape', value=[64.0, 1176]) ... FAIL
+test_pixel_shape_requires_exact_integers (test_input_budget_strict.StrictInputBudgetTests.test_pixel_shape_requires_exact_integers) ... 
+  test_pixel_shape_requires_exact_integers (test_input_budget_strict.StrictInputBudgetTests.test_pixel_shape_requires_exact_integers) (shape=[64.0, 1176]) ... FAIL
+  test_pixel_shape_requires_exact_integers (test_input_budget_strict.StrictInputBudgetTests.test_pixel_shape_requires_exact_integers) (shape=[64, 1176.0]) ... FAIL
+
+======================================================================
+FAIL: test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 67, in test_cli_rejects_duplicate_and_nonfinite_json
+    self.assertEqual(status, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 67, in test_cli_rejects_duplicate_and_nonfinite_json
+    self.assertEqual(status, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 67, in test_cli_rejects_duplicate_and_nonfinite_json
+    self.assertEqual(status, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 67, in test_cli_rejects_duplicate_and_nonfinite_json
+    self.assertEqual(status, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 67, in test_cli_rejects_duplicate_and_nonfinite_json
+    self.assertEqual(status, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) (case=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 67, in test_cli_rejects_duplicate_and_nonfinite_json
+    self.assertEqual(status, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='context_token_count', value=56.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 50, in test_option_budget_requires_exact_nested_types
+    with self.subTest(key=key, value=value), self.assertRaises(audit.InputBudgetError):
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+======================================================================
+FAIL: test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='attention_mask_token_count', value=56.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 50, in test_option_budget_requires_exact_nested_types
+    with self.subTest(key=key, value=value), self.assertRaises(audit.InputBudgetError):
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+======================================================================
+FAIL: test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='image_grid_thw', value=[[True, 8, 8]])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 50, in test_option_budget_requires_exact_nested_types
+    with self.subTest(key=key, value=value), self.assertRaises(audit.InputBudgetError):
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+======================================================================
+FAIL: test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='image_grid_thw', value=[[1, 8.0, 8]])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 50, in test_option_budget_requires_exact_nested_types
+    with self.subTest(key=key, value=value), self.assertRaises(audit.InputBudgetError):
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+======================================================================
+FAIL: test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) (key='pixel_values_shape', value=[64.0, 1176])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 50, in test_option_budget_requires_exact_nested_types
+    with self.subTest(key=key, value=value), self.assertRaises(audit.InputBudgetError):
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+======================================================================
+FAIL: test_pixel_shape_requires_exact_integers (test_input_budget_strict.StrictInputBudgetTests.test_pixel_shape_requires_exact_integers) (shape=[64.0, 1176])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 38, in test_pixel_shape_requires_exact_integers
+    with self.subTest(shape=shape), self.assertRaises(audit.InputBudgetError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+======================================================================
+FAIL: test_pixel_shape_requires_exact_integers (test_input_budget_strict.StrictInputBudgetTests.test_pixel_shape_requires_exact_integers) (shape=[64, 1176.0])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d49f02b2887f/percy_review/pr12_repair/projects/multimodal-calibration/verification_20261119/test_input_budget_strict.py", line 38, in test_pixel_shape_requires_exact_integers
+    with self.subTest(shape=shape), self.assertRaises(audit.InputBudgetError):
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputBudgetError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.269s
+
+FAILED (failures=13)

@@ -1,0 +1,12 @@
+{
+  "schema_version": "metadata_admission_baseline.v1",
+  "date": "2026-11-19",
+  "source_head": "b62da190e2536d6e6bf5e4776c778755c0d96a74",
+  "checker_sha256": "941cade65e0218fde13ce0f4d479c88ca850e13874ea545e28dbfd77fe77e262",
+  "tests_run": 4,
+  "failed_assertions_including_subtests": 13,
+  "errors": 0,
+  "success": false,
+  "fixture_only": true,
+  "execution_authorized": false
+}

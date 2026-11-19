@@ -1,0 +1,116 @@
+{
+  "schema_version": "multimodal-calibration.strict-metadata-verification.v1",
+  "date": "2026-11-19",
+  "parent_pr_head": "b62da190e2536d6e6bf5e4776c778755c0d96a74",
+  "python_version": "3.12.14",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "success": true,
+  "source_sha256": {
+    "proposed/check_input_budget.py": "5b8ffbdf8341d7b278965e9888bd4daed8c361efd56db6f806bd0e23cb0ec460",
+    "verification/test_input_budget.py": "389524ec7ae00f60ab83965c76e48800b27e3e854880160a8c8a4dad07fd2cf1",
+    "verification_20261119/test_input_budget_strict.py": "b640bca50db3ed95397f8ade07535ff3c9a02118f6bfd0f5af5cc31565449a70"
+  },
+  "snapshots_verified_unchanged": [
+    {
+      "path": "source_snapshot/PROTOCOL_20260904.md",
+      "sha256": "6665b911274fe623b64babe8aa109e258926de4730e59b7e2864cea16d5c3904",
+      "git_blob_sha": "23fb9c2accde292ebdfd8e13c3f7788353523cb5",
+      "bytes": 8182
+    },
+    {
+      "path": "source_snapshot/AUTHORIZATION_MANIFEST.json",
+      "sha256": "0d8070d2138bf5d48000701dc2b99d779469a6e72fca0be7fc2e2922edd41229",
+      "git_blob_sha": "b2532d18ab8201744ff27d13474b7e2e507b47e7",
+      "bytes": 6993
+    },
+    {
+      "path": "source_snapshot/MODEL_RUNTIME_FREEZE_20260905.json",
+      "sha256": "7fe2877fb942e82de6ebc58768bfad2c00b2edc02722f371a10f417e34fbc892",
+      "git_blob_sha": "e5bc55f3cfb4a9f83d0d445539701915c953b372",
+      "bytes": 1501
+    },
+    {
+      "path": "source_snapshot/processor-input-preflight.py",
+      "sha256": "d1a5c8d7769f40b383c13a6140e2243b035f8ed4617f67d13f10337d3397a425",
+      "git_blob_sha": "083ab1b1a3862130e252739313330335a4e17d4e",
+      "bytes": 13135
+    },
+    {
+      "path": "source_snapshot/prompt-template.mjs",
+      "sha256": "cc2c262712aa35455b24c4b4d55713c6400c43fdcf1355c95934b3c9841deab4",
+      "git_blob_sha": "e9ed2371638322a2e95ab6c819b9fff49ad64560",
+      "bytes": 1933
+    },
+    {
+      "path": "source_snapshot/transforms.mjs",
+      "sha256": "db13dfe39bac853c5367f7dea9796d165542a91f6fc5b6213f8554e45acac496",
+      "git_blob_sha": "224f54135e46f9ecbdba83fc01780b82f3ec8366",
+      "bytes": 2836
+    },
+    {
+      "path": "source_snapshot/multimodal-calibration-processor-input-preflight.yml",
+      "sha256": "b45fd811b142e04c147672137e06e385ee68a9a3c5d1436f0399a89e58c89b0d",
+      "git_blob_sha": "6cd99e4439a459e02bb9fefbd98701a227ffd3ec",
+      "bytes": 5633
+    }
+  ],
+  "old_verification_preserved": true,
+  "scope": "constructed metadata only; no processor/model/data execution",
+  "amendment_status": "PROPOSED_NOT_ADOPTED",
+  "scientific_results_status": "NOT_RUN",
+  "execution_authorized": false,
+  "outcomes_accessed": false,
+  "original_repository_blob_verification": [
+    {
+      "path": "research/multimodal-calibration/PROTOCOL_20260904.md",
+      "expected_blob": "23fb9c2accde292ebdfd8e13c3f7788353523cb5",
+      "actual_blob": "23fb9c2accde292ebdfd8e13c3f7788353523cb5",
+      "match": true,
+      "error": false
+    },
+    {
+      "path": "research/multimodal-calibration/AUTHORIZATION_MANIFEST.json",
+      "expected_blob": "b2532d18ab8201744ff27d13474b7e2e507b47e7",
+      "actual_blob": "b2532d18ab8201744ff27d13474b7e2e507b47e7",
+      "match": true,
+      "error": false
+    },
+    {
+      "path": "research/multimodal-calibration/MODEL_RUNTIME_FREEZE_20260905.json",
+      "expected_blob": "e5bc55f3cfb4a9f83d0d445539701915c953b372",
+      "actual_blob": "e5bc55f3cfb4a9f83d0d445539701915c953b372",
+      "match": true,
+      "error": false
+    },
+    {
+      "path": "research/multimodal-calibration/processor-input-preflight.py",
+      "expected_blob": "083ab1b1a3862130e252739313330335a4e17d4e",
+      "actual_blob": "083ab1b1a3862130e252739313330335a4e17d4e",
+      "match": true,
+      "error": false
+    },
+    {
+      "path": "research/multimodal-calibration/prompt-template.mjs",
+      "expected_blob": "e9ed2371638322a2e95ab6c819b9fff49ad64560",
+      "actual_blob": "e9ed2371638322a2e95ab6c819b9fff49ad64560",
+      "match": true,
+      "error": false
+    },
+    {
+      "path": "research/multimodal-calibration/transforms.mjs",
+      "expected_blob": "224f54135e46f9ecbdba83fc01780b82f3ec8366",
+      "actual_blob": "224f54135e46f9ecbdba83fc01780b82f3ec8366",
+      "match": true,
+      "error": false
+    },
+    {
+      "path": ".github/workflows/multimodal-calibration-processor-input-preflight.yml",
+      "expected_blob": "6cd99e4439a459e02bb9fefbd98701a227ffd3ec",
+      "actual_blob": "6cd99e4439a459e02bb9fefbd98701a227ffd3ec",
+      "match": true,
+      "error": false
+    }
+  ]
+}

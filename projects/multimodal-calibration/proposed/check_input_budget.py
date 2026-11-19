@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 from pathlib import Path
 
@@ -51,6 +52,42 @@ def integer_vector(value: object, length: int) -> bool:
 
 def is_hash(value: object) -> bool:
     return isinstance(value, str) and HASH.fullmatch(value) is not None
+
+
+def exact_equal(left: object, right: object) -> bool:
+    """Compare JSON values without bool/int/float equality aliases."""
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, list):
+        return len(left) == len(right) and all(
+            exact_equal(a, b) for a, b in zip(left, right)
+        )
+    if isinstance(left, dict):
+        return left.keys() == right.keys() and all(
+            exact_equal(value, right[key]) for key, value in left.items()
+        )
+    return left == right
+
+
+def read_strict_json(path: Path) -> object:
+    """Reject ambiguous object members and non-finite values anywhere."""
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            require(key not in result, f"duplicate JSON member: {key}")
+            result[key] = value
+        return result
+
+    def finite_float(token):
+        value = float(token)
+        require(math.isfinite(value), "non-finite JSON number")
+        return value
+
+    def reject_constant(token):
+        raise InputBudgetError(f"non-standard JSON number: {token}")
+
+    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object,
+                      parse_float=finite_float, parse_constant=reject_constant)
 
 
 def validate_input_budgets(rows: list[dict], expected: list[dict]) -> dict:
@@ -114,7 +151,8 @@ def validate_input_budgets(rows: list[dict], expected: list[dict]) -> dict:
         patches = t * h * w
         require(row["processed_dimensions"] == [h * 14, w * 14],
                 "processed geometry disagrees with grid and patch size")
-        require(row.get("pixel_values_shape") == [patches, 3 * 2 * 14 * 14],
+        require(integer_vector(row.get("pixel_values_shape"), 2) and
+                row["pixel_values_shape"] == [patches, 3 * 2 * 14 * 14],
                 "pixel tensor shape disagrees with the pinned patch layout")
         require(type(row.get("visual_token_count")) is int and row["visual_token_count"] == patches // 4,
                 "observed image-token count disagrees with grid/merge size")
@@ -138,7 +176,7 @@ def validate_input_budgets(rows: list[dict], expected: list[dict]) -> dict:
         require([option.get("continuation") for option in options] == expected_options[record],
                 "missing, extra or reordered answer options")
         for option in options:
-            require(all(option.get(key) == row[key] for key in OPTION_SHARED_FIELDS),
+            require(all(exact_equal(option.get(key), row[key]) for key in OPTION_SHARED_FIELDS),
                     "option context/image tensor differs from its condition prefix")
             require(option.get("exact_prefix_extension_verified") is True and
                     option.get("entire_continuation_scored") is True,
@@ -152,7 +190,7 @@ def validate_input_budgets(rows: list[dict], expected: list[dict]) -> dict:
         baseline = conditions["S0"]
         for condition in CONDITIONS[1:]:
             for key in BUDGET_FIELDS:
-                require(conditions[condition][key] == baseline[key],
+                require(exact_equal(conditions[condition][key], baseline[key]),
                         f"cross-shift {key} drift for {record}/{condition}")
             signature = lambda option: (option["continuation"], option["continuation_token_count"],
                                         option["continuation_token_ids_sha256"])
@@ -170,8 +208,8 @@ def main() -> int:
     parser.add_argument("--expected-records", type=Path, required=True)
     args = parser.parse_args()
     try:
-        result = validate_input_budgets(json.loads(args.rows.read_text()),
-                                        json.loads(args.expected_records.read_text()))
+        result = validate_input_budgets(read_strict_json(args.rows),
+                                        read_strict_json(args.expected_records))
     except (InputBudgetError, OSError, ValueError, TypeError) as error:
         print(json.dumps({"status": "STRUCTURAL_METADATA_FAIL", "error": str(error),
                           "execution_authorized": False}))

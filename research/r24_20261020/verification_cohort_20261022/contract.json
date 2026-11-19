@@ -1,0 +1,30 @@
+{
+  "schema": "bounded-engineering-maintenance-v1",
+  "date": "2026-10-22",
+  "phase": "SPECIFIED_BEFORE_REGRESSION_EXECUTION",
+  "finding_source": "Independent root review before publication",
+  "source_git_parent": "45bb88cda517bb1daaafdfa9b61d8132276aaee3",
+  "source_prepared_analyzer_sha256": "22490ae8850376c6723896d95b0668ce43abfeb8bfefe59fc42a566f30d1dbd9",
+  "source_snapshot": "parent_analyze.py.txt",
+  "earlier_closed_session": "verification_20261022/closure.json",
+  "observation": "The runner checks unique project/seed identities, but the separate analyzer accepts an unauthenticated retained manifest and can count duplicate seed receipts as independent replicates. Boolean/float identity aliases and unsupported/empty cohorts are also not admitted explicitly.",
+  "hypothesis": "Require nonempty unique lists of supported string projects and bounded integer seed IDs; require consumed receipt seed identity to be an actual integer. Preserve statistics on valid unique cohorts.",
+  "scope": "Constructed JSON-only receipts and existing tiny CPU engineering tests. No development pilot, scientific run or protected outcome.",
+  "budget": {
+    "maximum_test_commands": 2,
+    "seconds_per_command": 60,
+    "total_test_seconds": 120,
+    "new_test_cases": 16,
+    "repair_cycles": 1,
+    "scientific_runs": 0,
+    "gpu_runs": 0,
+    "protected_outcome_accesses": 0,
+    "paid_compute": 0
+  },
+  "prior_budgets_reopened": false,
+  "retention": "Preserve the closed47-test receipts unchanged, snapshot their analyzer source, and retain new baseline/final logs.",
+  "required_gates": [
+    "Independent root source review",
+    "Fresh exact-head hosted R24 engineering gate"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_analysis_integrity",
+    "-v"
+  ],
+  "returncode": 1,
+  "duration_seconds": 0.09873503300332231,
+  "source_head": "45bb88cda517bb1daaafdfa9b61d8132276aaee3",
+  "scientific_runs": 0
+}

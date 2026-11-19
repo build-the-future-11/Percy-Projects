@@ -5,7 +5,7 @@
 **Phase:** source reconciliation and proposed processor-budget amendment  
 **Scientific result:** NOT_YET_TESTED / NOT_RUN  
 **Execution:** NOT_AUTHORIZED  
-**Last updated:** 7 November 2026
+**Last updated:** 19 November 2026
 
 ## Identity and source custody
 
@@ -56,3 +56,11 @@ This work permits source reading, documentation, and local deterministic metadat
 Review the exact dated amendment and source mapping; then, only under an accepted pre-outcome contract and permitted runtime work, bind the cross-shift checks to recorded processor outputs. A passed metadata check is not sufficient to authorize the study. Scientific completion still requires the frozen execution, retained evidence, claim audit and independent verification described by the original protocol.
 
 See [TASKS.md](TASKS.md), [DECISIONS.md](DECISIONS.md), [the proposed amendment](proposed/INPUT_BUDGET_AMENDMENT_20261107.md), and [verification evidence](verification/REPORT.md).
+
+## 19 November 2026: engineering admission review
+
+The proposed checker now rejects float/boolean aliases in integer-shaped option metadata, non-integer pixel tensor shapes, duplicate JSON object members, and non-finite JSON numbers, including numeric overflow. These are receipt-admission corrections; the amendment's scientific design and numerical thresholds are unchanged. Cross-shift and option equality now includes exact JSON value types.
+
+The retained adverse fixture run reproduced 13 failed assertions in four new test methods against the original checker. After repair, the original eleven checks and four new checks all pass. All seven snapshot Git blob identities were independently re-fetched at the original source commit and match the retained SHA-256/size inventory. The November 7 checker tests and verification receipts remain unchanged. Evidence is in [verification_20261119/REPORT.md](verification_20261119/REPORT.md).
+
+This completes the bounded source and metadata review for retaining the proposal. It does not adopt the input-budget amendment or authorize processor/model execution. The original preprocessing wording and proposed canonicalization/shift/processor ordering still require an explicit pre-outcome adoption decision; the owner must also resolve the stated decision-rule edge cases. Actual runner integration, pinned runtime/scorer validation, development calibration provenance, protected execution and scientific closeout remain open. Status remains **PROPOSED_NOT_ADOPTED / NOT_AUTHORIZED / NOT_RUN**.
