@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_analysis_cohort",
+    "-v"
+  ],
+  "returncode": 1,
+  "wall_seconds": 0.3316410810002708,
+  "timeout_seconds": 60,
+  "source_snapshot": "parent_analyze.py.txt",
+  "scientific_runs": 0
+}

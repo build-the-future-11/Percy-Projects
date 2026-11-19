@@ -1,0 +1,171 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{arxiv}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\shorttitle}{R24: Four bounded mechanism tests}
+\renewcommand{\headeright}{Protocol draft}
+\renewcommand{\undertitle}{Development specification --- no empirical results}
+\title{Four Bounded Mechanism Tests within a Twenty-Four-Study Research Programme}
+\author{Prepared for Ryan Gomez\\Authorship and submission approval pending}
+\date{20 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We specify four development investigations within a twenty-four-question research programme: environment-constrained reservoir prediction, power-matched state-dependent noise in a simulated reservoir, blockwise antithetic optimization, and selective memory interventions. The contribution of this document is an executable development specification and bounded mathematical analysis, not a validated new architecture or completed empirical paper. We derive the unique readout minimizer, establish a conditional expected-noise-power identity, and show that uniform equal-sized block perturbations do not reduce total gradient-estimation variance on a quadratic objective. We also specify a value-only memory substitution whose effect can be isolated algebraically. Implementations, controls, data generators, source hashes and failure receipts accompany the specification. No GPU experiment has been executed for this version; no performance improvement, financial causality, physical-device advantage or publication readiness is claimed. Twenty additional prospective questions and their individual falsifiers appear in the accompanying study register.
+\end{abstract}
+\keywords{research protocol \and reservoir computing \and zeroth-order optimization \and causal interventions \and reproducibility}
+
+\section{Purpose and evidence boundary}
+The programme asks whether a proposed mechanism survives a comparison that removes its claimed advantage while retaining information, capacity and computational opportunity. This is distinct from searching for a favourable benchmark or reporting the best result among many unregistered variants. Earlier negative or bounded findings in the owner's research portfolio are preserved; these implementations have a new development identity.
+
+The four implemented studies are R24-01, R24-05, R24-09 and R24-13. They are development pilots, not complete confirmatory systems. Their questions concern intervention robustness, conditional noise-power matching, allocation of forward-only optimization work, and selective use of stored values. A method may fail its question without any defect in its implementation. The other twenty study contracts are prospective and have no implementation claim.
+
+\section{Prior work and novelty limitations}
+Invariant prediction provides causal-identification results only under stated assumptions \cite{peters}. Reservoir computing has already been used to estimate short-term causal dependence and network links, including a distinction between dynamical and observational noise \cite{banerjee}. Consequently, a reservoir trained on financial observations is not by itself a new causal-inference method.
+
+Noise in reservoir computing has already been studied directly \cite{nathe}. Our proposed test isolates a specific state-dependent gate under matched conditional expected noise power. It does not establish that noise generally helps, and it does not simulate plasma or turbulence.
+
+Forward-only zeroth-order optimization is established in methods such as MeZO \cite{malladi}. Forward-mode automatic-differentiation estimators are a separate construction \cite{baydin}. The implementation here uses two finite-difference evaluations, not automatic differentiation of a forward tangent. Blocking is not claimed to be novel or to guarantee lower variance.
+
+Memory interventions have already been proposed for selecting useful context in long-horizon agents \cite{srivastava}. Our current implementation is a controlled assay on associative retrieval. It is not a new general-purpose memory architecture or evidence about a deployed large language model. The literature screen must be extended and nearest methods reproduced before any independent novelty claim.
+
+\section{Intervention-checked reservoir prediction}
+\subsection{Data and forward process}
+For each independent trajectory, draw independent standard-normal innovations and evolve
+\begin{align}
+ x_t &=0.65x_{t-1}+\epsilon_t,\\
+ y_{t+1}&=0.45y_t+0.8x_t+0.25\eta_t.
+\end{align}
+The observed input is $v_t=(x_t+0.35\xi_t,a_e x_t+0.1\zeta_t,y_t,\nu_t)$; $x_t$ itself is latent. The intervention changes only the proxy coefficient $a_e$. Training environments use $a_e\in\{0.5,1,2\}$ and the development out-of-distribution evaluation uses $a_e=-1$. This is a synthetic structural model, not a market dataset. Correlated proxy information and imperfect measurement deliberately limit causal interpretation.
+
+A fixed width-32 reservoir evolves as $h_t=\tanh(Wh_{t-1}+Uv_t)$, starting from zero independently for every trajectory. We normalize the spectral norm of $W$ to $0.9$ and scale independent Gaussian input weights by the inverse square root of the input dimension. Features are $\phi_t=(1,v_t,h_t)\in\R^{37}$. The first twelve steps are discarded. There are sixteen training and eight validation trajectories per environment, each of length 128, and twenty-four development-evaluation trajectories.
+
+\begin{proposition}[Fixed-input contraction]
+For two reservoir states subjected to the same input, $\|h_t-\tilde h_t\|_2\leq0.9\|h_{t-1}-\tilde h_{t-1}\|_2$.
+\end{proposition}
+\begin{proof}
+The componentwise hyperbolic tangent is one-Lipschitz in Euclidean norm. Multiplication by $W$ has operator norm $0.9$; the identical input term cancels. Iteration gives geometric forgetting of the initial-state difference. This does not imply that the representation is sufficient for the target.
+\end{proof}
+
+\subsection{Readout objective and exact solution}
+Let $X_e\in\R^{n_e\times d}$ and $y_e\in\R^{n_e}$ collect retained features and scalar targets. Define $G_e=X_e^TX_e/n_e$, $c_e=X_e^Ty_e/n_e$, and their equal-environment means $\bar G,\bar c$. Set $D_e=G_e-\bar G$ and $d_e=c_e-\bar c$. The objective is
+\begin{equation}
+ J(w)=\frac1E\sum_e\frac{\|X_ew-y_e\|_2^2}{n_e}
+       +\lambda\|w\|_2^2+\frac\gamma E\sum_e\|D_ew-d_e\|_2^2.
+\end{equation}
+The explicit bias coordinate is also regularized. We require $\lambda>0$ and $\gamma\geq0$.
+
+\begin{proposition}[Unique readout]
+The minimizer is $w^*=A^{-1}b$, where
+\begin{align}
+ A&=\bar G+\lambda I+\frac\gamma E\sum_e D_e^TD_e,\\
+ b&=\bar c+\frac\gamma E\sum_e D_e^Td_e.
+\end{align}
+\end{proposition}
+\begin{proof}
+Differentiating gives $\nabla J(w)=2(Aw-b)$. Every Gram term is positive semidefinite, while $\lambda I$ is positive definite, so $A$ is positive definite. The stationary point is unique. This proves an optimization property, not causal identification or superior prediction.
+\end{proof}
+
+Training solves the system in float64; it does not explicitly invert $A$. The proposed arm selects among nine $(\lambda,\gamma)$ pairs with $\lambda\in\{10^{-4},10^{-2},1\}$ and $\gamma\in\{0.1,1,10\}$. The same reservoir without the invariance penalty and a raw-input linear readout each receive nine ridge candidates, $10^{-6}$ through $10^2$. Selection uses validation mean-square error only. Equal candidate counts do not imply equal training cost, and runtime must also be measured. The primary pilot score is trajectory-level mean-square error divided by training-target variance. Strong recurrent and causal-discovery comparators remain prerequisites for a broader study.
+
+\section{Power-matched adaptive noise}
+\subsection{Dynamical substrate}
+The physical model is a simulated periodic ring of 32 double-well coordinates. With a scalar input held fixed during each of four integration substeps,
+\begin{equation}
+ h^+=h+\Delta t\,[h-h^{\odot3}+\kappa\operatorname{Lap}(h)+bu]
+       +\sigma\sqrt{\Delta t}\,g_\alpha(h)\odot\epsilon,
+\end{equation}
+where $\Delta t=0.01$, $\kappa=0.2$, $b$ is a fixed Gaussian drive vector divided by $\sqrt{32}$, and $\epsilon\sim\mathcal N(0,I)$. We use
+\begin{equation}
+ r_i(h)=0.2+\operatorname{sigmoid}(\alpha(h_i^2-1)),\qquad
+ g_i(h)=\frac{r_i(h)}{\sqrt{32^{-1}\sum_jr_j(h)^2}}.
+\end{equation}
+The normalization is computed separately for each trajectory. At $\alpha=0$, the gate is identically one. Nonfinite or excessively large states raise an error instead of being hidden by clipping.
+
+\begin{proposition}[Conditional expected power]
+For $n$ coordinates, conditional on $h$,
+$\E[\|\sigma\sqrt{\Delta t}\,g(h)\odot\epsilon\|_2^2\mid h]=n\sigma^2\Delta t$.
+\end{proposition}
+\begin{proof}
+The independent Gaussian coordinates have second moment one, so the expectation is $\sigma^2\Delta t\sum_i g_i(h)^2$. The gate normalization makes this sum equal to $n$. This identity matches expected injected power, not realized pathwise energy, long-run state energy, or task performance.
+\end{proof}
+
+\subsection{Task, controls and numerical limitations}
+The input is uniform on $[-1,1]$ for training and validation, and $[-1.5,1.5]$ for development evaluation. The target is $z_t=u_{t-3}u_{t-5}+0.3u_{t-1}$. Independent trajectories have length 160; twelve initial steps are excluded. We use twelve training, eight validation and sixteen evaluation trajectories. The readout includes a constant, the current input and the reservoir state.
+
+The adaptive arm selects nine combinations of $\sigma\in\{0.01,0.03,0.1\}$ and $\alpha\in\{-2,0,2\}$ with ridge $0.01$. A uniform-noise arm selects nine noise/ridge combinations; a zero-noise arm receives nine ridge values. We additionally retrain an exact selected-amplitude, selected-ridge gate-off control. Shared substrate and process-noise seed identities make comparisons paired. Both expected and realized noise energy are retained. If the selected adaptive gate is zero, selection has not found a benefit from state dependence.
+
+Explicit Euler--Maruyama integration with a cubic drift has no automatic stability or accuracy guarantee from the power identity. Grid refinement must preserve physical input duration, and coupled Brownian increments or an explicitly distributional convergence test are needed before numerical credibility is established. An echo-state baseline and an autoregressive baseline are still required. These omissions prevent a full methodology-ready claim.
+
+\section{Blockwise antithetic optimization}
+\subsection{Estimator and implementation}
+Let $\theta\in\R^d$ be partitioned into $B$ disjoint blocks. Choose block $b$ with probability $p_b>0$ and draw independent Rademacher signs on that block, with zeros elsewhere, obtaining $z_b$. Use
+\begin{equation}
+ \widehat g=\frac{L(\theta+\varepsilon z_b)-L(\theta-\varepsilon z_b)}{2\varepsilon p_b}z_b.
+\end{equation}
+The two evaluations use identical data and randomness. The implementation samples blocks uniformly and uses $\varepsilon=10^{-3}$. It performs no reverse-mode operation for the two zeroth-order arms. A separate backpropagation reference is explicitly labelled as such.
+
+\begin{proposition}[Quadratic mean and variance]
+For a quadratic loss, write $g=\nabla L(\theta)$ and let $m_b$ be block size. Then
+\begin{equation}
+ \E\widehat g=g,\qquad
+ \E\|\widehat g-g\|_2^2=\sum_b\frac{m_b\|g_b\|_2^2}{p_b}-\|g\|_2^2.
+\end{equation}
+With equal-sized blocks and uniform sampling, this equals $(d-1)\|g\|_2^2$, the same as a full-vector Rademacher estimator.
+\end{proposition}
+\begin{proof}
+The centered finite difference of a quadratic is exactly $g_b^Tz_b$. Since $\E[z_bz_b^T]$ is the identity on the sampled block, inverse-probability weighting gives the mean $g$. Also $\|z_b\|_2^2=m_b$ deterministically, so the conditional second moment is $m_b\|g_b\|_2^2/p_b^2$. Averaging over blocks and subtracting $\|g\|_2^2$ proves the formula. When $m_b=d/B$ and $p_b=1/B$, the sum is $d\|g\|_2^2$.
+\end{proof}
+
+Thus uniform blocking alone cannot justify a general variance-reduction claim. Nonquadratic finite differences introduce additional bias and depend on $\varepsilon$. Oracle probabilities proportional to $\sqrt{m_b}\|g_b\|_2$ minimize the displayed second moment by the Cauchy--Schwarz inequality, but the block gradient norms are not available for free. Estimating them would define a changed method with additional cost and a separate development version; that adaptive method is not implemented here.
+
+\subsection{Pilot design and cost accounting}
+The implemented network has input dimension eight, a width-twelve tanh hidden layer, and three outputs, totalling 147 parameters. A randomly initialized teacher labels independent Gaussian inputs. Training, validation and evaluation populations contain 384, 128 and 256 examples. All arms share initialization, architecture and minibatches. The two zeroth-order arms use one or four blocks; the reference uses an exact reverse-mode gradient. Each uses learning rate $0.005$, batches of 64 and, by default, 200 updates. Validation loss is logged every 25 updates and at termination, without tuning on evaluation outcomes.
+
+The 147-parameter model has unequal block sizes for four blocks, so the exact equal-block variance corollary is tested separately on a divisible-dimensional quadratic fixture. Cross-entropy, accuracy, forward evaluations, reverse evaluations and measured time are distinct outputs. Per-study peak CUDA memory is retained, but isolated per-arm peak memory is not yet implemented. Equal forward calls do not establish equal FLOPs, wall time or tuning cost. Any claimed frontier improvement requires those stronger measurements and calibrated baselines.
+
+\section{Selective memory necessity and substitution}
+An episode contains unique keys $k_1,\ldots,k_M$ and independent random values $v_1,\ldots,v_M\in\{0,\ldots,7\}$. The query selects one stored key. Key embeddings are normalized and compared by dot product with a learned bounded temperature. Softmax weights $a_j$ aggregate one-hot values into $r=\sum_j a_j e_{v_j}$, followed by a learned linear readout $Ar+c$.
+
+Training uses eight slots, 64 possible keys and width-32 embeddings, with Adam learning rate $0.003$ and batches of 64. Development evaluation uses sixteen slots and 256 independent episodes. Four paired conditions retain the episode identity: intact memory, deletion of the queried slot, deletion of one irrelevant slot, and replacement of only the queried value by a different in-support value. Replacement is evaluated against both the original answer and the replacement answer.
+
+\begin{proposition}[Value-only substitution identity]
+Holding keys and the query fixed, replace value $v_j$ by $v'_j$. The change in output logits is exactly $a_jA(e_{v'_j}-e_{v_j})$.
+\end{proposition}
+\begin{proof}
+The attention weights depend only on keys, query and the temperature, so they remain unchanged. All unmodified one-hot value contributions cancel. The output map is affine, whose bias also cancels. This identity isolates an intervention but does not guarantee that its decoded answer is correct.
+\end{proof}
+
+The selective-necessity score is irrelevant-deletion accuracy minus relevant-deletion accuracy. It must be interpreted alongside intact accuracy: two poor deletion conditions are not evidence of useful memory. Substitution accuracy is a separate outcome rather than a renamed necessity score. Exact key lookup is an oracle baseline and should achieve perfect performance on this generated task. Beating that oracle is not a meaningful target. Deletion changes the softmax normalization and may be out of distribution, which motivates the equal-size deletion control and value-only replacement. None of these toy results, when obtained, will automatically validate FIM or an LLM memory system.
+
+\section{Provenance, analysis and failures}
+Every project uses an injective bounded mixed-radix allocation of project, replicate, random stream and draw index to prevent seed reuse across training, validation and evaluation. This repaired a collision in the first unexecuted draft's arithmetic seed formula. Distinct seed integers are an engineering guarantee, not a proof that all stochastic dependence is absent. The pipeline additionally records generated data, predictions, checkpoints, configuration choices, source hashes, environment versions, durations, memory and exceptions.
+
+Substantial execution refuses to run without CUDA. CPU-only fixtures check shapes, analytic identities, gradients, causality of prefixes, seed isolation and error handling; they are not research experiments. Development analysis verifies retained file hashes, aggregates at the regenerated-replicate level, reports all designated comparators, and preserves missing/failed seeds. Fewer than ten replicates produce no interval. With sufficient complete replicates, an exploratory percentile bootstrap is available, without automatic support labels or significance claims. Missing runs suppress intervals rather than becoming silently excluded observations.
+
+A confirmatory study must separately freeze its scientific claim, nearest-method baselines, data rights, independent-unit definition, effect margin, precision or power analysis, multiplicity family, implementation revision and failure/stopping rules. The nominal ten-replicate floor is not a universal power calculation. Across twenty-four primary portfolio claims, multiplicity must be addressed; post-hoc selection of winners is not a confirmatory design. No protected evaluation has been executed for this version.
+
+\section{Current evidence and completion criteria}
+There are no empirical results in this manuscript. The mathematical propositions concern the stated models and estimators only. They neither establish novel scientific priority nor guarantee an empirical advantage. Source code has been authored, but execution verification must be reported using its actual receipts. The local execution service failed during preparation, and an authenticated Kaggle GPU session was not accessible. A hosted engineering test run, if available, is separate from scientific GPU evidence.
+
+A final empirical paper requires valid development execution, repaired and frozen methodology, independent protected evidence, uncertainty and compute measurements, adversarial failure analysis, and a claim-to-artifact audit. A negative or mixed outcome is retained and written honestly. Twenty-four registered questions do not imply twenty-four independent papers; overlapping questions may become ablations or merge into a single contribution after novelty review.
+
+\section{Ethics and reproducibility}
+The present pilots use generated data and do not execute trades, make investment recommendations, claim astronomical discoveries or release external personal data. Real-market, mission, pretrained-model and benchmark extensions require their own provenance and licensing checks. Authorship, affiliation, venue compliance and release permission remain explicit gates. The accompanying source includes the owner's retrieved \texttt{arxiv.sty}; its internal package name is \texttt{arxivrefined}, which may issue a naming warning when loaded as \texttt{arxiv}. PDF compilation and visual inspection have not been completed in this session.
+
+\section{Conclusion}
+The useful output of this version is four explicit development implementations, twenty-four falsifiable study contracts, and a bounded theoretical diagnosis that rules out a naive variance argument for uniform blocking. The next scientific step is evidence generation under the declared limits, not a claim of perfection or success. The programme reaches completion only when each admitted question has an auditable conclusion and an appropriately scoped reproducibility package.
+
+\begin{thebibliography}{9}
+\bibitem{peters} J. Peters, P. B\"uhlmann and N. Meinshausen. Causal inference using invariant prediction: identification and confidence intervals. \emph{arXiv:1501.01332}.
+\bibitem{banerjee} A. Banerjee, J. Pathak, R. Roy, J. G. Restrepo and E. Ott. Using Machine Learning to Assess Short Term Causal Dependence and Infer Network Links. \emph{arXiv:1912.02721}.
+\bibitem{nathe} Reservoir Computing with Noise. \emph{arXiv:2303.00585}. See the linked record for the full author list and version history.
+\bibitem{malladi} S. Malladi et al. Fine-Tuning Language Models with Just Forward Passes. \emph{arXiv:2305.17333}.
+\bibitem{baydin} A. G. Baydin et al. Gradients without Backpropagation. \emph{arXiv:2202.08587}.
+\bibitem{srivastava} S. S. Srivastava. Causal Intervention-Based Memory Selection for Long-Horizon LLM Agents. \emph{arXiv:2605.17641}.
+\end{thebibliography}
+\end{document}
