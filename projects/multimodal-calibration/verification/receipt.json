@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-07",
+  "scope": "SYNTHETIC_METADATA_AND_SOURCE_BYTES_ONLY",
+  "python": "3.12.14",
+  "command": "python3 projects/multimodal-calibration/verification/test_input_budget.py",
+  "tests_run": 11,
+  "tests_failed": 0,
+  "tests_errored": 0,
+  "tests_skipped": 0,
+  "source_blob_checks": [
+    {
+      "path": "source_snapshot/PROTOCOL_20260904.md",
+      "git_blob_sha": "23fb9c2accde292ebdfd8e13c3f7788353523cb5",
+      "pass": true
+    },
+    {
+      "path": "source_snapshot/AUTHORIZATION_MANIFEST.json",
+      "git_blob_sha": "b2532d18ab8201744ff27d13474b7e2e507b47e7",
+      "pass": true
+    },
+    {
+      "path": "source_snapshot/MODEL_RUNTIME_FREEZE_20260905.json",
+      "git_blob_sha": "e5bc55f3cfb4a9f83d0d445539701915c953b372",
+      "pass": true
+    },
+    {
+      "path": "source_snapshot/processor-input-preflight.py",
+      "git_blob_sha": "083ab1b1a3862130e252739313330335a4e17d4e",
+      "pass": true
+    },
+    {
+      "path": "source_snapshot/prompt-template.mjs",
+      "git_blob_sha": "e9ed2371638322a2e95ab6c819b9fff49ad64560",
+      "pass": true
+    },
+    {
+      "path": "source_snapshot/transforms.mjs",
+      "git_blob_sha": "224f54135e46f9ecbdba83fc01780b82f3ec8366",
+      "pass": true
+    },
+    {
+      "path": "source_snapshot/multimodal-calibration-processor-input-preflight.yml",
+      "git_blob_sha": "6cd99e4439a459e02bb9fefbd98701a227ffd3ec",
+      "pass": true
+    }
+  ],
+  "source_files_byte_identical": true,
+  "model_weights_loaded": false,
+  "actual_processor_executed": false,
+  "scienceqa_data_accessed": false,
+  "scientific_metrics_computed": false,
+  "amendment_adopted": false,
+  "execution_authorized": false,
+  "file_sha256": {
+    "proposed/check_input_budget.py": "941cade65e0218fde13ce0f4d479c88ca850e13874ea545e28dbfd77fe77e262",
+    "verification/test_input_budget.py": "389524ec7ae00f60ab83965c76e48800b27e3e854880160a8c8a4dad07fd2cf1",
+    "proposed/INPUT_BUDGET_AMENDMENT_20261107.md": "3cb29052566fda18e2a0bf57791227bb5e93e9c527955c0b1e8516c9d28b53e9"
+  }
+}

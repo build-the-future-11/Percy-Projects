@@ -1,0 +1,16 @@
+test_config_drift_and_inconsistent_patch_accounting_are_rejected (budget_contract_tests.InputBudgetContractTests.test_config_drift_and_inconsistent_patch_accounting_are_rejected) ... ok
+test_context_drift_with_identical_length_is_rejected (budget_contract_tests.InputBudgetContractTests.test_context_drift_with_identical_length_is_rejected) ... ok
+test_different_pixels_within_option_comparison_are_rejected (budget_contract_tests.InputBudgetContractTests.test_different_pixels_within_option_comparison_are_rejected) ... ok
+test_dtype_drift_is_rejected_even_with_equal_byte_hashes (budget_contract_tests.InputBudgetContractTests.test_dtype_drift_is_rejected_even_with_equal_byte_hashes) ... ok
+test_missing_option_and_incomplete_continuation_are_rejected (budget_contract_tests.InputBudgetContractTests.test_missing_option_and_incomplete_continuation_are_rejected) ... ok
+test_missing_shift_duplicate_shift_and_missing_record_are_rejected (budget_contract_tests.InputBudgetContractTests.test_missing_shift_duplicate_shift_and_missing_record_are_rejected) ... ok
+test_record_order_does_not_change_paired_identity (budget_contract_tests.InputBudgetContractTests.test_record_order_does_not_change_paired_identity) ... ok
+test_same_label_continuation_drift_across_shifts_is_rejected (budget_contract_tests.InputBudgetContractTests.test_same_label_continuation_drift_across_shifts_is_rejected) ... ok
+test_same_token_count_different_grid_is_rejected (budget_contract_tests.InputBudgetContractTests.test_same_token_count_different_grid_is_rejected) ... ok
+test_truncation_or_missing_image_is_rejected (budget_contract_tests.InputBudgetContractTests.test_truncation_or_missing_image_is_rejected) ... ok
+test_valid_panel_allows_different_examples_and_continuations (budget_contract_tests.InputBudgetContractTests.test_valid_panel_allows_different_examples_and_continuations) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.019s
+
+OK

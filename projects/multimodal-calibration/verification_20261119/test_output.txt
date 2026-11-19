@@ -1,0 +1,20 @@
+test_config_drift_and_inconsistent_patch_accounting_are_rejected (test_input_budget.InputBudgetContractTests.test_config_drift_and_inconsistent_patch_accounting_are_rejected) ... ok
+test_context_drift_with_identical_length_is_rejected (test_input_budget.InputBudgetContractTests.test_context_drift_with_identical_length_is_rejected) ... ok
+test_different_pixels_within_option_comparison_are_rejected (test_input_budget.InputBudgetContractTests.test_different_pixels_within_option_comparison_are_rejected) ... ok
+test_dtype_drift_is_rejected_even_with_equal_byte_hashes (test_input_budget.InputBudgetContractTests.test_dtype_drift_is_rejected_even_with_equal_byte_hashes) ... ok
+test_missing_option_and_incomplete_continuation_are_rejected (test_input_budget.InputBudgetContractTests.test_missing_option_and_incomplete_continuation_are_rejected) ... ok
+test_missing_shift_duplicate_shift_and_missing_record_are_rejected (test_input_budget.InputBudgetContractTests.test_missing_shift_duplicate_shift_and_missing_record_are_rejected) ... ok
+test_record_order_does_not_change_paired_identity (test_input_budget.InputBudgetContractTests.test_record_order_does_not_change_paired_identity) ... ok
+test_same_label_continuation_drift_across_shifts_is_rejected (test_input_budget.InputBudgetContractTests.test_same_label_continuation_drift_across_shifts_is_rejected) ... ok
+test_same_token_count_different_grid_is_rejected (test_input_budget.InputBudgetContractTests.test_same_token_count_different_grid_is_rejected) ... ok
+test_truncation_or_missing_image_is_rejected (test_input_budget.InputBudgetContractTests.test_truncation_or_missing_image_is_rejected) ... ok
+test_valid_panel_allows_different_examples_and_continuations (test_input_budget.InputBudgetContractTests.test_valid_panel_allows_different_examples_and_continuations) ... ok
+test_cli_rejects_duplicate_and_nonfinite_json (test_input_budget_strict.StrictInputBudgetTests.test_cli_rejects_duplicate_and_nonfinite_json) ... ok
+test_cli_valid_panel_remains_metadata_only (test_input_budget_strict.StrictInputBudgetTests.test_cli_valid_panel_remains_metadata_only) ... ok
+test_option_budget_requires_exact_nested_types (test_input_budget_strict.StrictInputBudgetTests.test_option_budget_requires_exact_nested_types) ... ok
+test_pixel_shape_requires_exact_integers (test_input_budget_strict.StrictInputBudgetTests.test_pixel_shape_requires_exact_integers) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.048s
+
+OK
